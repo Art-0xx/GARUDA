@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.idea/
+.obsidian/
+rag/chroma_db/
+sec-vault-gen/attack-stix-data/
+sec-vault-gen/LOLBAS/
+obsidian_vault/.obsidian/workspace*
+obsidian_vault/.trash/
+lotl_dataset/
+*.zip
