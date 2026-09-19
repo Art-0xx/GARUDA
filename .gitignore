@@ -1,20 +1,38 @@
-﻿.venv/
+﻿# Python
+.venv/
 __pycache__/
 *.pyc
+
+# IDE
 .idea/
-.obsidian/
+
+# Docker / ChromaDB data (rebuildable)
 chroma_data/
 rag/chroma_data/
-ollama_models/
-sec-vault-gen/attack-stix-data/
-sec-vault-gen/LOLBAS/
-obsidian_vault/.obsidian/workspace*
-obsidian_vault/.trash/
-lotl_dataset/
+
+# Raw data sources (re-cloned on each PC)
 gtfobins-source/
 sigma-rules/
 atomic-red-team/
-*.zip
+lotl_dataset/
+reasoning_data/
+
+# Ollama (models live here)
+ollama_models/
+
+# sec-vault-gen temp clones
+sec-vault-gen/attack-stix-data/
+sec-vault-gen/LOLBAS/
+
+# Obsidian workspace cache
+obsidian_vault/.obsidian/workspace*
+obsidian_vault/.trash/
+.smart-env/
+
+# Secrets
 *.pem
 id_ed25519*
 *.key
+
+# Zip files
+*.zip
