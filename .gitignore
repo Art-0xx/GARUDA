@@ -36,3 +36,6 @@ id_ed25519*
 
 # Zip files
 *.zip
+rag/scripts_v3_gtfobins/
+rag/scripts_v2_working/
+rag/scripts/backup/
