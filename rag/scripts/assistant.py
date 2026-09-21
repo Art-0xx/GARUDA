@@ -113,6 +113,12 @@ DETECTION_KEYWORDS = re.compile(
     r"rule for|rules for)\b",
     re.IGNORECASE,
 )
+CAMPAIGN_KEYWORDS = re.compile(
+    r"\b(scenario|campaign|real-world|attack chain|chain of|"
+    r"how do attackers chain|show me an attack|multi-step|"
+    r"walk me through|step.by.step|real attack)\b",
+    re.IGNORECASE,
+)
 
 # ---------- MITRE technique IDs ----------
 TECHNIQUE_PATTERN = re.compile(r"\bT\d{4}(\.\d{3})?\b", re.IGNORECASE)
@@ -150,17 +156,21 @@ def classify_query(q: str):
             return "detection_rules", m.group(1).lower()
         return "detection_rules", None
 
-    # 3. Windows binaries FIRST (before tool/malware name lookup)
+    # 3. Campaign/scenario queries
+    if CAMPAIGN_KEYWORDS.search(q):
+        return "campaigns", None
+
+    # 4. Windows binaries FIRST (before tool/malware name lookup)
     m = BINARY_PATTERN.search(q)
     if m:
         return "lolbins", m.group(1).lower().replace(".exe", "")
 
-    # 4. Unix binaries
+    # 5. Unix binaries
     m = UNIX_BINARIES.search(q)
     if m:
         return "gtfobins", m.group(1).lower()
 
-    # 5. Specific malware/tool names (AFTER binaries)
+    # 6. Specific malware/tool names (AFTER binaries)
     ql_norm = re.sub(r"[^a-z0-9]", "", ql)
     for norm, original in MALWARE_NAMES:
         if norm in ql_norm:
@@ -169,23 +179,23 @@ def classify_query(q: str):
         if norm in ql_norm:
             return "tools", original
 
-    # 6. Generic malware keywords
+    # 7. Generic malware keywords
     if any(w in ql for w in ["malware", "trojan", "ransomware", "backdoor", "rat "]):
         return "malware", None
 
-    # 7. Capability phrases
+    # 8. Capability phrases
     if any(w in ql for w in ["download file", "download files", "fetch file",
                               "fetch files", "built-in tool", "built-in binary",
                               "system binary", "encode file", "decode file"]):
         return "lolbins", None
 
-    # 8. Tools / tactics
+    # 9. Tools / tactics
     if any(w in ql for w in ["mitre tool", "attack tool", "utility software"]):
         return "tools", None
     if any(w in ql for w in ["tactic", "phase", "stage", "kill chain"]):
         return "tactics", None
 
-    # 9. Default
+    # 10. Default
     return "techniques", None
 
 
