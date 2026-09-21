@@ -1,41 +1,53 @@
-﻿# Python
+﻿# ========== Python ==========
 .venv/
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
 
-# IDE
+# ========== IDE ==========
 .idea/
+.vscode/
+*.swp
 
-# Docker / ChromaDB data (rebuildable)
+# ========== Docker / ChromaDB data (rebuildable) ==========
 chroma_data/
 rag/chroma_data/
 
-# Raw data sources (re-cloned on each PC)
+# ========== Raw data sources (re-clone on each PC) ==========
 gtfobins-source/
 sigma-rules/
 atomic-red-team/
 lotl_dataset/
 reasoning_data/
 
-# Ollama (models live here)
+# ========== Ollama (models live here) ==========
 ollama_models/
 
-# sec-vault-gen temp clones
+# ========== sec-vault-gen temp clones ==========
 sec-vault-gen/attack-stix-data/
 sec-vault-gen/LOLBAS/
 
-# Obsidian workspace cache
-obsidian_vault/.obsidian/workspace*
+# ========== Obsidian caches (keep graph config, exclude workspace) ==========
+obsidian_vault/.obsidian/workspace.json
+obsidian_vault/.obsidian/workspace-mobile.json
+obsidian_vault/.obsidian/plugins/
+obsidian_vault/.obsidian/cache/
+obsidian_vault/.obsidian/.smart-env/
+obsidian_vault/.obsidian/.trash/
 obsidian_vault/.trash/
-.smart-env/
 
-# Secrets
-*.pem
-id_ed25519*
-*.key
-
-# Zip files
-*.zip
+# ========== Script backups ==========
 rag/scripts_v3_gtfobins/
 rag/scripts_v2_working/
 rag/scripts/backup/
+
+# ========== Secrets ==========
+*.pem
+id_ed25519*
+*.key
+.env
+
+# ========== Archives ==========
+*.zip
+*.tar.gz
