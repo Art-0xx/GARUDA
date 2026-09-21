@@ -51,3 +51,4 @@ id_ed25519*
 # ========== Archives ==========
 *.zip
 *.tar.gz
+sec-vault-gen/
