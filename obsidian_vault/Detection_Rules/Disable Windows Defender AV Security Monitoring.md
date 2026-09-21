@@ -1,0 +1,70 @@
+---
+type: detection_rule
+title: "Disable Windows Defender AV Security Monitoring"
+rule_id: a7ee1722-c3c5-aeff-3212-c777e4733217
+platform: windows
+level: high
+status: test
+tags: [detection, sigma, windows]
+mitre_tags: [attack.t1685]
+---
+
+# Disable Windows Defender AV Security Monitoring
+
+## Description
+Detects attackers attempting to disable Windows Defender using Powershell
+
+## Log Source
+```yaml
+category: process_creation
+product: windows
+```
+
+## Detection Logic
+```yaml
+condition: all of selection_pwsh_* or (selection_sc_binary and 1 of selection_sc_tamper_*)
+selection_pwsh_binary:
+- Image|endswith:
+  - \powershell.exe
+  - \pwsh.exe
+- OriginalFileName:
+  - PowerShell.EXE
+  - pwsh.dll
+selection_pwsh_cli:
+  CommandLine|contains:
+  - -DisableBehaviorMonitoring $true
+  - -DisableRuntimeMonitoring $true
+selection_sc_binary:
+- Image|endswith: \sc.exe
+- OriginalFileName: sc.exe
+selection_sc_tamper_cmd_delete:
+  CommandLine|contains|all:
+  - delete
+  - WinDefend
+selection_sc_tamper_cmd_disabled:
+  CommandLine|contains|all:
+  - config
+  - WinDefend
+  - start=disabled
+selection_sc_tamper_cmd_stop:
+  CommandLine|contains|all:
+  - stop
+  - WinDefend
+```
+
+## MITRE ATT&CK
+- T1685
+
+## False Positives
+- Minimal, for some older versions of dev tools, such as pycharm, developers were known to sometimes disable Windows Defender to improve performance, but this generally is not considered a good security practice.
+
+## References
+- https://research.nccgroup.com/2020/06/23/wastedlocker-a-new-ransomware-variant-developed-by-the-evil-corp-group/
+- https://rvsec0n.wordpress.com/2020/01/24/malwares-that-bypass-windows-defender/
+- https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1562.001/T1562.001.md
+
+## Metadata
+- **Author:** ok @securonix invrep-de, oscd.community, frack113
+- **Date:** 2020-10-12
+- **Rule ID:** `a7ee1722-c3c5-aeff-3212-c777e4733217`
+- **Source file:** `windows/process_creation/proc_creation_win_powershell_disable_defender_av_security_monitoring.yml`

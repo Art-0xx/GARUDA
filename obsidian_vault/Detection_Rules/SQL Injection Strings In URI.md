@@ -1,0 +1,81 @@
+---
+type: detection_rule
+title: "SQL Injection Strings In URI"
+rule_id: 5513deaf-f49a-46c2-a6c8-3f111b5cb453
+platform: web
+level: high
+status: test
+tags: [detection, sigma, web]
+mitre_tags: [attack.t1190]
+---
+
+# SQL Injection Strings In URI
+
+## Description
+Detects potential SQL injection attempts via GET requests in access logs.
+
+## Log Source
+```yaml
+category: webserver
+```
+
+## Detection Logic
+```yaml
+condition: selection and keywords and not 1 of filter_main_*
+filter_main_status:
+  sc-status: 404
+keywords:
+- '@@version'
+- '%271%27%3D%271'
+- '=select '
+- =select(
+- =select%20
+- concat_ws(
+- CONCAT(0x
+- from mysql.innodb_table_stats
+- from%20mysql.innodb_table_stats
+- group_concat(
+- information_schema.tables
+- json_arrayagg(
+- or 1=1#
+- or%201=1#
+- 'order by '
+- order%20by%20
+- 'select * '
+- select database()
+- select version()
+- select%20*%20
+- select%20database()
+- select%20version()
+- select%28sleep%2810%29
+- SELECTCHAR(
+- table_schema
+- UNION ALL SELECT
+- UNION SELECT
+- UNION%20ALL%20SELECT
+- UNION%20SELECT
+- '''1''=''1'
+selection:
+  cs-method: GET
+```
+
+## MITRE ATT&CK
+- T1190
+
+## False Positives
+- Java scripts and CSS Files
+- User searches in search boxes of the respective website
+- Internal vulnerability scanners can cause some serious FPs when used, if you experience a lot of FPs due to this think of adding more filters such as "User Agent" strings and more response codes
+
+## References
+- https://www.acunetix.com/blog/articles/exploiting-sql-injection-example/
+- https://www.acunetix.com/blog/articles/using-logs-to-investigate-a-web-application-attack/
+- https://brightsec.com/blog/sql-injection-payloads/
+- https://github.com/payloadbox/sql-injection-payload-list
+- https://book.hacktricks.xyz/pentesting-web/sql-injection/mysql-injection
+
+## Metadata
+- **Author:** Saw Win Naung, Nasreddine Bencherchali (Nextron Systems), Thurein Oo (Yoma Bank)
+- **Date:** 2020-02-22
+- **Rule ID:** `5513deaf-f49a-46c2-a6c8-3f111b5cb453`
+- **Source file:** `web/webserver_generic/web_sql_injection_in_access_logs.yml`

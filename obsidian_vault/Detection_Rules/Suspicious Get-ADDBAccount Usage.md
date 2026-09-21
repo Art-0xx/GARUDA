@@ -1,0 +1,48 @@
+---
+type: detection_rule
+title: "Suspicious Get-ADDBAccount Usage"
+rule_id: b140afd9-474b-4072-958e-2ebb435abd68
+platform: windows
+level: high
+status: test
+tags: [detection, sigma, windows]
+mitre_tags: [attack.t1003.003]
+---
+
+# Suspicious Get-ADDBAccount Usage
+
+## Description
+Detects suspicious invocation of the Get-ADDBAccount script that reads from a ntds.dit file and may be used to get access to credentials without using any credential dumpers
+
+## Log Source
+```yaml
+category: ps_module
+definition: 0ad03ef1-f21b-4a79-8ce8-e6900c54b65b
+product: windows
+```
+
+## Detection Logic
+```yaml
+condition: selection
+selection:
+  Payload|contains|all:
+  - Get-ADDBAccount
+  - 'BootKey '
+  - 'DatabasePath '
+```
+
+## MITRE ATT&CK
+- T1003.003
+
+## False Positives
+- Unknown
+
+## References
+- https://www.n00py.io/2022/03/manipulating-user-passwords-without-mimikatz/
+- https://github.com/MichaelGrafnetter/DSInternals/blob/7ba59c12ee9a1cb430d7dc186a3366842dd612c8/Documentation/PowerShell/Get-ADDBAccount.md
+
+## Metadata
+- **Author:** Florian Roth (Nextron Systems)
+- **Date:** 2022-03-16
+- **Rule ID:** `b140afd9-474b-4072-958e-2ebb435abd68`
+- **Source file:** `windows/powershell/powershell_module/posh_pm_get_addbaccount.yml`

@@ -1,0 +1,52 @@
+---
+type: detection_rule
+title: "Powershell Execute Batch Script"
+rule_id: b5522a23-82da-44e5-9c8b-e10ed8955f88
+platform: windows
+level: medium
+status: test
+tags: [detection, sigma, windows]
+mitre_tags: [attack.t1059.003]
+---
+
+# Powershell Execute Batch Script
+
+## Description
+Adversaries may abuse the Windows command shell for execution.
+The Windows command shell ([cmd](https://attack.mitre.org/software/S0106)) is the primary command prompt on Windows systems.
+The Windows command prompt can be used to control almost any aspect of a system, with various permission levels required for different subsets of commands.
+Batch files (ex: .bat or .cmd) also provide the shell with a list of sequential commands to run, as well as normal scripting operations such as conditionals and loops.
+Common uses of batch files include long or repetitive tasks, or the need to run the same set of commands on multiple system
+
+## Log Source
+```yaml
+category: ps_script
+definition: 'Requirements: Script Block Logging must be enabled'
+product: windows
+```
+
+## Detection Logic
+```yaml
+condition: all of selection_*
+selection_batch:
+  ScriptBlockText|contains:
+  - .cmd
+  - .bat
+selection_start:
+  ScriptBlockText|contains: Start-Process
+```
+
+## MITRE ATT&CK
+- T1059.003
+
+## False Positives
+- Legitimate administration script
+
+## References
+- https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1059.003/T1059.003.md#atomic-test-1---create-and-execute-batch-script
+
+## Metadata
+- **Author:** frack113
+- **Date:** 2022-01-02
+- **Rule ID:** `b5522a23-82da-44e5-9c8b-e10ed8955f88`
+- **Source file:** `windows/powershell/powershell_script/posh_ps_susp_execute_batch_script.yml`

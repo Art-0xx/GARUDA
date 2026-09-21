@@ -1,0 +1,54 @@
+---
+type: detection_rule
+title: "Potential Persistence Via Shim Database Modification"
+rule_id: dfb5b4e8-91d0-4291-b40a-e3b0d3942c45
+platform: windows
+level: medium
+status: test
+tags: [detection, sigma, windows]
+mitre_tags: [attack.t1546.011]
+---
+
+# Potential Persistence Via Shim Database Modification
+
+## Description
+Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims.
+The Microsoft Windows Application Compatibility Infrastructure/Framework (Application Shim) was created to allow for backward compatibility of software as the operating system codebase changes over time
+
+## Log Source
+```yaml
+category: registry_set
+product: windows
+```
+
+## Detection Logic
+```yaml
+condition: selection and not 1 of filter_main_*
+filter_main_empty_string:
+  Details: ''
+filter_main_empty_value:
+  Details: (Empty)
+filter_main_null:
+  Details: null
+selection:
+  TargetObject|contains:
+  - \SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\InstalledSDB\
+  - \SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Custom\
+```
+
+## MITRE ATT&CK
+- T1546.011
+
+## False Positives
+- Legitimate custom SHIM installations will also trigger this rule
+
+## References
+- https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1546.011/T1546.011.md#atomic-test-3---registry-key-creation-andor-modification-events-for-sdb
+- https://www.fireeye.com/blog/threat-research/2017/05/fin7-shim-databases-persistence.html
+- https://andreafortuna.org/2018/11/12/process-injection-and-persistence-using-application-shimming/
+
+## Metadata
+- **Author:** frack113
+- **Date:** 2021-12-30
+- **Rule ID:** `dfb5b4e8-91d0-4291-b40a-e3b0d3942c45`
+- **Source file:** `windows/registry/registry_set/registry_set_persistence_shim_database.yml`

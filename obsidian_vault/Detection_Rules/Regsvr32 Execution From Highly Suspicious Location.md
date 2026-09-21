@@ -1,0 +1,83 @@
+---
+type: detection_rule
+title: "Regsvr32 Execution From Highly Suspicious Location"
+rule_id: 327ff235-94eb-4f06-b9de-aaee571324be
+platform: windows
+level: high
+status: test
+tags: [detection, sigma, windows]
+mitre_tags: [attack.t1218.010]
+---
+
+# Regsvr32 Execution From Highly Suspicious Location
+
+## Description
+Detects execution of regsvr32 where the DLL is located in a highly suspicious locations
+
+## Log Source
+```yaml
+category: process_creation
+product: windows
+```
+
+## Detection Logic
+```yaml
+condition: selection_img and (selection_path_1 or (selection_path_2 and not selection_exclude_known_dirs))
+  and not 1 of filter_main_*
+filter_main_empty:
+  CommandLine: ''
+filter_main_null:
+  CommandLine: null
+selection_exclude_known_dirs:
+  CommandLine|contains:
+  - C:\Program Files (x86)\
+  - C:\Program Files\
+  - C:\ProgramData\
+  - C:\Users\
+  - ' C:\Windows\'
+  - ' "C:\Windows\'
+  - ' ''C:\Windows\'
+selection_img:
+- Image|endswith: \regsvr32.exe
+- OriginalFileName: REGSVR32.EXE
+selection_path_1:
+  CommandLine|contains:
+  - :\PerfLogs\
+  - :\Temp\
+  - \Windows\Registration\CRMLog
+  - \Windows\System32\com\dmp\
+  - \Windows\System32\FxsTmp\
+  - \Windows\System32\Microsoft\Crypto\RSA\MachineKeys\
+  - \Windows\System32\spool\drivers\color\
+  - \Windows\System32\spool\PRINTERS\
+  - \Windows\System32\spool\SERVERS\
+  - \Windows\System32\Tasks_Migrated\
+  - \Windows\System32\Tasks\Microsoft\Windows\SyncCenter\
+  - \Windows\SysWOW64\com\dmp\
+  - \Windows\SysWOW64\FxsTmp\
+  - \Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System\
+  - \Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter\
+  - \Windows\Tasks\
+  - \Windows\Tracing\
+selection_path_2:
+  CommandLine|contains:
+  - ' "C:\'
+  - ' C:\'
+  - ' ''C:\'
+  - D:\
+```
+
+## MITRE ATT&CK
+- T1218.010
+
+## False Positives
+- Unlikely
+
+## References
+- Internal Research
+
+## Metadata
+- **Author:** Nasreddine Bencherchali (Nextron Systems)
+- **Date:** 2023-05-26
+- **Rule ID:** `327ff235-94eb-4f06-b9de-aaee571324be`
+- **Source file:** `windows/process_creation/proc_creation_win_regsvr32_susp_exec_path_2.yml`

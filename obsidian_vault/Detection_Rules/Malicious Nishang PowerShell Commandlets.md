@@ -1,0 +1,116 @@
+---
+type: detection_rule
+title: "Malicious Nishang PowerShell Commandlets"
+rule_id: f772cee9-b7c2-4cb2-8f07-49870adc02e0
+platform: windows
+level: high
+status: test
+tags: [detection, sigma, windows]
+mitre_tags: [attack.t1059.001]
+---
+
+# Malicious Nishang PowerShell Commandlets
+
+## Description
+Detects Commandlet names and arguments from the Nishang exploitation framework
+
+## Log Source
+```yaml
+category: ps_script
+definition: 'Requirements: Script Block Logging must be enabled'
+product: windows
+```
+
+## Detection Logic
+```yaml
+condition: selection
+selection:
+  ScriptBlockText|contains:
+  - Add-ConstrainedDelegationBackdoor
+  - Copy-VSS
+  - Create-MultipleSessions
+  - DataToEncode
+  - DNS_TXT_Pwnage
+  - Do-Exfiltration-Dns
+  - Download_Execute
+  - Download-Execute-PS
+  - DownloadAndExtractFromRemoteRegistry
+  - DumpCerts
+  - DumpCreds
+  - DumpHashes
+  - Enable-DuplicateToken
+  - Enable-Duplication
+  - Execute-Command-MSSQL
+  - Execute-DNSTXT-Code
+  - Execute-OnTime
+  - ExetoText
+  - exfill
+  - ExfilOption
+  - FakeDC
+  - FireBuster
+  - FireListener
+  - 'Get-Information '
+  - Get-PassHints
+  - Get-Web-Credentials
+  - Get-WebCredentials
+  - Get-WLAN-Keys
+  - HTTP-Backdoor
+  - Invoke-AmsiBypass
+  - Invoke-BruteForce
+  - Invoke-CredentialsPhish
+  - Invoke-Decode
+  - Invoke-Encode
+  - Invoke-Interceptor
+  - Invoke-JSRatRegsvr
+  - Invoke-JSRatRundll
+  - Invoke-MimikatzWDigestDowngrade
+  - Invoke-NetworkRelay
+  - Invoke-PowerShellIcmp
+  - Invoke-PowerShellUdp
+  - Invoke-Prasadhak
+  - Invoke-PSGcat
+  - Invoke-PsGcatAgent
+  - Invoke-SessionGopher
+  - Invoke-SSIDExfil
+  - LoggedKeys
+  - Nishang
+  - NotAllNameSpaces
+  - Out-CHM
+  - OUT-DNSTXT
+  - Out-HTA
+  - Out-RundllCommand
+  - Out-SCF
+  - Out-SCT
+  - Out-Shortcut
+  - Out-WebQuery
+  - Out-Word
+  - Parse_Keys
+  - Password-List
+  - Powerpreter
+  - Remove-Persistence
+  - Remove-PoshRat
+  - Remove-Update
+  - Run-EXEonRemote
+  - Set-DCShadowPermissions
+  - Set-RemotePSRemoting
+  - Set-RemoteWMI
+  - Shellcode32
+  - Shellcode64
+  - StringtoBase64
+  - TexttoExe
+```
+
+## MITRE ATT&CK
+- T1059.001
+
+## False Positives
+- Unknown
+
+## References
+- https://github.com/samratashok/nishang
+
+## Metadata
+- **Author:** Alec Costello
+- **Date:** 2019-05-16
+- **Rule ID:** `f772cee9-b7c2-4cb2-8f07-49870adc02e0`
+- **Source file:** `windows/powershell/powershell_script/posh_ps_nishang_malicious_commandlets.yml`

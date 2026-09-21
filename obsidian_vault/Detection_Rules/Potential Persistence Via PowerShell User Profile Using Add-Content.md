@@ -1,0 +1,54 @@
+---
+type: detection_rule
+title: "Potential Persistence Via PowerShell User Profile Using Add-Content"
+rule_id: 05b3e303-faf0-4f4a-9b30-46cc13e69152
+platform: windows
+level: medium
+status: test
+tags: [detection, sigma, windows]
+mitre_tags: [attack.t1546.013]
+---
+
+# Potential Persistence Via PowerShell User Profile Using Add-Content
+
+## Description
+Detects calls to "Add-Content" cmdlet in order to modify the content of the user profile and potentially adding suspicious commands for persistence
+
+## Log Source
+```yaml
+category: ps_script
+definition: 'Requirements: Script Block Logging must be enabled'
+product: windows
+```
+
+## Detection Logic
+```yaml
+condition: all of selection_*
+selection_add:
+  ScriptBlockText|contains: Add-Content $profile
+selection_options:
+  ScriptBlockText|contains:
+  - '-Value "IEX '
+  - -Value "Invoke-Expression
+  - -Value "Invoke-WebRequest
+  - -Value "Start-Process
+  - '-Value ''IEX '
+  - -Value 'Invoke-Expression
+  - -Value 'Invoke-WebRequest
+  - -Value 'Start-Process
+```
+
+## MITRE ATT&CK
+- T1546.013
+
+## False Positives
+- Legitimate administration and tuning scripts that aim to add functionality to a user PowerShell session
+
+## References
+- https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1546.013/T1546.013.md
+
+## Metadata
+- **Author:** frack113, Nasreddine Bencherchali (Nextron Systems)
+- **Date:** 2021-08-18
+- **Rule ID:** `05b3e303-faf0-4f4a-9b30-46cc13e69152`
+- **Source file:** `windows/powershell/powershell_script/posh_ps_user_profile_tampering.yml`

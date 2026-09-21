@@ -1,0 +1,48 @@
+---
+type: detection_rule
+title: "Suspicious Kerberos Ticket Request via PowerShell Script - ScriptBlock"
+rule_id: a861d835-af37-4930-bcd6-5b178bfb54df
+platform: windows
+level: high
+status: test
+tags: [detection, sigma, windows]
+mitre_tags: [attack.t1558.003]
+---
+
+# Suspicious Kerberos Ticket Request via PowerShell Script - ScriptBlock
+
+## Description
+Detects PowerShell scripts that utilize native PowerShell Identity modules to request Kerberos tickets.
+This behavior is typically seen during a Kerberos or silver ticket attack. A successful execution will output the SPNs for the endpoint in question.
+
+## Log Source
+```yaml
+category: ps_script
+definition: 'Requirements: Script Block Logging must be enabled'
+product: windows
+```
+
+## Detection Logic
+```yaml
+condition: selection
+selection:
+  ScriptBlockText|contains|all:
+  - System.IdentityModel.Tokens.KerberosRequestorSecurityToken
+  - .GetRequest()
+```
+
+## MITRE ATT&CK
+- T1558.003
+
+## False Positives
+- Unknown
+
+## References
+- https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1558.003/T1558.003.md#atomic-test-4---request-a-single-ticket-via-powershell
+- https://learn.microsoft.com/en-us/dotnet/api/system.identitymodel.tokens.kerberosrequestorsecuritytoken?view=netframework-4.8.1
+
+## Metadata
+- **Author:** frack113
+- **Date:** 2021-12-28
+- **Rule ID:** `a861d835-af37-4930-bcd6-5b178bfb54df`
+- **Source file:** `windows/powershell/powershell_script/posh_ps_request_kerberos_ticket.yml`

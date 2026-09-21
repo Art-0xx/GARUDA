@@ -1,0 +1,240 @@
+{
+  "main": {
+    "id": "1055f389ed90d582",
+    "type": "split",
+    "children": [
+      {
+        "id": "cc23570a2e6a3d90",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "67029cdbfa494ce9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "obsidian_vault/MITRE_ATTACK/Techniques/Security Software Discovery (T1518.001).md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Security Software Discovery (T1518.001)"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "aae02ba3b3d8da5f",
+    "type": "split",
+    "children": [
+      {
+        "id": "e13755147f47154e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e2e61199cce8a772",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "35374484c8720152",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f89abac55eb6c15e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "d7cde45c63311913",
+    "type": "split",
+    "children": [
+      {
+        "id": "f36959dd92992bd1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "25987b4c48fa99b1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "obsidian_vault/MITRE_ATTACK/Techniques/Security Software Discovery (T1518.001).md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "208cd307c749f194",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "obsidian_vault/MITRE_ATTACK/Techniques/Security Software Discovery (T1518.001).md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "87d938329241d9ee",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "848a342f8d0ecc1e",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "f996fcf9da73b779",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "obsidian_vault/MITRE_ATTACK/Techniques/Security Software Discovery (T1518.001).md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "67029cdbfa494ce9",
+  "lastOpenFiles": [
+    "obsidian_vault/Detection_Rules/Bad Opsec Powershell Code Artifacts.md",
+    "rag/scripts/__pycache__/assistant.cpython-312.pyc",
+    "rag/scripts/__pycache__",
+    "rag/chroma_data/639cdc01-7e3c-4707-ab40-8b4cf9705c48/link_lists.bin",
+    "rag/chroma_data/639cdc01-7e3c-4707-ab40-8b4cf9705c48/length.bin",
+    "rag/chroma_data/639cdc01-7e3c-4707-ab40-8b4cf9705c48/data_level0.bin",
+    "rag/chroma_data/639cdc01-7e3c-4707-ab40-8b4cf9705c48/header.bin",
+    "rag/chroma_data/639cdc01-7e3c-4707-ab40-8b4cf9705c48",
+    "rag/chroma_data/chroma.sqlite3-journal",
+    "rag/chroma_data/aa7297ab-aae7-4182-b2b0-6b97c452e9b1/index_metadata.pickle",
+    "obsidian_vault/MITRE_ATTACK/Tactics/1. Reconnaissance.md",
+    "rag/chroma_data/aa7297ab-aae7-4182-b2b0-6b97c452e9b1/link_lists.bin",
+    "obsidian_vault/MITRE_ATTACK/Techniques/Ingress Tool Transfer (T1105).md",
+    "obsidian_vault/Detection_Rules/Winlogon Notify Key Logon Persistence.md",
+    "obsidian_vault/Detection_Rules/Winlogon AllowMultipleTSSessions Enable.md",
+    "obsidian_vault/Detection_Rules/Disable Windows Defender Functionalities Via Registry Keys.md",
+    "obsidian_vault/Detection_Rules/Wdigest Enable UseLogonCredential.md",
+    "obsidian_vault/Detection_Rules/Windows Vulnerable Driver Blocklist Disabled.md",
+    "obsidian_vault/Detection_Rules/VBScript Payload Stored in Registry.md",
+    "obsidian_vault/Detection_Rules/UAC Secure Desktop Prompt Disabled.md",
+    "obsidian_vault/Detection_Rules/UAC Notification Disabled.md",
+    "obsidian_vault/Detection_Rules/UAC Disabled.md",
+    "obsidian_vault/Detection_Rules/UAC Bypass Using Windows Media Player - Registry.md",
+    "obsidian_vault/Detection_Rules/UAC Bypass Abusing Winsat Path Parsing - Registry.md",
+    "obsidian_vault/Detection_Rules/UAC Bypass via Sdclt.md",
+    "obsidian_vault/Detection_Rules/UAC Bypass via Event Viewer.md",
+    "obsidian_vault/Detection_Rules/COM Hijacking via TreatAs.md",
+    "obsidian_vault/Detection_Rules/Potential Registry Persistence Attempt Via Windows Telemetry.md",
+    "obsidian_vault/Detection_Rules/Scheduled TaskCache Change by Uncommon Program.md",
+    "obsidian_vault/Detection_Rules/Modify User Shell Folders Startup Value.md",
+    "obsidian_vault/Detection_Rules/Suspicious Space Characters in TypedPaths Registry Path - FileFix.md",
+    "obsidian_vault/Detection_Rules/Suspicious Shell Open Command Registry Modification.md",
+    "obsidian_vault/Detection_Rules/Suspicious Service Installed.md",
+    "obsidian_vault/Detection_Rules/New RUN Key Pointing to Suspicious Folder.md",
+    "obsidian_vault/Detection_Rules/Suspicious Space Characters in RunMRU Registry Path - ClickFix.md",
+    "obsidian_vault/Detection_Rules/Registry Persistence via Explorer Run Key.md",
+    "sigma-rules/images/Sigma_Schema.png",
+    "sigma-rules/images/Sigma_rule_example5.png",
+    "sigma-rules/images/Sigma_rule_example4.png",
+    "sigma-rules/images/Sigma_rule_example3.png",
+    "sigma-rules/images/Sigma_rule_example2.png",
+    "sigma-rules/images/Sigma_rule_example1.png",
+    "sigma-rules/images/sigma_logo_light.png",
+    "sigma-rules/images/sigma_logo_dark.png",
+    "sigma-rules/images/sigma_infographic_lq.png",
+    "sigma-rules/images/sigma_infographic_hq.png"
+  ]
+}

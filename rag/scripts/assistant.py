@@ -23,7 +23,8 @@ CANDIDATES      = 25
 # ================================
 
 SYSTEM_PROMPT = """You are a LOTL (Living Off the Land) cybersecurity assistant.
-Answer ONLY using the provided context. If the context lacks the answer, say so.
+Answer ONLY using the provided context. If the context lacks the answer, say so.When the context contains Sigma rules with 'detection:' blocks, extract and list the 
+exact detection conditions (field names, operators, values). Do not summarize.
 
 Structure every answer EXACTLY:
 **Summary:** One sentence.
@@ -38,14 +39,14 @@ RULES:
 - Keep answers under 250 words.
 """
 
-# ---------- Patterns (Windows) ----------
+# ---------- Patterns (Windows binaries) ----------
 BINARY_PATTERN = re.compile(
     r"\b(certutil|mshta|rundll32|regsvr32|wmic|powershell|bitsadmin|msbuild|"
     r"installutil|schtasks|vssadmin|wbadmin|nslookup|netsh|cmstp|cscript|"
     r"wscript|xcopy|reg\.exe|cmdkey|cmdl32|esentutl|eventvwr|expand|extrac32|"
     r"findstr|forfiles|fsutil|ftp|gpscript|certoc|certreq|pcalua|pcwrun|"
     r"presentationhost|replace|rpcping|runonce|sc\.exe|scriptrunner|tttracer|"
-    r"verclsid|wsl|wsreset|msiexec|odbcconf|regasm|regsvcs|mavinject)"
+    r"verclsid|wsl|wsreset|msiexec|odbcconf|regasm|regsvcs|mavinject|xwizard)"
     r"(\.exe)?\b",
     re.IGNORECASE,
 )
@@ -67,46 +68,66 @@ UNIX_BINARIES = re.compile(
     re.IGNORECASE,
 )
 
-# ---------- Patterns (MITRE technique IDs) ----------
+# ---------- Detection keywords ----------
+DETECTION_KEYWORDS = re.compile(
+    r"\b(detect|detection|sigma|rule|alert|trigger|"
+    r"log source|event id|sysmon|audit|indicator|"
+    r"how to catch|how to spot|how to detect|"
+    r"rule for|rules for)\b",
+    re.IGNORECASE,
+)
+
+# ---------- MITRE technique IDs ----------
 TECHNIQUE_PATTERN = re.compile(r"\bT\d{4}(\.\d{3})?\b", re.IGNORECASE)
 
 
 def classify_query(q: str):
     """Route the query to the best collection."""
-    # 1. Technique ID
+    # 1. Technique ID (highest priority)
     m = TECHNIQUE_PATTERN.search(q)
     if m:
         return "techniques", m.group(0).upper()
 
-    # 2. Windows binaries
+    # 2. Detection queries → detection_rules collection
+    if DETECTION_KEYWORDS.search(q):
+        # Extract entity if a binary is named
+        m = BINARY_PATTERN.search(q)
+        if m:
+            return "detection_rules", m.group(1).lower().replace(".exe", "")
+        m = UNIX_BINARIES.search(q)
+        if m:
+            return "detection_rules", m.group(1).lower()
+        return "detection_rules", None
+
+    # 3. Windows binaries → lolbins
     m = BINARY_PATTERN.search(q)
     if m:
         return "lolbins", m.group(1).lower().replace(".exe", "")
 
-    # 3. Unix binaries (GTFOBins)
+    # 4. Unix binaries → gtfobins
     m = UNIX_BINARIES.search(q)
     if m:
         return "gtfobins", m.group(1).lower()
 
     ql = q.lower()
 
-    # 4. Malware keywords
+    # 5. Malware keywords
     if any(w in ql for w in ["malware", "trojan", "ransomware", "backdoor", "rat "]):
         return "malware", None
 
-    # 5. Capability phrases (LOLBins)
+    # 6. Capability phrases → lolbins
     if any(w in ql for w in ["download file", "download files", "fetch file",
                               "fetch files", "built-in tool", "built-in binary",
                               "system binary", "encode file", "decode file"]):
         return "lolbins", None
 
-    # 6. Tools / tactics
+    # 7. Tools / tactics
     if any(w in ql for w in ["mitre tool", "attack tool", "utility software"]):
         return "tools", None
     if any(w in ql for w in ["tactic", "phase", "stage", "kill chain"]):
         return "tactics", None
 
-    # 7. Default
+    # 8. Default
     return "techniques", None
 
 

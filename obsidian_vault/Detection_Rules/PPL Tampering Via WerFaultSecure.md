@@ -1,0 +1,62 @@
+---
+type: detection_rule
+title: "PPL Tampering Via WerFaultSecure"
+rule_id: 1f0b4cac-9c81-41f4-95d0-8475ff46b3e2
+platform: windows
+level: high
+status: experimental
+tags: [detection, sigma, windows]
+mitre_tags: [attack.t1685, attack.t1003.001]
+---
+
+# PPL Tampering Via WerFaultSecure
+
+## Description
+Detects potential abuse of WerFaultSecure.exe to dump Protected Process Light (PPL) processes like LSASS or to freeze security solutions (EDR/antivirus).
+This technique is used by tools such as EDR-Freeze and WSASS to bypass PPL protections and access sensitive information or disable security software.
+Distinct command line patterns help identify the specific tool:
+- WSASS usage typically shows: "WSASS.exe WerFaultSecure.exe [PID]" in ParentCommandLine
+- EDR-Freeze usage typically shows: "EDR-Freeze_[version].exe [PID] [timeout]" in ParentCommandLine
+Legitimate debugging operations using WerFaultSecure are rare in production environments and should be investigated.
+
+## Log Source
+```yaml
+category: process_creation
+product: windows
+```
+
+## Detection Logic
+```yaml
+condition: all of selection_*
+selection_args:
+  CommandLine|contains|all:
+  - ' /h '
+  - ' /pid '
+  - ' /tid '
+  - ' /encfile '
+  - ' /cancel '
+  - ' /type '
+  - ' 268310'
+selection_image:
+- Image|endswith: \WerFaultSecure.exe
+- OriginalFileName: WerFaultSecure.exe
+```
+
+## MITRE ATT&CK
+- T1685
+- T1003.001
+
+## False Positives
+- Legitimate usage of WerFaultSecure for debugging purposes
+
+## References
+- https://www.zerosalarium.com/2025/09/EDR-Freeze-Puts-EDRs-Antivirus-Into-Coma.html
+- https://github.com/TwoSevenOneT/EDR-Freeze/blob/a7f61030b36fbde89871f393488f7075d2aa89f6/EDR-Freeze.cpp#L53
+- https://www.zerosalarium.com/2025/09/Dumping-LSASS-With-WER-On-Modern-Windows-11.html
+- https://github.com/TwoSevenOneT/WSASS/blob/2c8fd9fa32143e7bc9f066e9511c6f8a57bc64b5/WSASS.cpp#L251
+
+## Metadata
+- **Author:** Jason (https://github.com/0xbcf)
+- **Date:** 2025-09-23
+- **Rule ID:** `1f0b4cac-9c81-41f4-95d0-8475ff46b3e2`
+- **Source file:** `windows/process_creation/proc_creation_win_werfaultsecure_abuse.yml`
