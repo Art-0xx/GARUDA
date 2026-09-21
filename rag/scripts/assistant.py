@@ -5,6 +5,7 @@ Usage:
     python assistant.py                (interactive)
 """
 
+import os
 import sys
 import re
 import chromadb
@@ -20,10 +21,13 @@ RERANK_MODEL    = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 LLM_MODEL       = "llama3.2:3b"
 TOP_K           = 5
 CANDIDATES      = 25
+VAULT_BASE      = r"D:\GARUDA\obsidian_vault\MITRE_ATTACK"
 # ================================
 
 SYSTEM_PROMPT = """You are a LOTL (Living Off the Land) cybersecurity assistant.
-Answer ONLY using the provided context. If the context lacks the answer, say so.When the context contains Sigma rules with 'detection:' blocks, extract and list the 
+Answer ONLY using the provided context. If the context lacks the answer, say so.
+
+When the context contains Sigma rules with 'detection:' blocks, extract and list the
 exact detection conditions (field names, operators, values). Do not summarize.
 
 Structure every answer EXACTLY:
@@ -32,12 +36,45 @@ Structure every answer EXACTLY:
 **Detection:** Specific indicators from context. If none: "Not in context."
 **Mitigation:** Specific restrictions from context. If none: "Not in context."
 
+For comparison queries ("vs", "versus", "compare", "difference between"):
+- Only cite command examples that appear in the context.
+- If only one entity's commands are in context, note that for the other.
+- Table columns: Summary | Command example | MITRE ID | Detection approach | Use case.
+- Each row should compare ONE aspect, not repeat entities.
+
 RULES:
 - Never invent commands, flags, tool names, or MITRE IDs.
-- Never give generic advice like "apply patches", "monitor suspicious activity", "restrict privileges".
+- NEVER give generic advice. Do NOT say "apply patches", "update software",
+  "monitor suspicious activity", "restrict privileges", "use secure boot",
+  "regular system scans", "implement security controls", "restrict access".
+  These are worthless for LOTL.
+- Only cite SPECIFIC restrictions from context (AppLocker rules, Sysmon Event IDs,
+  specific GPO settings, specific registry paths).
+- If the context has no specific mitigations, say "No specific mitigation in context."
+- When the question contains "vs", "versus", "compare", or "difference between",
+  and two entities are named, produce a markdown table with rows for:
+  Summary, Command example, MITRE ID, Detection approach, Use case.
 - Cite sources with [Source: filename].
 - Keep answers under 250 words.
 """
+
+# ---------- Load malware & tool names dynamically ----------
+def load_names():
+    malware, tools = set(), set()
+    for folder, target in [("Malwares", malware), ("Tools", tools)]:
+        folder_path = os.path.join(VAULT_BASE, folder)
+        if not os.path.isdir(folder_path):
+            continue
+        for fn in os.listdir(folder_path):
+            if fn.endswith(".md"):
+                name = fn[:-3].lower().strip()
+                # Normalize: strip non-alphanumerics for matching
+                norm = re.sub(r"[^a-z0-9]", "", name)
+                if len(norm) >= 4:  # skip tiny names to avoid false positives
+                    target.add((norm, name))
+    return malware, tools
+
+MALWARE_NAMES, TOOL_NAMES = load_names()
 
 # ---------- Patterns (Windows binaries) ----------
 BINARY_PATTERN = re.compile(
@@ -80,17 +117,31 @@ DETECTION_KEYWORDS = re.compile(
 # ---------- MITRE technique IDs ----------
 TECHNIQUE_PATTERN = re.compile(r"\bT\d{4}(\.\d{3})?\b", re.IGNORECASE)
 
+# ---------- Out-of-scope detector ----------
+OUT_OF_SCOPE = [
+    "my computer", "my pc", "my laptop", "why is my",
+    "computer is slow", "won't boot", "will not boot",
+    "wifi not working", "how do i fix", "how to fix my",
+    "windows update stuck", "blue screen", "bsod",
+    "printer not working", "email not sending",
+]
+
 
 def classify_query(q: str):
     """Route the query to the best collection."""
-    # 1. Technique ID (highest priority)
+    ql = q.lower()
+
+    # 0. Out-of-scope
+    if any(phrase in ql for phrase in OUT_OF_SCOPE):
+        return "OUT_OF_SCOPE", None
+
+    # 1. Technique ID
     m = TECHNIQUE_PATTERN.search(q)
     if m:
         return "techniques", m.group(0).upper()
 
-    # 2. Detection queries → detection_rules collection
+    # 2. Detection queries
     if DETECTION_KEYWORDS.search(q):
-        # Extract entity if a binary is named
         m = BINARY_PATTERN.search(q)
         if m:
             return "detection_rules", m.group(1).lower().replace(".exe", "")
@@ -99,35 +150,42 @@ def classify_query(q: str):
             return "detection_rules", m.group(1).lower()
         return "detection_rules", None
 
-    # 3. Windows binaries → lolbins
+    # 3. Windows binaries FIRST (before tool/malware name lookup)
     m = BINARY_PATTERN.search(q)
     if m:
         return "lolbins", m.group(1).lower().replace(".exe", "")
 
-    # 4. Unix binaries → gtfobins
+    # 4. Unix binaries
     m = UNIX_BINARIES.search(q)
     if m:
         return "gtfobins", m.group(1).lower()
 
-    ql = q.lower()
+    # 5. Specific malware/tool names (AFTER binaries)
+    ql_norm = re.sub(r"[^a-z0-9]", "", ql)
+    for norm, original in MALWARE_NAMES:
+        if norm in ql_norm:
+            return "malware", original
+    for norm, original in TOOL_NAMES:
+        if norm in ql_norm:
+            return "tools", original
 
-    # 5. Malware keywords
+    # 6. Generic malware keywords
     if any(w in ql for w in ["malware", "trojan", "ransomware", "backdoor", "rat "]):
         return "malware", None
 
-    # 6. Capability phrases → lolbins
+    # 7. Capability phrases
     if any(w in ql for w in ["download file", "download files", "fetch file",
                               "fetch files", "built-in tool", "built-in binary",
                               "system binary", "encode file", "decode file"]):
         return "lolbins", None
 
-    # 7. Tools / tactics
+    # 8. Tools / tactics
     if any(w in ql for w in ["mitre tool", "attack tool", "utility software"]):
         return "tools", None
     if any(w in ql for w in ["tactic", "phase", "stage", "kill chain"]):
         return "tactics", None
 
-    # 8. Default
+    # 9. Default
     return "techniques", None
 
 
@@ -139,11 +197,26 @@ def get_reranker():
     return _reranker
 
 
+_client = None
+_embed_fn = None
+def get_client():
+    global _client
+    if _client is None:
+        _client = chromadb.HttpClient(host=CHROMA_HOST, port=CHROMA_PORT)
+    return _client
+
+def get_embed_fn():
+    global _embed_fn
+    if _embed_fn is None:
+        _embed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
+            model_name=EMBED_MODEL
+        )
+    return _embed_fn
+
+
 def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDATES):
-    client = chromadb.HttpClient(host=CHROMA_HOST, port=CHROMA_PORT)
-    embed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-        model_name=EMBED_MODEL
-    )
+    client = get_client()
+    embed_fn = get_embed_fn()
     try:
         coll = client.get_collection(name=collection_name, embedding_function=embed_fn)
     except Exception:
@@ -165,6 +238,23 @@ def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDAT
                 return [t[0] for t in top], [t[1] for t in top]
         except Exception as e:
             print(f"   [ID filter failed: {e}]")
+
+    # Filename match for specific malware/tool names
+        # Filename match for specific malware/tool names (exact match)
+    if entity and collection_name in ("malware", "tools"):
+        try:
+            results = coll.get(
+                where={"filename": entity},
+                limit=candidates,
+                include=["documents", "metadatas"],
+            )
+            f_docs = results["documents"]
+            f_metas = results["metadatas"]
+            if f_docs:
+                top = list(zip(f_docs, f_metas))[:top_k]
+                return [t[0] for t in top], [t[1] for t in top]
+        except Exception:
+            pass  # silent fallback to semantic search
 
     # Semantic search + rerank
     results = coll.query(query_texts=[question], n_results=candidates)
@@ -227,6 +317,11 @@ def build_context(docs, metas):
 def answer(question):
     collection, entity = classify_query(question)
     print(f"\n🔍 Question: {question}")
+
+    if collection == "OUT_OF_SCOPE":
+        print("❌ This assistant only answers LOTL / cybersecurity questions.")
+        return
+
     print(f"📂 Collection: {collection}" + (f"  |  Entity: {entity}" if entity else ""))
     print("⏳ Retrieving...")
 
