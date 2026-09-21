@@ -1,0 +1,24 @@
+---
+type: gtfobin
+name: zic
+platform: Unix
+functions: [command]
+tags: [gtfobin, unix, lotl]
+---
+
+# zic
+
+## command
+
+```bash
+echo 'Rule Jordan 0 1 xxx Jan lastSun 2 1:00d -' >/path/to/temp-file
+echo 'Zone Test 2:00 Jordan CE%sT' >>/path/to/temp-file
+zic -d . -y /path/to/command /path/to/temp-file
+```
+_This executes the command twice:
+
+- `/path/to/command 0 xxx`
+- `/path/to/command 1 xxx`
+
+Additionally the `Test` file is created._
+**Contexts:** sudo, suid, unprivileged

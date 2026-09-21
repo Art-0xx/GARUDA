@@ -1,0 +1,39 @@
+---
+mitre_data:
+  id: T1591.003
+  linker_tags:
+  - mitre/attack/linker/reconnaissance/identify_business_tempo
+  name: Identify Business Tempo
+  related_tactics:
+  - reconnaissance
+tags:
+- mitre/attack/technique
+---
+
+
+
+# Identify Business Tempo (`T1591.003`)
+
+Adversaries may gather information about the victim's business tempo that can be used during targeting. Information about an organization’s business tempo may include a variety of details, including operational hours/days of the week. This information may also reveal times/dates of purchases and shipments of the victim’s hardware and software resources.
+
+Adversaries may gather this information in various ways, such as direct elicitation via [Phishing for Information](https://attack.mitre.org/techniques/T1598). Information about business tempo may also be exposed to adversaries via online or other accessible data sets (ex: [Social Media](https://attack.mitre.org/techniques/T1593/001) or [Search Victim-Owned Websites](https://attack.mitre.org/techniques/T1594)).[^fn1] Gathering this information may reveal opportunities for other forms of reconnaissance (ex: [Phishing for Information](https://attack.mitre.org/techniques/T1598) or [Search Open Websites/Domains](https://attack.mitre.org/techniques/T1593)), establishing operational resources (ex: [Establish Accounts](https://attack.mitre.org/techniques/T1585) or [Compromise Accounts](https://attack.mitre.org/techniques/T1586)), and/or initial access (ex: [Supply Chain Compromise](https://attack.mitre.org/techniques/T1195) or [Trusted Relationship](https://attack.mitre.org/techniques/T1199))
+
+
+# Platform(s)
+
+- PRE
+
+# Parent Technique(s)
+
+- [[../Techniques/Gather Victim Org Information (T1591)|Gather Victim Org Information]]
+
+# Tactic(s)
+
+- [[../Tactics/1. Reconnaissance|Reconnaissance]]
+
+
+# External Reference(s)
+
+- [T1591.003](https://attack.mitre.org/techniques/T1591/003)
+
+[^fn1]: [Seals, T. (2020, October 15). Broadvoice Leak Exposes 350M Records, Personal Voicemail Transcripts. Retrieved October 20, 2020.](https://threatpost.com/broadvoice-leaks-350m-records-voicemail-transcripts/160158/)

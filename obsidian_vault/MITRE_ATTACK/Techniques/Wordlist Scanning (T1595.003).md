@@ -1,0 +1,43 @@
+---
+mitre_data:
+  id: T1595.003
+  linker_tags:
+  - mitre/attack/linker/reconnaissance/wordlist_scanning
+  name: Wordlist Scanning
+  related_tactics:
+  - reconnaissance
+tags:
+- mitre/attack/technique
+---
+
+
+
+# Wordlist Scanning (`T1595.003`)
+
+Adversaries may iteratively probe infrastructure using brute-forcing and crawling techniques. While this technique employs similar methods to [Brute Force](https://attack.mitre.org/techniques/T1110), its goal is the identification of content and infrastructure rather than the discovery of valid credentials. Wordlists used in these scans may contain generic, commonly used names and file extensions or terms specific to a particular software. Adversaries may also create custom, target-specific wordlists using data gathered from other Reconnaissance techniques (ex: [Gather Victim Org Information](https://attack.mitre.org/techniques/T1591), or [Search Victim-Owned Websites](https://attack.mitre.org/techniques/T1594)).
+
+For example, adversaries may use web content discovery tools such as Dirb, DirBuster, and GoBuster and generic or custom wordlists to enumerate a website’s pages and directories.[^fn1] This can help them to discover old, vulnerable pages or hidden administrative portals that could become the target of further operations (ex: [Exploit Public-Facing Application](https://attack.mitre.org/techniques/T1190) or [Brute Force](https://attack.mitre.org/techniques/T1110)).  
+
+As cloud storage solutions typically use globally unique names, adversaries may also use target-specific wordlists and tools such as s3recon and GCPBucketBrute to enumerate public and private buckets on cloud infrastructure.[^fn3][^fn2] Once storage objects are discovered, adversaries may leverage [Data from Cloud Storage](https://attack.mitre.org/techniques/T1530) to access valuable information that can be exfiltrated or used to escalate privileges and move laterally. 
+
+
+# Platform(s)
+
+- PRE
+
+# Parent Technique(s)
+
+- [[../Techniques/Active Scanning (T1595)|Active Scanning]]
+
+# Tactic(s)
+
+- [[../Tactics/1. Reconnaissance|Reconnaissance]]
+
+
+# External Reference(s)
+
+- [T1595.003](https://attack.mitre.org/techniques/T1595/003)
+
+[^fn1]: [ClearSky Cyber Security. (2021, January). “Lebanese Cedar” APT Global Lebanese Espionage Campaign Leveraging Web Servers. Retrieved February 10, 2021.](https://www.clearskysec.com/wp-content/uploads/2021/01/Lebanese-Cedar-APT.pdf)
+[^fn2]: [Spencer Gietzen. (2019, February 26). Google Cloud Platform (GCP) Bucket Enumeration and Privilege Escalation. Retrieved March 4, 2022.](https://rhinosecuritylabs.com/gcp/google-cloud-platform-gcp-bucket-enumeration/)
+[^fn3]: [Travis Clarke. (2020, March 21). S3Recon GitHub. Retrieved March 4, 2022.](https://github.com/clarketm/s3recon)

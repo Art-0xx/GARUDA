@@ -1,0 +1,176 @@
+{
+  "recentFiles": [
+    {
+      "basename": "Master Prompt - 07 - MITRE ATT&CK TTP Research",
+      "path": "97_LLM_Prompts/Master Prompt - 07 - MITRE ATT&CK TTP Research.md"
+    },
+    {
+      "basename": "MITRE_Technique_Template",
+      "path": "_Templates/MITRE_Technique_Template.md"
+    },
+    {
+      "basename": "Master Prompt - 06 - Vulnerabilities & CVEs",
+      "path": "97_LLM_Prompts/Master Prompt - 06 - Vulnerabilities & CVEs.md"
+    },
+    {
+      "basename": "Vulnerability_Template",
+      "path": "_Templates/Vulnerability_Template.md"
+    },
+    {
+      "basename": "Master Prompt - 05 - Malware Research",
+      "path": "97_LLM_Prompts/Master Prompt - 05 - Malware Research.md"
+    },
+    {
+      "basename": "Malware_Template",
+      "path": "_Templates/Malware_Template.md"
+    },
+    {
+      "basename": "Untitled",
+      "path": "05_Malware & Tools/Untitled.md"
+    },
+    {
+      "basename": "TA0011 - Command and Control Dashboard",
+      "path": "00_Dashboard & Index/TA0011 - Command and Control Dashboard.md"
+    },
+    {
+      "basename": "TA0007 - Discovery Dashboard",
+      "path": "00_Dashboard & Index/TA0007 - Discovery Dashboard.md"
+    },
+    {
+      "basename": "TA0005 - Defense Evasion Dashboard",
+      "path": "00_Dashboard & Index/TA0005 - Defense Evasion Dashboard.md"
+    },
+    {
+      "basename": "TA0004 - Privilege Escalation Dashboard",
+      "path": "00_Dashboard & Index/TA0004 - Privilege Escalation Dashboard.md"
+    },
+    {
+      "basename": "PIR_Template",
+      "path": "_Templates/PIR_Template.md"
+    },
+    {
+      "basename": "Master Prompt - 03 - Threat Actor Research",
+      "path": "97_LLM_Prompts/Master Prompt - 03 - Threat Actor Research.md"
+    },
+    {
+      "basename": "Master Prompt - 04 - Campaign Research",
+      "path": "97_LLM_Prompts/Master Prompt - 04 - Campaign Research.md"
+    },
+    {
+      "basename": "Campaign_Template",
+      "path": "_Templates/Campaign_Template.md"
+    },
+    {
+      "basename": "Threat Actor Dashboard",
+      "path": "00_Dashboard & Index/Threat Actor Dashboard.md"
+    },
+    {
+      "basename": "Tag_Guide",
+      "path": "00_Dashboard & Index/Tag_Guide.md"
+    },
+    {
+      "basename": "TA0043 - Reconnaissance Dashboard",
+      "path": "00_Dashboard & Index/TA0043 - Reconnaissance Dashboard.md"
+    },
+    {
+      "basename": "TA0042 - Resource Development Dashboard",
+      "path": "00_Dashboard & Index/TA0042 - Resource Development Dashboard.md"
+    },
+    {
+      "basename": "TA0040 - Impact Dashboard",
+      "path": "00_Dashboard & Index/TA0040 - Impact Dashboard.md"
+    },
+    {
+      "basename": "TA0010 - Exfiltration Dashboard",
+      "path": "00_Dashboard & Index/TA0010 - Exfiltration Dashboard.md"
+    },
+    {
+      "basename": "TA0009 - Collection Dashboard",
+      "path": "00_Dashboard & Index/TA0009 - Collection Dashboard.md"
+    },
+    {
+      "basename": "TA0008 - Lateral Movement Dashboard",
+      "path": "00_Dashboard & Index/TA0008 - Lateral Movement Dashboard.md"
+    },
+    {
+      "basename": "TA0006 - Credential Access Dashboard",
+      "path": "00_Dashboard & Index/TA0006 - Credential Access Dashboard.md"
+    },
+    {
+      "basename": "TA0001 - Initial Access Dashboard",
+      "path": "00_Dashboard & Index/TA0001 - Initial Access Dashboard.md"
+    },
+    {
+      "basename": "TA0002 - Execution Dashboard",
+      "path": "00_Dashboard & Index/TA0002 - Execution Dashboard.md"
+    },
+    {
+      "basename": "TA0003 - Persistence Dashboard",
+      "path": "00_Dashboard & Index/TA0003 - Persistence Dashboard.md"
+    },
+    {
+      "basename": "Map_of_Content",
+      "path": "00_Dashboard & Index/Map_of_Content.md"
+    },
+    {
+      "basename": "Daily_Notes_Index",
+      "path": "00_Dashboard & Index/Daily_Notes_Index.md"
+    },
+    {
+      "basename": "Threat_Actor_Template",
+      "path": "_Templates/Threat_Actor_Template.md"
+    },
+    {
+      "basename": "Tactic Dashboard Template",
+      "path": "_Templates/Tactic Dashboard Template.md"
+    },
+    {
+      "basename": "MITRE ATT&CK Templater Script",
+      "path": "_Templates/MITRE ATT&CK Templater Script.md"
+    },
+    {
+      "basename": "IOC_Template",
+      "path": "_Templates/IOC_Template.md"
+    },
+    {
+      "basename": "Daily_Analysis_Journal",
+      "path": "_Templates/Daily_Analysis_Journal.md"
+    },
+    {
+      "basename": "Briefing_Template",
+      "path": "_Templates/Briefing_Template.md"
+    },
+    {
+      "basename": "Untitled",
+      "path": "09_IOCs/Untitled.md"
+    },
+    {
+      "basename": "Untitled",
+      "path": "07_TTP Library (MITRE ATT&CK)/Untitled.md"
+    },
+    {
+      "basename": "Untitled",
+      "path": "06_Vulnerabilities & CVEs/Untitled.md"
+    },
+    {
+      "basename": "Untitled",
+      "path": "03_Threat_Actors/Untitled.md"
+    },
+    {
+      "basename": "README",
+      "path": "08_Indicators & Observables/README.md"
+    },
+    {
+      "basename": "Patch_Timelines",
+      "path": "06_Vulnerabilities & CVEs/Patch_Timelines.md"
+    },
+    {
+      "basename": "OSINT",
+      "path": "02_Collections/OSINT.md"
+    }
+  ],
+  "omittedPaths": [],
+  "omittedTags": [],
+  "updateOn": "file-open",
+  "omitBookmarks": false
+}

@@ -1,0 +1,42 @@
+---
+mitre_data:
+  id: T1207
+  linker_tags:
+  - mitre/attack/linker/defense_impairment/rogue_domain_controller
+  name: Rogue Domain Controller
+  related_tactics:
+  - defense_impairment
+tags:
+- mitre/attack/technique
+---
+
+
+
+# Rogue Domain Controller (`T1207`)
+
+Adversaries may register a rogue Domain Controller to enable manipulation of Active Directory data. DCShadow may be used to create a rogue Domain Controller (DC). DCShadow is a method of manipulating Active Directory (AD) data, including objects and schemas, by registering (or reusing an inactive registration) and simulating the behavior of a DC. [^fn1] Once registered, a rogue DC may be able to inject and replicate changes into AD infrastructure for any domain object, including credentials and keys.
+
+Registering a rogue DC involves creating a new server and nTDSDSA objects in the Configuration partition of the AD schema, which requires Administrator privileges (either Domain or local to the DC) or the KRBTGT hash. [^fn2]
+
+This technique may bypass system logging and security monitors such as security information and event management (SIEM) products (since actions taken on a rogue DC may not be reported to these sensors). [^fn1] The technique may also be used to alter and delete replication and other associated metadata to obstruct forensic analysis. Adversaries may also utilize this technique to perform [SID-History Injection](https://attack.mitre.org/techniques/T1134/005) and/or manipulate AD objects (such as accounts, access control lists, schemas) to establish backdoors for Persistence. [^fn1]
+
+
+# Platform(s)
+
+- Windows
+
+# Tool(s)
+
+- [[../Tools/Mimikatz|Mimikatz]]
+
+# Tactic(s)
+
+- [[../Tactics/8. Defense Impairment|Defense Impairment]]
+
+
+# External Reference(s)
+
+- [T1207](https://attack.mitre.org/techniques/T1207)
+
+[^fn1]: [Delpy, B. & LE TOUX, V. (n.d.). DCShadow. Retrieved March 20, 2018.](https://www.dcshadow.com/)
+[^fn2]: [Metcalf, S. (2015, November 13). Unofficial Guide to Mimikatz & Command Reference. Retrieved December 23, 2015.](https://adsecurity.org/?page_id=1821)

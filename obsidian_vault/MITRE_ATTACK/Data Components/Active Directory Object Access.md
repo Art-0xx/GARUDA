@@ -1,0 +1,34 @@
+---
+tags: 
+  - mitre/attack/data_component
+---
+
+# Active Directory Object Access (`DC0071`)
+
+Object access refers to activities where AD objects (e.g., user accounts, groups, policies) are accessed or queried. Example: Windows Event ID 4661 logs object access attempts. Examples:
+
+- Attribute Access: e.g., `userPassword`, `memberOf`, `securityDescriptor`.
+- Group Enumeration: Enumerating critical group members (e.g., Domain Admins).
+- User Attributes: Commonly accessed attributes like `samAccountName`, `lastLogonTimestamp`.
+- Policy Access: Accessing GPOs to understand security settings.
+
+*Data Collection Measures:*
+
+- Audit Policies:
+    - Enable "Audit Directory Service Access" under Advanced Audit Policies (Success and Failure).
+    - Path: `Computer Configuration > Policies > Windows Settings > Security Settings > Advanced Audit Policy Configuration > Audit Policies > Object AccessEnable: Audit Directory Service Access` (Success and Failure).
+    - Captured Events: IDs 4661, 4662.
+- Event Forwarding: Use WEF to centralize logs for SIEM analysis.
+- SIEM Integration: Collect and parse logs (e.g., 4661, 4662) using tools like Splunk or Azure Sentinel.
+- Log Filtering:
+- Focus on sensitive objects/attributes like:
+    - `Domain Admins` group.
+    - `userPassword`, `ntSecurityDescriptor`.
+- Enable EDR Monitoring:
+    - Detect processes accessing sensitive AD objects (e.g., samAccountName, securityDescriptor).
+    - Log all attempts to enumerate critical groups (e.g., "Domain Admins").
+
+
+
+
+

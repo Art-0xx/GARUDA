@@ -1,0 +1,87 @@
+---
+Acknowledgement:
+- Person: Avihay El
+Author: Avihay Eldad
+Commands:
+- Category: Execute
+  Command: appcert.exe test -apptype desktop -setuppath {PATH_ABSOLUTE:.exe} -reportoutputpath
+    {PATH_ABSOLUTE:.xml}
+  Description: Execute an executable file via the Windows App Certification Kit command-line
+    tool.
+  MitreID: T1127
+  OperatingSystem: Windows
+  Privileges: Administrator
+  Tags:
+  - Execute: EXE
+  Usecase: Performs execution of specified file, can be used as a defense evasion
+- Category: Execute
+  Command: appcert.exe test -apptype desktop -setuppath {PATH_ABSOLUTE:.msi} -setupcommandline
+    /q -reportoutputpath {PATH_ABSOLUTE:.xml}
+  Description: Install an MSI file via an msiexec instance spawned via appcert.exe
+    as parent process.
+  MitreID: T1218.007
+  OperatingSystem: Windows
+  Privileges: Administrator
+  Tags:
+  - Execute: MSI
+  Usecase: Execute custom made MSI file with malicious code
+Created: 2024-03-06
+Description: Windows App Certification Kit command-line tool.
+Full_Path:
+- Path: C:\Program Files (x86)\Windows Kits\10\App Certification Kit\appcert.exe
+- Path: C:\Program Files\Windows Kits\10\App Certification Kit\appcert.exe
+Name: AppCert.exe
+Resources:
+- Link: https://learn.microsoft.com/windows/win32/win_cert/using-the-windows-app-certification-kit
+mitre_data:
+  technique_ids:
+  - T1127
+  - T1218.007
+tags:
+- lolbas/othermsbinaries
+---
+
+# AppCert.exe
+
+Windows App Certification Kit command-line tool.
+
+# Path(s)
+
+- `C:\Program Files (x86)\Windows Kits\10\App Certification Kit\appcert.exe`
+- `C:\Program Files\Windows Kits\10\App Certification Kit\appcert.exe`
+
+# Execute Commands
+
+Execute an executable file via the Windows App Certification Kit command-line tool.
+
+```batch
+appcert.exe test -apptype desktop -setuppath {PATH_ABSOLUTE:.exe} -reportoutputpath {PATH_ABSOLUTE:.xml}
+```
+
+- **Usecase:** Performs execution of specified file, can be used as a defense evasion
+- **Privileges Required:** Administrator
+- **MitreID:** `T1127`
+- **Operating System(s):** Windows
+
+
+
+Install an MSI file via an msiexec instance spawned via appcert.exe as parent process.
+
+```batch
+appcert.exe test -apptype desktop -setuppath {PATH_ABSOLUTE:.msi} -setupcommandline /q -reportoutputpath {PATH_ABSOLUTE:.xml}
+```
+
+- **Usecase:** Execute custom made MSI file with malicious code
+- **Privileges Required:** Administrator
+- **MitreID:** `T1218.007`
+- **Operating System(s):** Windows
+
+
+
+# Resource(s)
+
+- https://learn.microsoft.com/windows/win32/win_cert/using-the-windows-app-certification-kit
+# Acknowledgements
+
+- Avihay Eldad (Authored, 2024-03-06)
+- Avihay El

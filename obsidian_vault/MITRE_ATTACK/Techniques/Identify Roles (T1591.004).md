@@ -1,0 +1,39 @@
+---
+mitre_data:
+  id: T1591.004
+  linker_tags:
+  - mitre/attack/linker/reconnaissance/identify_roles
+  name: Identify Roles
+  related_tactics:
+  - reconnaissance
+tags:
+- mitre/attack/technique
+---
+
+
+
+# Identify Roles (`T1591.004`)
+
+Adversaries may gather information about identities and roles within the victim organization that can be used during targeting. Information about business roles may reveal a variety of targetable details, including identifiable information for key personnel as well as what data/resources they have access to.
+
+Adversaries may gather this information in various ways, such as direct elicitation via [Phishing for Information](https://attack.mitre.org/techniques/T1598). Information about business roles may also be exposed to adversaries via online or other accessible data sets (ex: [Social Media](https://attack.mitre.org/techniques/T1593/001) or [Search Victim-Owned Websites](https://attack.mitre.org/techniques/T1594)).[^fn1] Gathering this information may reveal opportunities for other forms of reconnaissance (ex: [Phishing for Information](https://attack.mitre.org/techniques/T1598) or [Search Open Websites/Domains](https://attack.mitre.org/techniques/T1593)), establishing operational resources (ex: [Establish Accounts](https://attack.mitre.org/techniques/T1585) or [Compromise Accounts](https://attack.mitre.org/techniques/T1586)), and/or initial access (ex: [Phishing](https://attack.mitre.org/techniques/T1566)).
+
+
+# Platform(s)
+
+- PRE
+
+# Parent Technique(s)
+
+- [[../Techniques/Gather Victim Org Information (T1591)|Gather Victim Org Information]]
+
+# Tactic(s)
+
+- [[../Tactics/1. Reconnaissance|Reconnaissance]]
+
+
+# External Reference(s)
+
+- [T1591.004](https://attack.mitre.org/techniques/T1591/004)
+
+[^fn1]: [Seals, T. (2020, October 15). Broadvoice Leak Exposes 350M Records, Personal Voicemail Transcripts. Retrieved October 20, 2020.](https://threatpost.com/broadvoice-leaks-350m-records-voicemail-transcripts/160158/)

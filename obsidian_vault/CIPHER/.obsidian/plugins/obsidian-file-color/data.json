@@ -1,0 +1,39 @@
+{
+  "cascadeColors": false,
+  "colorBackground": true,
+  "palette": [
+    {
+      "id": "gfnoCD_wQDTXpNzBz3TBU",
+      "name": "loanDepot Purple",
+      "value": "#501283"
+    },
+    {
+      "id": "fJQ2_4HCzlWddnM5eJytb",
+      "name": "loanDepot Green",
+      "value": "#a6ce38"
+    },
+    {
+      "id": "CqMt2BZYanaNbL5uL0VNl",
+      "name": "Flame Red",
+      "value": "#e71919"
+    }
+  ],
+  "fileColors": [
+    {
+      "path": "Education",
+      "color": "gfnoCD_wQDTXpNzBz3TBU"
+    },
+    {
+      "path": "Personal",
+      "color": "CqMt2BZYanaNbL5uL0VNl"
+    },
+    {
+      "path": "Work",
+      "color": "fJQ2_4HCzlWddnM5eJytb"
+    },
+    {
+      "path": "Personal/code structures",
+      "color": "CqMt2BZYanaNbL5uL0VNl"
+    }
+  ]
+}

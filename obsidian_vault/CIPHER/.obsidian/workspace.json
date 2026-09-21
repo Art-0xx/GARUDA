@@ -1,0 +1,290 @@
+{
+  "main": {
+    "id": "5324373015726ba8",
+    "type": "split",
+    "children": [
+      {
+        "id": "4509724f8bf84da7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e7a7b303c61786dc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "97_LLM_Prompts/Master Prompt - 07 - MITRE ATT&CK TTP Research.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Master Prompt - 07 - MITRE ATT&CK TTP Research"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7a015b59e4f6fd62",
+    "type": "split",
+    "children": [
+      {
+        "id": "d2c0a5cbf1d6b47f",
+        "type": "tabs",
+        "dimension": 67.54297269969666,
+        "children": [
+          {
+            "id": "e72ba3dd8569a9b0",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "3e59a63b3136c80f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "3930f117918f1b59",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "e301f8ec0d3e2be3",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "recent-files"
+            }
+          },
+          {
+            "id": "b4ab2197f651ffc2",
+            "type": "leaf",
+            "state": {
+              "type": "notebook-navigator",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "notebook-navigator"
+            }
+          }
+        ]
+      },
+      {
+        "id": "f2853c5dcb1771c4",
+        "type": "tabs",
+        "dimension": 32.45702730030334,
+        "children": [
+          {
+            "id": "e7a7b303c61786dc",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a5dfebbf121b47b3",
+    "type": "split",
+    "children": [
+      {
+        "id": "21e801c44b28a685",
+        "type": "tabs",
+        "dimension": 62.5,
+        "children": [
+          {
+            "id": "39b4d2d3b0b9ee0f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "00_Dashboard & Index/Threat Actor Dashboard.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Threat Actor Dashboard"
+            }
+          },
+          {
+            "id": "0f248dcaf061f17d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "97_LLM_Prompts/Master Prompt - 07 - MITRE ATT&CK TTP Research.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Master Prompt - 07 - MITRE ATT&CK TTP Research"
+            }
+          },
+          {
+            "id": "0978f43e18269c35",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "ed4857d1e982d656",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "00_Dashboard & Index/Threat Actor Dashboard.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Threat Actor Dashboard"
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "5fa66de2de7c8f5c",
+        "type": "tabs",
+        "dimension": 37.5,
+        "children": [
+          {
+            "id": "55ae99e2d639fb5d",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 337.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "ai-summary:Summarize referenced notes": false,
+      "ai-tagger:Generate tags!": false,
+      "obsidian-git:Open Git source control": false,
+      "homepage:Open homepage": false,
+      "obsidian-kanban:Create new board": false,
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "omnisearch:Omnisearch": false,
+      "smart-connections:Open: Smart Chat": false,
+      "smart-connections:Smart Connections: Open connections view": false,
+      "smart-connections:Smart Connections: Open random connection": true,
+      "smart-random-note:Open Random Note from Search": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-textgenerator-plugin:Generate Text!": false,
+      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
+      "obsidian42-text-transporter:Text Transporter": false,
+      "obsidian-tomorrows-daily-note:Open tomorrow's daily note": false,
+      "notebook-navigator:Notebook Navigator": false,
+      "pexels-banner:🚩 Pixel Banner Menu": false
+    }
+  },
+  "active": "e72ba3dd8569a9b0",
+  "lastOpenFiles": [
+    "_Templates/MITRE_Technique_Template.md",
+    "97_LLM_Prompts/Master Prompt - 07 - MITRE ATT&CK TTP Research.md",
+    "97_LLM_Prompts/Master Prompt - 06 - Vulnerabilities & CVEs.md",
+    "_Templates/Vulnerability_Template.md",
+    "97_LLM_Prompts/Master Prompt - 05 - Malware Research.md",
+    "_Templates/Malware_Template.md",
+    "11_Intel_Requirements & PIRs/Untitled.md",
+    "05_Malware & Tools/Untitled.md",
+    "00_Dashboard & Index/TA0011 - Command and Control Dashboard.md",
+    "00_Dashboard & Index/TA0007 - Discovery Dashboard.md",
+    "00_Dashboard & Index/TA0005 - Defense Evasion Dashboard.md",
+    "00_Dashboard & Index/TA0004 - Privilege Escalation Dashboard.md",
+    "_Templates/PIR_Template.md",
+    "97_LLM_Prompts/Master Prompt - 03 - Threat Actor Research.md",
+    "97_LLM_Prompts/Master Prompt - 04 - Campaign Research.md",
+    "04_Campaigns/Sony Pictures Entertainment Wiper Attack (2014).md",
+    "_Templates/Campaign_Template.md",
+    "97_LLM_Prompts",
+    "00_Dashboard & Index/Threat Actor Dashboard.md",
+    "00_Dashboard & Index/Tag_Guide.md",
+    "00_Dashboard & Index/TA0043 - Reconnaissance Dashboard.md",
+    "00_Dashboard & Index/TA0042 - Resource Development Dashboard.md",
+    "00_Dashboard & Index/TA0040 - Impact Dashboard.md",
+    "00_Dashboard & Index/TA0010 - Exfiltration Dashboard.md",
+    "00_Dashboard & Index/TA0009 - Collection Dashboard.md",
+    "00_Dashboard & Index/TA0008 - Lateral Movement Dashboard.md",
+    "00_Dashboard & Index/TA0006 - Credential Access Dashboard.md",
+    "99_Attachments/CIPHER Obsidian Banner.png",
+    "98_News_Articles",
+    "04_Campaigns",
+    "09_IOCs",
+    "99_Attachments/CTI.png",
+    "pixel-banner-images/CTI.png.png",
+    "pixel-banner-images/loanDepot-Obsidian-Banner---CTI-with-Marvin-the-Martian.png",
+    "99_Attachments",
+    "11_Intel_Requirements & PIRs",
+    "10_Analysis & Reporting",
+    "08_Indicators & Observables",
+    "07_TTP Library (MITRE ATT&CK)",
+    "06_Vulnerabilities & CVEs"
+  ]
+}

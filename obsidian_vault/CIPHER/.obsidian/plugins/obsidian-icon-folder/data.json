@@ -1,0 +1,99 @@
+{
+  "settings": {
+    "migrated": 6,
+    "iconPacksPath": ".obsidian/icons",
+    "fontSize": 16,
+    "emojiStyle": "native",
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "LiLayoutDashboard",
+      "👽",
+      "🟢",
+      "✔",
+      "FasCircleExclamation"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    },
+    "iconInTabsEnabled": false,
+    "iconInTitleEnabled": false,
+    "iconInTitlePosition": "above",
+    "iconInFrontmatterEnabled": false,
+    "iconInFrontmatterFieldName": "icon",
+    "iconColorInFrontmatterFieldName": "iconColor",
+    "iconsBackgroundCheckEnabled": false,
+    "iconsInNotesEnabled": true,
+    "iconsInLinksEnabled": true,
+    "iconIdentifier": ":",
+    "lucideIconPackType": "native",
+    "debugMode": false,
+    "useInternalPlugins": false
+  },
+  "Education": "📔",
+  "Personal": "🧑‍🦲",
+  "Work": "🧑‍💼",
+  "Personal/code structures": "LiFileCode",
+  "Personal/Chat Messages": "LiSmartChat",
+  "Personal/Chat Messages/09012025 - Initial Contact.md": "FasCircleExclamation",
+  "00_Dashboard & Index/TA0001 - Initial Access Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0002 - Execution Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0003 - Persistence Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0004 - Privilege Escalation Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0005 - Defense Evasion Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0006 - Credential Access Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0007 - Discovery Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0008 - Lateral Movement Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0009 - Collection Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0010 - Exfiltration Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0011 - Command and Control Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0040 - Impact Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0042 - Resource Development Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  },
+  "00_Dashboard & Index/TA0043 - Reconnaissance Dashboard.md": {
+    "iconName": "LiLayoutDashboard",
+    "iconColor": "#00ff00"
+  }
+}

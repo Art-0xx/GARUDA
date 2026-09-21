@@ -1,0 +1,56 @@
+---
+mitre_data:
+  id: T1175
+  linker_tags:
+  - mitre/attack/linker/lateral_movement/component_object_model_and_distributed_com
+  - mitre/attack/linker/execution/component_object_model_and_distributed_com
+  name: Component Object Model and Distributed COM
+  related_tactics:
+  - lateral_movement
+  - execution
+tags:
+- mitre/attack/technique
+---
+
+
+
+# Component Object Model and Distributed COM (`T1175`)
+
+**This technique has been deprecated. Please use [Distributed Component Object Model](https://attack.mitre.org/techniques/T1021/003) and [Component Object Model](https://attack.mitre.org/techniques/T1559/001).**
+
+Adversaries may use the Windows Component Object Model (COM) and Distributed Component Object Model (DCOM) for local code execution or to execute on remote systems as part of lateral movement. 
+
+COM is a component of the native Windows application programming interface (API) that enables interaction between software objects, or executable code that implements one or more interfaces.[^fn1] Through COM, a client object can call methods of server objects, which are typically Dynamic Link Libraries (DLL) or executables (EXE).[^fn2] DCOM is transparent middleware that extends the functionality of Component Object Model (COM) [^fn2] beyond a local computer using remote procedure call (RPC) technology.[^fn1]
+
+Permissions to interact with local and remote server COM objects are specified by access control lists (ACL) in the Registry. [^fn3][^fn4][^fn5] By default, only Administrators may remotely activate and launch COM objects through DCOM.
+
+Adversaries may abuse COM for local command and/or payload execution. Various COM interfaces are exposed that can be abused to invoke arbitrary execution via a variety of programming languages such as C, C++, Java, and VBScript.[^fn2] Specific COM objects also exists to directly perform functions beyond code execution, such as creating a [Scheduled Task/Job](https://attack.mitre.org/techniques/T1053), fileless download/execution, and other adversary behaviors such as Privilege Escalation and Persistence.[^fn1][^fn6]
+
+Adversaries may use DCOM for lateral movement. Through DCOM, adversaries operating in the context of an appropriately privileged user can remotely obtain arbitrary and even direct shellcode execution through Office applications [^fn7] as well as other Windows objects that contain insecure methods.[^fn8][^fn9] DCOM can also execute macros in existing documents [^fn10] and may also invoke [Dynamic Data Exchange](https://attack.mitre.org/techniques/T1173) (DDE) execution directly through a COM created instance of a Microsoft Office application [^fn11], bypassing the need for a malicious document.
+
+
+# Platform(s)
+
+- Windows
+
+# Tactic(s)
+
+- [[../Tactics/11. Lateral Movement|Lateral Movement]]
+- [[../Tactics/4. Execution|Execution]]
+
+
+# External Reference(s)
+
+- [T1175](https://attack.mitre.org/techniques/T1175)
+
+[^fn1]: [Hamilton, C. (2019, June 4). Hunting COM Objects. Retrieved June 10, 2019.](https://www.fireeye.com/blog/threat-research/2019/06/hunting-com-objects.html)
+[^fn2]: [Microsoft. (n.d.). Component Object Model (COM). Retrieved November 22, 2017.](https://msdn.microsoft.com/library/windows/desktop/ms680573.aspx)
+[^fn3]: [Microsoft. (n.d.). DCOM Security Enhancements in Windows XP Service Pack 2 and Windows Server 2003 Service Pack 1. Retrieved November 22, 2017.](https://docs.microsoft.com/en-us/windows/desktop/com/dcom-security-enhancements-in-windows-xp-service-pack-2-and-windows-server-2003-service-pack-1)
+[^fn4]: [Microsoft. (n.d.). Setting Process-Wide Security Through the Registry. Retrieved November 21, 2017.](https://msdn.microsoft.com/en-us/library/windows/desktop/ms687317(v=vs.85).aspx)
+[^fn5]: [Microsoft. (n.d.). Registry Values for System-Wide Security. Retrieved November 21, 2017.](https://msdn.microsoft.com/en-us/library/windows/desktop/ms694331(v=vs.85).aspx)
+[^fn6]: [Forshaw, J. (2018, April 18). Windows Exploitation Tricks: Exploiting Arbitrary File Writes for Local Elevation of Privilege. Retrieved May 3, 2018.](https://googleprojectzero.blogspot.com/2018/04/windows-exploitation-tricks-exploiting.html)
+[^fn7]: [Nelson, M. (2017, November 16). Lateral Movement using Outlook's CreateObject Method and DotNetToJScript. Retrieved November 21, 2017.](https://enigma0x3.net/2017/11/16/lateral-movement-using-outlooks-createobject-method-and-dotnettojscript/)
+[^fn8]: [Nelson, M. (2017, January 5). Lateral Movement using the MMC20 Application COM Object. Retrieved November 21, 2017.](https://enigma0x3.net/2017/01/05/lateral-movement-using-the-mmc20-application-com-object/)
+[^fn9]: [Nelson, M. (2017, January 23). Lateral Movement via DCOM: Round 2. Retrieved November 21, 2017.](https://enigma0x3.net/2017/01/23/lateral-movement-via-dcom-round-2/)
+[^fn10]: [Nelson, M. (2017, September 11). Lateral Movement using Excel.Application and DCOM. Retrieved November 21, 2017.](https://enigma0x3.net/2017/09/11/lateral-movement-using-excel-application-and-dcom/)
+[^fn11]: [Tsukerman, P. (2017, November 8). Leveraging Excel DDE for lateral movement via DCOM. Retrieved November 21, 2017.](https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom)

