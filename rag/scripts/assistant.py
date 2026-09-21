@@ -18,23 +18,33 @@ CHROMA_HOST     = "localhost"
 CHROMA_PORT     = 8000
 EMBED_MODEL     = "BAAI/bge-small-en-v1.5"
 RERANK_MODEL    = "cross-encoder/ms-marco-MiniLM-L-6-v2"
-LLM_MODEL       = "llama3.2:3b"
+LLM_MODEL       = "llama3.1:8b"
 TOP_K           = 5
 CANDIDATES      = 25
 VAULT_BASE      = r"D:\GARUDA\obsidian_vault\MITRE_ATTACK"
 # ================================
 
 SYSTEM_PROMPT = """You are a LOTL (Living Off the Land) cybersecurity assistant.
-Answer ONLY using the provided context. If the context lacks the answer, say so.
 
-When the context contains Sigma rules with 'detection:' blocks, extract and list the
-exact detection conditions (field names, operators, values). Do not summarize.
+You will receive CONTEXT (chunks from a knowledge base) and a QUESTION.
+Use information FROM THE CONTEXT to answer. The context may include commands,
+detection logic, mitigations, and scenario descriptions.
+
+If a chunk contains commands, code blocks, or detection patterns, USE THEM in
+your answer. Do not skip them because they aren't in a specific format.
+
+Sections in context may be labeled 'Detection', 'Detection Logic', '## Detection Logic', 
+or simply appear as text with keywords like 'monitor', 'alert', 'flag', 'detect', 
+'YARA rule', 'Sigma rule'. Treat any of these as detection content.
+
+When the context contains Sigma rules with 'detection:' blocks, extract and list
+the exact detection conditions (field names, operators, values). Do not summarize.
 
 Structure every answer EXACTLY:
 **Summary:** One sentence.
-**Commands:** Command examples from context verbatim. If none: "Not in context."
-**Detection:** Specific indicators from context. If none: "Not in context."
-**Mitigation:** Specific restrictions from context. If none: "Not in context."
+**Commands:** Command examples extracted from context VERBATIM. If truly none: "Not in context."
+**Detection:** Specific indicators from context. If truly none: "Not in context."
+**Mitigation:** Specific restrictions from context. If truly none: "Not in context."
 
 For comparison queries ("vs", "versus", "compare", "difference between"):
 - Only cite command examples that appear in the context.
@@ -47,15 +57,11 @@ RULES:
 - NEVER give generic advice. Do NOT say "apply patches", "update software",
   "monitor suspicious activity", "restrict privileges", "use secure boot",
   "regular system scans", "implement security controls", "restrict access".
-  These are worthless for LOTL.
 - Only cite SPECIFIC restrictions from context (AppLocker rules, Sysmon Event IDs,
   specific GPO settings, specific registry paths).
 - If the context has no specific mitigations, say "No specific mitigation in context."
-- When the question contains "vs", "versus", "compare", or "difference between",
-  and two entities are named, produce a markdown table with rows for:
-  Summary, Command example, MITRE ID, Detection approach, Use case.
 - Cite sources with [Source: filename].
-- Keep answers under 250 words.
+- Keep answers under 300 words.
 """
 
 # ---------- Load malware & tool names dynamically ----------
@@ -249,8 +255,7 @@ def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDAT
         except Exception as e:
             print(f"   [ID filter failed: {e}]")
 
-    # Filename match for specific malware/tool names
-        # Filename match for specific malware/tool names (exact match)
+    # Filename match for specific malware/tool names (exact match)
     if entity and collection_name in ("malware", "tools"):
         try:
             results = coll.get(
@@ -267,7 +272,8 @@ def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDAT
             pass  # silent fallback to semantic search
 
     # Semantic search + rerank
-    results = coll.query(query_texts=[question], n_results=candidates)
+    n_fetch = max(candidates, 50) if collection_name == "campaigns" else candidates
+    results = coll.query(query_texts=[question], n_results=n_fetch)
     docs = results["documents"][0]
     metas = results["metadatas"][0]
 
@@ -289,9 +295,48 @@ def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDAT
         scored.append((score + bonus, doc, meta))
 
     scored.sort(key=lambda x: -x[0])
-    top = scored[:top_k]
-    return [t[1] for t in top], [t[2] for t in top]
 
+    # Dedupe by source — max 2 chunks per note
+    MAX_PER_SOURCE = 2
+    picked = []
+    per_source_count = {}
+    for score, doc, meta in scored:
+        src = meta.get("source", "?")
+        if per_source_count.get(src, 0) >= MAX_PER_SOURCE:
+            continue
+        picked.append((score, doc, meta))
+        per_source_count[src] = per_source_count.get(src, 0) + 1
+        if len(picked) >= top_k:
+            break
+
+    # For campaigns, force-include Detection/Mitigation chunks from top sources
+    if collection_name == "campaigns" and picked:
+        seen = {t[1] for t in picked}
+        top_sources = list({t[2].get("source") for t in picked})[:3]
+
+        for src in top_sources:
+            try:
+                extra = coll.get(
+                    where={"source": src},
+                    limit=15,
+                    include=["documents", "metadatas"],
+                )
+                for doc, meta in zip(extra["documents"], extra["metadatas"]):
+                    if doc in seen:
+                        continue
+                    if any(kw in doc for kw in [
+                        "## Detection", "## Mitigation",
+                        "Detection Logic", "Mitigation",
+                        "detection:", "mitigation:",
+                    ]):
+                        picked.append((0, doc, meta))
+                        seen.add(doc)
+            except Exception:
+                pass
+
+        picked = picked[:12]
+
+    return [t[1] for t in picked], [t[2] for t in picked]
 
 def ask_llm(question, context, collection_used):
     user_prompt = f"""Retrieved from collection '{collection_used}'.
@@ -335,7 +380,8 @@ def answer(question):
     print(f"📂 Collection: {collection}" + (f"  |  Entity: {entity}" if entity else ""))
     print("⏳ Retrieving...")
 
-    docs, metas = retrieve(question, collection, entity)
+    k = 8 if collection == "campaigns" else TOP_K
+    docs, metas = retrieve(question, collection, entity, top_k=k)
     if not docs:
         print("❌ No results found.")
         return
