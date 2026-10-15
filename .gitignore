@@ -42,6 +42,12 @@ rag/scripts_v3_gtfobins/
 rag/scripts_v2_working/
 rag/scripts/backup/
 
+*.pyc
+__pycache__/
+finetune_*.jsonl
+finetune_*.log
+report_*.json
+
 # ========== Secrets ==========
 *.pem
 id_ed25519*
@@ -52,3 +58,9 @@ id_ed25519*
 *.zip
 *.tar.gz
 sec-vault-gen/
+
+
+
+
+# Ignore Smart Environment folder
+.smart-env

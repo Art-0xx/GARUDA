@@ -1,0 +1,10 @@
+{
+  "id": "neural-graph",
+  "name": "Neural Graph 3D",
+  "version": "1.0.2",
+  "minAppVersion": "1.8.7",
+  "description": "Explore your vault as a 3D neural network: layered or core views, an expandable 3D explorer, a file-tree mode, and terminal-style color themes.",
+  "author": "Enrique García",
+  "authorUrl": "https://github.com/Enrique111-tech",
+  "isDesktopOnly": false
+}

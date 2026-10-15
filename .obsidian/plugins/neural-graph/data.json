@@ -1,0 +1,16 @@
+{
+  "view": "layers",
+  "mode": "full",
+  "rotateSpeed": 3,
+  "pulseSpeed": 3,
+  "nodeScale": 1,
+  "labels": "auto",
+  "pulses": true,
+  "background": "none",
+  "palette": "orange",
+  "scanlines": true,
+  "glow": true,
+  "followActive": true,
+  "openOnClick": false,
+  "hiddenLayers": []
+}

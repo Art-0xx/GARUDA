@@ -1,0 +1,14 @@
+{
+  "language": "auto",
+  "maxNodes": 0,
+  "liveSync": true,
+  "followActiveNote": false,
+  "followExcludedFiles": true,
+  "extraIgnoreFilters": [],
+  "miniOffered": true,
+  "engineStore": {
+    "orrery2.set": "{\"mmHop\":false,\"snd\":false,\"coreNote\":\"\",\"grid\":false,\"tab\":\"cosmos\",\"deckAt\":null,\"litV1\":1,\"adv\":false,\"legFold\":false,\"keysFold\":false,\"pin\":[\"spd\",\"bri\",\"lnk\",\"gap\",\"maxNodes\"],\"dock\":[],\"card\":null,\"spd\":0.1,\"bri\":1.11,\"lnk\":0.3,\"gap\":5,\"maxNodes\":0,\"arc\":0.6,\"ten\":0.7,\"bnd\":0.75,\"lwd\":0.6,\"spr\":3.2,\"sph\":1,\"szSun\":1.72,\"szSys\":0.98,\"szPl\":0.96,\"szMn\":0.57,\"briSun\":0.15,\"briSys\":0.3,\"briPl\":0.4,\"briMn\":5.08,\"str\":0,\"zod\":2,\"blm\":0.55,\"ray\":0.53,\"glare\":0.5,\"flr\":0.55,\"vei\":0,\"cur\":0.38,\"sVol\":0.55,\"sScale\":0,\"sDrone\":0.35,\"sRip\":0.5,\"spl\":0.26,\"len\":0.3,\"grn\":0.14,\"aex\":0.5,\"sTune\":0,\"sRoom\":7.5,\"sEcho\":0.36,\"sEchoT\":0.62,\"grv\":1.5,\"trl\":1,\"tlt\":0,\"det\":1,\"frs\":14,\"qAuto\":1}",
+    "orrery2.ignore": "[]",
+    "orrery2.intro": "1"
+  }
+}

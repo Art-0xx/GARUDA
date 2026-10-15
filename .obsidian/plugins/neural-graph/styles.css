@@ -1,0 +1,50 @@
+.nx4-root {
+  --nx-bg: var(--background-primary); --nx-panel: var(--background-secondary); --nx-fg: var(--text-normal);
+  --nx-muted: var(--text-muted); --nx-accent: var(--interactive-accent); --nx-border: var(--background-modifier-border);
+  --nx-font: var(--font-interface);
+}
+.nx4-root.nx4-pal-green {
+  --nx-bg: #000000; --nx-panel: #030d05; --nx-fg: #00ff41; --nx-muted: #0b8a2a; --nx-accent: #c8ffd4; --nx-border: #0b5a1e;
+  --nx-font: var(--font-monospace);
+}
+.nx4-root.nx4-pal-orange {
+  --nx-bg: #0a0600; --nx-panel: #140c02; --nx-fg: #ffb000; --nx-muted: #8a5a00; --nx-accent: #fff2c4; --nx-border: #5a3a00;
+  --nx-font: var(--font-monospace);
+}
+.nx4-root .nx4-hidden { display: none; }
+.view-content.nx4-root { padding: 0; }
+.nx4-root { position: relative; overflow: hidden; background: var(--nx-bg); outline: none; font-family: var(--nx-font); }
+.nx4-canvas { display: block; width: var(--nx4-w); height: var(--nx4-h); cursor: grab; touch-action: none; }
+.nx4-canvas.dragging { cursor: grabbing; }
+.nx4-canvas.pointing { cursor: crosshair; }
+
+.nx4-tools { position: absolute; top: 12px; right: 12px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; max-width: 60%; }
+.nx4-root .nx4-input, .nx4-root .nx4-btn, .nx4-root .nx4-chip {
+  background: var(--nx-bg); color: var(--nx-fg); border: 1px solid var(--nx-border); font-family: var(--nx-font);
+  border-radius: 4px; box-shadow: none; font-size: var(--font-ui-smaller); height: auto; padding: 4px 10px;
+}
+.nx4-root .nx4-input { width: 180px; }
+.nx4-root select.nx4-input { width: auto; }
+.nx4-root .nx4-input::placeholder { color: var(--nx-muted); }
+.nx4-root .nx4-btn:hover, .nx4-root .nx4-chip:hover { border-color: var(--nx-fg); background: var(--nx-bg); }
+
+.nx4-legend { position: absolute; left: 12px; top: 12px; display: flex; flex-wrap: wrap; gap: 6px; max-width: 38%; }
+.nx4-root .nx4-chip.off { opacity: .4; text-decoration: line-through; }
+
+.nx4-stats, .nx4-hint { position: absolute; bottom: 10px; font-size: var(--font-ui-smaller); pointer-events: none; }
+.nx4-stats { left: 12px; color: var(--nx-fg); font-family: var(--font-monospace); }
+.nx4-hint { right: 12px; color: var(--nx-muted); }
+
+
+.nx4-panel { position: absolute; top: 60px; right: 12px; width: min(300px, calc(100% - 24px)); max-height: calc(100% - 110px); overflow: auto; display: none;
+  background: var(--nx-panel); color: var(--nx-fg); border: 1px solid var(--nx-border); border-radius: 6px; padding: 14px; }
+.nx4-panel.open { display: block; }
+.nx4-panel h3 { margin: 0 0 2px; padding-right: 20px; font-size: var(--font-ui-large); }
+.nx4-root .nx4-close { position: absolute; top: 6px; right: 6px; background: none; box-shadow: none; border: 0; color: var(--nx-muted); font-size: 18px; padding: 2px 6px; height: auto; }
+.nx4-dim { color: var(--nx-muted); font-size: var(--font-ui-smaller); margin-top: 4px; }
+.nx4-summary { font-size: var(--font-ui-small); line-height: 1.5; margin: 10px 0; }
+.nx4-root .nx4-open { width: 100%; margin: 12px 0 8px; border-color: var(--nx-accent); }
+.nx4-nbs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.nx4-root .nx4-btn:disabled { opacity: .4; cursor: default; }
+.nx4-panel h3 { color: var(--nx-fg); }
+.nx4-tools { max-width: 75%; }

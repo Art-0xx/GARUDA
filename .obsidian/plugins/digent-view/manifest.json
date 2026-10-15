@@ -1,0 +1,9 @@
+{
+  "id": "digent-view",
+  "name": "Digent View",
+  "version": "0.6.1",
+  "minAppVersion": "1.8.7",
+  "description": "你的笔记库，就是一颗数智体（Digent）的大脑。Your notes. A Digent's brain. 3D Brain. VR/AR Noda Quest3，Digent DNA",
+  "author": "YanghuaDigent",
+  "isDesktopOnly": false
+}

@@ -1,0 +1,29 @@
+{
+  "projectTag": "project",
+  "showLabels": true,
+  "enableShadows": true,
+  "maxBuildings": 300,
+  "blockPositions": [],
+  "enableShaders": true,
+  "enableBloom": true,
+  "bloomIntensity": 0.8,
+  "enableAtmosphere": true,
+  "enableGitActivity": true,
+  "buildingStyle": "parametric",
+  "agentName": "Claude Code",
+  "agentCommand": "claude",
+  "vaultMode": false,
+  "interactionHintShown": true,
+  "savedLenses": [],
+  "viewLocation": "tab",
+  "agentFeaturesConsent": "granted",
+  "outputFolder": "",
+  "buildingStyleMigrated": false,
+  "graphicsQuality": "auto",
+  "hudCollapsed": {
+    "agents": false,
+    "command": false,
+    "inspector": false
+  },
+  "layoutVersion": 2
+}

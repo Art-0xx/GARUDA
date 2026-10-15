@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GARUDA — Local Cybersecurity Assistant</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/static/garuda-logo-white.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/garuda-logo-white.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/garuda-logo-white.png">
+
+<style>
+:root{
+  --bg:#000;--panel:#0a0a0a;--panel2:#121212;--card:#181818;--card2:#1f1f1f;
+  --blt:#222;--blt2:#2e2e2e;--blt3:#3a3a3a;
+  --fg:#fff;--fgd:#a0a0a0;--fgf:#606060;
+  --danger:#ff7070;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --display:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);color:var(--fg);font-family:var(--display);font-size:14px;-webkit-font-smoothing:antialiased}
+
+#bgParticles{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.85}
+.bg-video{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity .8s ease;
+}
+.bg-video.ready{opacity:.7}
+.bg-gradient{
+  position:fixed;inset:0;z-index:2;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 50% -10%,rgba(70,70,70,.08) 0%,transparent 60%),
+    linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 60%,rgba(0,0,0,.4) 100%);
+}
+
+.app{display:flex;height:100vh;width:100vw;position:relative;z-index:10}
+
+.sidebar-left{
+  width:320px;flex-shrink:0;
+  background:rgba(10,10,10,.82);
+  backdrop-filter:blur(18px);
+  border-right:1px solid var(--blt);
+  display:flex;flex-direction:column;
+  padding:0;gap:0;overflow:hidden;
+  transition:width .28s ease,margin-left .28s ease;
+  margin-left:0;
+}
+.sidebar-left.collapsed{width:0;margin-left:-320px;border-right:0}
+
+.sidebar-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 20px 18px 18px;gap:12px;flex-shrink:0;
+}
+.sidebar-brand{display:flex;align-items:center;gap:14px;min-width:0;flex:1}
+
+/* ==== SIDEBAR LOGO — white version on dark chip ==== */
+.sidebar-logo{
+  width:52px;height:52px;flex-shrink:0;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(20,20,20,.6);
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 24px rgba(255,255,255,.08),inset 0 1px rgba(255,255,255,.05);
+  overflow:hidden;
+  padding:5px;
+  transition:transform .2s ease;
+}
+.sidebar-logo:hover{transform:scale(1.05)}
+.sidebar-logo .logo-img{
+  width:100%;height:100%;
+  object-fit:contain;
+  filter: brightness(1.15) contrast(1.05);
+}
+.sidebar-logo .logo-svg-fallback{display:none;width:28px;height:28px}
+
+.sidebar-brand-text{display:flex;flex-direction:column;min-width:0;gap:3px}
+.sidebar-brand-title{
+  font-family:var(--mono);font-size:18px;letter-spacing:4px;font-weight:700;
+  white-space:nowrap;
+}
+.sidebar-brand-sub{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;
+  color:var(--fgf);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.sidebar-collapse{
+  width:34px;height:34px;flex-shrink:0;
+  border:1px solid var(--blt);background:var(--panel2);
+  color:var(--fgd);cursor:pointer;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;font-size:15px;
+  transition:all .15s;font-family:var(--display);
+}
+.sidebar-collapse:hover{background:var(--card);color:var(--fg);border-color:var(--blt2)}
+
+.sidebar-body{
+  flex:1;overflow:hidden;display:flex;flex-direction:column;
+  padding:0 14px 14px 14px;gap:12px;
+}
+.sidebar-scroll{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding-right:2px}
+
+.new-chat-btn{
+  background:#fff;color:#000;border:0;border-radius:11px;
+  font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.4px;
+  padding:14px 16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:opacity .15s;flex-shrink:0;
+}
+.new-chat-btn:hover{opacity:.85}
+.new-chat-btn .plus{font-size:16px;line-height:1}
+
+.section-label{
+  font-family:var(--mono);font-size:10px;color:var(--fgf);
+  letter-spacing:2.5px;font-weight:700;margin:6px 0;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.shuffle-btn{
+  background:none;border:none;color:var(--fgf);cursor:pointer;
+  font-size:15px;padding:2px 6px;font-family:var(--mono);
+  transition:transform .3s,color .15s;
+}
+.shuffle-btn:hover{color:var(--fg);transform:rotate(180deg)}
+
+.conv-item{
+  position:relative;padding:11px 36px 11px 12px;
+  background:transparent;border:1px solid transparent;border-radius:9px;
+  color:var(--fgd);font-size:13.5px;cursor:pointer;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  display:block;width:100%;text-align:left;transition:all .13s;
+}
+.conv-item .conv-title{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.conv-item:hover{background:var(--panel2);color:var(--fg);border-color:var(--blt)}
+.conv-item.active{background:var(--card);color:var(--fg);border-color:var(--blt2)}
+.conv-delete{
+  position:absolute;top:50%;right:8px;transform:translateY(-50%);
+  width:24px;height:24px;border:0;background:transparent;
+  color:var(--fgf);cursor:pointer;border-radius:6px;
+  display:none;align-items:center;justify-content:center;
+  font-size:16px;font-family:var(--mono);line-height:1;
+}
+.conv-item:hover .conv-delete{display:flex}
+.conv-delete:hover{background:rgba(255,112,112,.15);color:var(--danger)}
+
+.sug-prompt-btn{
+  padding:10px 12px;background:rgba(255,255,255,.02);border:1px solid var(--blt);
+  border-radius:8px;color:var(--fgd);font-size:12.5px;cursor:pointer;
+  margin-bottom:5px;white-space:normal;line-height:1.45;
+  display:block;transition:all .13s;text-align:left;width:100%;
+}
+.sug-prompt-btn:hover{background:var(--panel2);color:var(--fg);border-color:var(--blt2)}
+.sug-group-title{
+  font-family:var(--mono);font-size:10px;color:var(--fgf);
+  margin:10px 0 6px;letter-spacing:1.5px;font-weight:700;
+  padding-bottom:4px;border-bottom:1px solid var(--blt);
+}
+
+.sidebar-reopen{
+  position:fixed;top:20px;left:20px;z-index:200;
+  width:42px;height:42px;
+  border:1px solid var(--blt2);background:rgba(10,10,10,.92);
+  backdrop-filter:blur(12px);border-radius:11px;
+  color:var(--fg);cursor:pointer;
+  display:none;align-items:center;justify-content:center;font-size:18px;
+  transition:all .15s;font-family:var(--display);
+  box-shadow:0 8px 24px rgba(0,0,0,.5);
+}
+.sidebar-reopen.show{display:flex}
+.sidebar-reopen:hover{background:var(--card)}
+
+.center-pane{
+  flex:1;display:flex;flex-direction:column;position:relative;
+  overflow:hidden;min-width:0;background:transparent;
+}
+.chat-scroll{
+  flex:1;overflow-y:auto;
+  padding:40px 60px 200px;
+  scroll-behavior:smooth;will-change:scroll-position;
+}
+.chat-container{
+  max-width:1050px;margin:0 auto;
+  display:flex;flex-direction:column;gap:28px;
+}
+.chat-title{
+  display:flex;align-items:center;gap:18px;
+  padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:10px;
+}
+/* ==== CHAT TITLE LOGO — white version on dark chip ==== */
+.chat-title-icon{
+  width:56px;height:56px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(20,20,20,.5);backdrop-filter:blur(8px);
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  box-shadow:0 0 32px rgba(255,255,255,.08),inset 0 1px rgba(255,255,255,.05);
+  overflow:hidden;
+  padding:6px;
+}
+.chat-title-icon .logo-img{
+  width:100%;height:100%;
+  object-fit:contain;
+  filter: brightness(1.15) contrast(1.05);
+}
+.chat-title-icon .logo-svg-fallback{display:none;width:32px;height:32px}
+.chat-title-text{font-family:var(--mono);font-size:15px;letter-spacing:2.5px;font-weight:700}
+.chat-title-sub{font-size:13px;color:var(--fgd);margin-top:7px;line-height:1.6;max-width:720px}
+
+.msg{display:flex;gap:16px;animation:fadeIn .25s ease;position:relative;width:100%}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.msg.user{flex-direction:row-reverse}
+.msg-avatar{
+  width:34px;height:34px;border:1px solid rgba(255,255,255,.15);border-radius:10px;
+  background:rgba(20,20,20,.5);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:10.5px;font-weight:700;color:var(--fgd);
+  flex-shrink:0;margin-top:2px;
+  overflow:hidden;
+}
+/* ==== ASSISTANT AVATAR — white bg, dark logo ==== */
+.msg.assistant .msg-avatar{background:#fff;color:#000;border-color:#fff;padding:3px}
+.msg.assistant .msg-avatar .logo-img{
+  width:100%;height:100%;
+  object-fit:contain;
+}
+.msg.assistant .msg-avatar .logo-svg-fallback{display:none;width:22px;height:22px}
+.msg-body{flex:1;min-width:0;max-width:100%}
+.msg.user .msg-body{display:flex;flex-direction:column;align-items:flex-end}
+
+.msg.user .msg-content{
+  background:rgba(50,50,50,.4);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px 16px 4px 16px;padding:13px 20px;
+  color:var(--fg);font-size:14.5px;line-height:1.65;
+  display:inline-block;max-width:680px;
+}
+.msg.assistant .msg-content{
+  background:rgba(0,0,0,.2);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px 16px 16px 4px;
+  padding:22px 26px;line-height:1.8;font-size:14.5px;color:var(--fg);
+  box-shadow:0 8px 32px rgba(0,0,0,.25);
+}
+.msg.assistant .msg-content.refusal{
+  background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.1);
+  border-left:3px solid var(--fgf);padding:18px 24px;
+  color:var(--fgd);font-size:13.5px;line-height:1.75;
+}
+
+.msg-content h2{
+  font-size:13px;color:var(--fg);margin:24px 0 14px;
+  padding:9px 0 9px 16px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.7px;
+  border-left:3px solid #fff;
+  background:linear-gradient(90deg,rgba(255,255,255,.06),transparent 70%);
+  display:block;line-height:1.3;
+}
+.msg-content h2:first-child{margin-top:0}
+.msg-content h3{
+  font-size:14px;color:var(--fg);margin:22px 0 10px;
+  font-weight:700;letter-spacing:.3px;
+  display:flex;align-items:center;gap:8px;line-height:1.35;
+}
+.msg-content h3:first-child{margin-top:0}
+.msg-content h3::before{content:"›";color:var(--fgf);font-family:var(--mono);font-weight:700;flex-shrink:0}
+.msg-content p{margin:13px 0;color:#e8e8e8;line-height:1.8}
+.msg-content p:first-child{margin-top:0}
+.msg-content p:last-child{margin-bottom:0}
+.msg-content ul,.msg-content ol{margin:13px 0;padding-left:28px;list-style-position:outside}
+.msg-content li{margin:9px 0;color:#e8e8e8;line-height:1.75}
+.msg-content li::marker{color:var(--fgd)}
+.msg-content strong{color:var(--fg);font-weight:700}
+.msg-content em{color:var(--fgd);font-style:italic}
+.msg-content code{
+  background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.1);border-radius:5px;
+  color:#fff;padding:2px 8px;font-family:var(--mono);font-size:13px;
+}
+.msg-content pre{
+  background:rgba(5,5,5,.65);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.08);border-left:3px solid #fff;
+  border-radius:8px;padding:15px 20px 15px 34px;overflow-x:auto;
+  margin:16px 0;font-family:var(--mono);font-size:13px;
+  color:#fff;line-height:1.65;position:relative;
+}
+.msg-content pre::before{
+  content:"$";position:absolute;left:12px;top:16px;
+  color:var(--fgf);font-size:13px;
+}
+.msg-content pre code{background:none;border:none;padding:0;color:inherit;display:block}
+.msg-content a{color:#fff;text-decoration:none;border-bottom:1px solid var(--blt3);transition:border-color .15s}
+.msg-content a:hover{border-bottom-color:#fff}
+.msg-content hr{border:0;border-top:1px solid var(--blt);margin:22px 0}
+.msg-content blockquote{
+  border-left:3px solid var(--blt3);padding:6px 16px;margin:14px 0;
+  color:var(--fgd);font-style:italic;
+}
+
+.sources-block{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.06)}
+.sources-label{
+  font-family:var(--mono);font-size:10px;color:var(--fgf);
+  letter-spacing:1.5px;font-weight:700;margin-bottom:14px;
+  text-transform:uppercase;display:flex;align-items:center;gap:10px;
+}
+.sources-label::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.06)}
+.sources-list{display:flex;flex-wrap:wrap;gap:9px}
+.source-chip{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(20,20,20,.55);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.1);border-radius:9px;
+  padding:8px 13px 8px 8px;font-size:12.5px;color:var(--fgd);
+  cursor:pointer;transition:all .13s;max-width:100%;
+}
+.source-chip:hover{background:rgba(40,40,40,.7);border-color:rgba(255,255,255,.2);color:var(--fg)}
+.source-chip .num{
+  background:#fff;color:#000;font-family:var(--mono);font-size:10px;
+  font-weight:700;width:20px;height:20px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.source-chip .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px}
+.source-chip .path{
+  color:var(--fgf);font-family:var(--mono);font-size:10.5px;
+  padding-left:8px;border-left:1px solid rgba(255,255,255,.1);margin-left:3px;
+}
+
+.chat-actions{
+  display:flex;justify-content:flex-start;gap:6px;
+  margin-top:14px;margin-left:50px;padding:0;opacity:.6;transition:opacity .2s;
+}
+.chat-actions:hover{opacity:1}
+.chat-action-btn{
+  padding:5px 10px;background:rgba(20,20,20,.55);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.08);border-radius:6px;
+  font-family:var(--display);font-size:11px;font-weight:600;color:var(--fgd);
+  cursor:pointer;display:inline-flex;align-items:center;gap:5px;
+  letter-spacing:.2px;transition:all .15s;
+}
+.chat-action-btn:hover{
+  background:rgba(40,40,40,.8);color:var(--fg);border-color:rgba(255,255,255,.2);
+}
+.chat-action-btn .ico{font-family:var(--mono);font-size:11px;line-height:1}
+.chat-action-btn.flash{background:#fff;color:#000;border-color:#fff}
+
+.input-dock{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.7) 100%);
+  padding:24px 60px 28px;
+  display:flex;flex-direction:column;gap:8px;
+  pointer-events:none;z-index:5;
+}
+.input-dock *{pointer-events:auto}
+.input-box-row{
+  max-width:1050px;width:100%;margin:0 auto;
+  display:flex;gap:12px;align-items:flex-end;
+}
+textarea{
+  flex:1;background:rgba(20,20,20,.55);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.1);border-radius:15px;
+  color:var(--fg);padding:15px 20px;
+  font-family:var(--display);font-size:14.5px;
+  resize:none;outline:none;min-height:56px;max-height:200px;
+  transition:border-color .15s,box-shadow .15s;
+  box-shadow:0 10px 32px rgba(0,0,0,.3);
+}
+textarea:focus{
+  border-color:rgba(255,255,255,.25);
+  box-shadow:0 10px 32px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.1);
+}
+textarea::placeholder{color:var(--fgf)}
+.send-btn{
+  width:56px;height:56px;flex-shrink:0;
+  background:#fff;color:#000;border:0;border-radius:15px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:opacity .15s,transform .15s;
+}
+.send-btn:hover{opacity:.85}
+.send-btn:disabled{opacity:.3;cursor:not-allowed}
+.send-btn svg{width:24px;height:24px}
+.input-hint{
+  max-width:1050px;margin:2px auto 0;font-size:11px;
+  color:var(--fgf);font-family:var(--mono);
+  display:flex;justify-content:space-between;gap:14px;
+}
+
+.graph-loader-overlay{
+  position:fixed;inset:0;background:#000;z-index:9999;
+  display:none;opacity:0;transition:opacity .18s ease;
+}
+.graph-loader-overlay.active{display:block;opacity:1}
+.graph-loader-overlay.fading{opacity:0;pointer-events:none}
+#particleCanvas{width:100%;height:100%;display:block;position:absolute;inset:0}
+
+.loader-hud{
+  position:absolute;background:rgba(0,0,0,.75);
+  border:1px solid rgba(255,255,255,.2);border-radius:6px;
+  padding:12px 16px;font-size:10.5px;color:rgba(255,255,255,.75);
+  line-height:1.8;z-index:2;font-family:var(--mono);letter-spacing:.5px;
+  backdrop-filter:blur(6px);
+}
+.loader-hud b{color:#fff;font-weight:600}
+.loader-hud-top{
+  top:24px;left:50%;transform:translateX(-50%);
+  padding:10px 22px;font-family:var(--mono);font-size:10px;
+  letter-spacing:3px;color:#fff;font-weight:600;text-transform:uppercase;
+}
+.loader-hud-top::before{content:"[ ";color:rgba(255,255,255,.4)}
+.loader-hud-top::after{content:" ]";color:rgba(255,255,255,.4)}
+.loader-hud-bottom{
+  bottom:28px;left:50%;transform:translateX(-50%);
+  padding:12px 26px;font-family:var(--mono);font-size:11px;
+  letter-spacing:1.5px;color:#fff;text-align:center;
+}
+.loader-hud-bottom span{
+  color:rgba(255,255,255,.5);font-size:10px;
+  font-weight:400;margin-left:12px;
+}
+.loader-hud-right{
+  position:absolute;top:24px;right:24px;
+  max-width:360px;max-height:70vh;overflow-y:auto;
+  background:rgba(0,0,0,.75);
+}
+.loader-hud-right .retrieved-title{
+  color:#fff;font-weight:700;font-size:11px;letter-spacing:1.5px;
+  text-transform:uppercase;margin-bottom:8px;padding-bottom:6px;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+.loader-hud-right .seed-label{
+  color:#fff;font-size:11px;
+  display:block;margin-top:8px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  padding-left:16px;position:relative;font-family:var(--mono);
+  opacity:0;
+  animation:seedFadeIn .35s ease forwards;
+}
+.loader-hud-right .seed-label::before{
+  content:"●";position:absolute;left:0;color:#fff;
+  text-shadow:0 0 6px rgba(255,255,255,.9);
+}
+@keyframes seedFadeIn{
+  from{opacity:0;transform:translateX(-6px);}
+  to{opacity:1;transform:translateX(0);}
+}
+
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:9px}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.3)}
+
+@media(max-width:900px){
+  .sidebar-left{position:absolute;z-index:100;height:100%;width:300px}
+  .sidebar-left.collapsed{margin-left:-300px}
+  .chat-scroll{padding:24px 20px 180px}
+  .input-dock{padding:16px 20px 20px}
+  .msg.user .msg-content{max-width:85%}
+}
+</style>
+</head>
+<body>
+
+<canvas id="bgParticles"></canvas>
+<video class="bg-video" id="bgVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture aria-hidden="true">
+  <source src="/static/background.mp4" type="video/mp4">
+  <source src="/static/background.webm" type="video/webm">
+</video>
+<div class="bg-gradient"></div>
+
+<button class="sidebar-reopen" id="sidebarReopen" onclick="toggleSidebar()" title="Open sidebar">☰</button>
+
+<div class="app">
+  <aside class="sidebar-left" id="sidebarLeft">
+    <div class="sidebar-header">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo">
+          <img src="/static/garuda-logo-white.png" alt="GARUDA" class="logo-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+          <svg class="logo-svg-fallback" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="garudaGradSidebar" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#8a8a8a"/>
+              </linearGradient>
+            </defs>
+            <path d="M10 32 L32 14 L48 20 L42 26 L56 30 L44 36 L46 44 L28 46 L14 40 Z"
+                  fill="url(#garudaGradSidebar)"/>
+            <circle cx="36" cy="26" r="2.5" fill="#000"/>
+            <path d="M14 40 L28 44 L22 54 L14 46 Z" fill="#fff" opacity="0.45"/>
+          </svg>
+        </div>
+        <div class="sidebar-brand-text">
+          <span class="sidebar-brand-title">GARUDA</span>
+          <span class="sidebar-brand-sub">LOCAL CYBERSECURITY ASSISTANT</span>
+        </div>
+      </div>
+      <button class="sidebar-collapse" onclick="toggleSidebar()" title="Collapse sidebar">☰</button>
+    </div>
+
+    <div class="sidebar-body">
+      <button class="new-chat-btn" onclick="newChat()">
+        <span class="plus">+</span> New Chat
+      </button>
+
+      <div class="sidebar-scroll">
+        <div>
+          <div class="section-label">RECENT</div>
+          <div id="convList"></div>
+        </div>
+        <div>
+          <div class="section-label">
+            <span>TRY ASKING</span>
+            <button class="shuffle-btn" onclick="shuffleSuggestions()" title="Shuffle">⟳</button>
+          </div>
+          <div id="suggestionsList"></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="center-pane">
+    <div class="chat-scroll" id="chatScroll">
+      <div class="chat-container" id="chatContent"></div>
+    </div>
+
+    <div class="input-dock">
+      <div class="input-box-row">
+        <textarea id="input" rows="1" placeholder="Ask about LOTL techniques, LOLBins, detection rules..."></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="Send (Enter)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"/>
+            <polyline points="5 12 12 5 19 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="input-hint">
+        <span>Enter to send · Shift+Enter for newline</span>
+        <span>GARUDA · local</span>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="graph-loader-overlay" id="graphLoader">
+  <canvas id="particleCanvas"></canvas>
+  <div class="loader-hud loader-hud-top" id="loaderStats">SEARCHING</div>
+  <div class="loader-hud loader-hud-right" id="loaderRightHud">
+    <div class="retrieved-title">RETRIEVED <b id="hudSeeds">0</b></div>
+    <div id="hudSeedList"></div>
+  </div>
+  <div class="loader-hud loader-hud-bottom" id="loaderStatus">
+    THINKING <span id="loaderDetail">searching knowledge base...</span>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+var conversations = {};
+try { conversations = JSON.parse(localStorage.getItem('garuda_convs') || '{}'); } catch(e) { conversations = {}; }
+var currentId = null;
+var isStreaming = false;
+var suggestPool = {};
+var GROUPS_TO_SHOW = 3;
+var PER_GROUP = 4;
+
+/* =====================================================================
+   LOGO HELPERS — white version for dark bg, dark version for white bg
+   ===================================================================== */
+function garudaLogoWhite() {
+  return '<img src="/static/garuda-logo-white.png" alt="GARUDA" class="logo-img" ' +
+         'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\';">' +
+         '<svg class="logo-svg-fallback" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+         '<defs><linearGradient id="gLogoSidebar" x1="0" y1="0" x2="1" y2="1">' +
+         '<stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#8a8a8a"/>' +
+         '</linearGradient></defs>' +
+         '<path d="M10 32 L32 14 L48 20 L42 26 L56 30 L44 36 L46 44 L28 46 L14 40 Z" fill="url(#gLogoSidebar)"/>' +
+         '<circle cx="36" cy="26" r="2.5" fill="#000"/>' +
+         '<path d="M14 40 L28 44 L22 54 L14 46 Z" fill="#fff" opacity="0.45"/>' +
+         '</svg>';
+}
+
+function garudaLogoDark() {
+  return '<img src="/static/garuda-logo-dark.png" alt="GARUDA" class="logo-img" ' +
+         'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\';">' +
+         '<svg class="logo-svg-fallback" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+         '<defs><linearGradient id="gLogoAvatar" x1="0" y1="0" x2="1" y2="1">' +
+         '<stop offset="0" stop-color="#1a1a1a"/><stop offset="1" stop-color="#555"/>' +
+         '</linearGradient></defs>' +
+         '<path d="M10 32 L32 14 L48 20 L42 26 L56 30 L44 36 L46 44 L28 46 L14 40 Z" fill="url(#gLogoAvatar)"/>' +
+         '<circle cx="36" cy="26" r="2.5" fill="#fff"/>' +
+         '<path d="M14 40 L28 44 L22 54 L14 46 Z" fill="#1a1a1a" opacity="0.5"/>' +
+         '</svg>';
+}
+
+/* =====================================================================
+   BOOT
+   ===================================================================== */
+function boot() {
+  var inp = document.getElementById('input');
+  if (inp) {
+    inp.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+    });
+    inp.addEventListener('input', function(){
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 200) + 'px';
+    });
+  }
+  initVideo();
+  initBackground();
+  initParticleLoader();
+  checkHealth();
+  loadSuggestions();
+  loadGraph();
+  if (!Object.keys(conversations).length) newChat();
+  else {
+    renderConvList();
+    var ids = Object.keys(conversations);
+    loadChat(ids[ids.length - 1]);
+  }
+  if (inp) inp.focus();
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+else boot();
+
+function setText(id, txt) { var el = document.getElementById(id); if (el) el.textContent = txt; }
+
+/* =====================================================================
+   VIDEO
+   ===================================================================== */
+function initVideo() {
+  var v = document.getElementById('bgVideo');
+  if (!v) return;
+  v.muted = true; v.defaultMuted = true; v.playsInline = true;
+  v.setAttribute('muted','');
+  v.setAttribute('playsinline','');
+  v.setAttribute('webkit-playsinline','');
+  var p = v.play(); if (p && p.catch) p.catch(function(){});
+  v.addEventListener('loadeddata', function(){
+    v.classList.add('ready');
+    var pc = document.getElementById('bgParticles');
+    if (pc) pc.style.opacity = '0.15';
+    if (v.paused) v.play().catch(function(){});
+  });
+  v.addEventListener('error', function(){ v.style.display = 'none'; });
+  var retry = function(){ if (v.style.display !== 'none' && v.paused) v.play().catch(function(){}); };
+  document.addEventListener('click', retry, { once: true });
+  document.addEventListener('keydown', retry, { once: true });
+}
+
+/* =====================================================================
+   SIDEBAR
+   ===================================================================== */
+function toggleSidebar() {
+  var sb = document.getElementById('sidebarLeft');
+  var reopen = document.getElementById('sidebarReopen');
+  if (!sb) return;
+  sb.classList.toggle('collapsed');
+  if (reopen) {
+    if (sb.classList.contains('collapsed')) reopen.classList.add('show');
+    else reopen.classList.remove('show');
+  }
+}
+
+/* =====================================================================
+   BACKGROUND GRAPH
+   ===================================================================== */
+var BG = {
+  canvas: null, ctx: null, W: 0, H: 0, dpr: 1,
+  nodes: [], edges: [], loaded: false,
+  yaw: 0, tilt: 0, time: 0, last: 0,
+  running: true
+};
+
+function initBackground() {
+  BG.canvas = document.getElementById('bgParticles');
+  if (!BG.canvas) return;
+  BG.ctx = BG.canvas.getContext('2d');
+  BG.dpr = Math.min(window.devicePixelRatio || 1, 2);
+  resizeBG();
+  window.addEventListener('resize', resizeBG);
+  BG.last = performance.now();
+  bgLoop();
+}
+
+function resizeBG() {
+  if (!BG.canvas) return;
+  var w = window.innerWidth, h = window.innerHeight;
+  BG.W = w; BG.H = h;
+  BG.canvas.width = w * BG.dpr;
+  BG.canvas.height = h * BG.dpr;
+  BG.canvas.style.width = w + 'px';
+  BG.canvas.style.height = h + 'px';
+  BG.ctx.setTransform(BG.dpr, 0, 0, BG.dpr, 0, 0);
+}
+
+function buildBackgroundGraph(g) {
+  var rawNodes = g.nodes;
+  var rawEdges = g.edges || g.links || [];
+  var N = rawNodes.length;
+
+  var target = 600;
+  var step = Math.max(1, Math.ceil(N / target));
+  var picked = [];
+  var idxMap = {};
+  for (var i = 0; i < N; i += step) {
+    idxMap[rawNodes[i].id] = picked.length;
+    picked.push(rawNodes[i]);
+  }
+
+  var golden = Math.PI * (3 - Math.sqrt(5));
+  BG.nodes = new Array(picked.length);
+  for (var k = 0; k < picked.length; k++) {
+    var n = picked[k];
+    var yy = 1 - (k / Math.max(picked.length - 1, 1)) * 2;
+    var rr = Math.sqrt(Math.max(0, 1 - yy * yy));
+    var theta = golden * k;
+    var rad = 0.55 + Math.random() * 0.55;
+    var gray = 130 + Math.floor(Math.random() * 125);
+    BG.nodes[k] = {
+      id: n.id,
+      gray: gray,
+      x: Math.cos(theta) * rr * rad,
+      y: yy * rad,
+      z: Math.sin(theta) * rr * rad,
+      r: 0.9 + Math.random() * 1.6,
+      phase: Math.random() * Math.PI * 2
+    };
+  }
+
+  BG.edges = [];
+  var edgeLimit = Math.min(rawEdges.length, 5000);
+  for (var ei = 0; ei < edgeLimit; ei++) {
+    var e = rawEdges[ei];
+    var a = idxMap[e.source];
+    var b = idxMap[e.target];
+    if (a === undefined || b === undefined || a === b) continue;
+    BG.edges.push({ a: a, b: b });
+  }
+
+  BG.loaded = true;
+  console.log('[BG] nodes:', BG.nodes.length, 'edges:', BG.edges.length);
+}
+
+function bgLoop() {
+  requestAnimationFrame(bgLoop);
+  if (!BG.canvas || !BG.ctx || !BG.running) return;
+  var now = performance.now();
+  var dt = Math.min((now - BG.last) / 1000, 0.05);
+  BG.last = now;
+  BG.time += dt;
+
+  BG.yaw += dt * 0.12;
+  BG.tilt = Math.sin(BG.time * 0.08) * 0.28;
+
+  var ctx = BG.ctx, W = BG.W, H = BG.H;
+  var cx = W / 2, cy = H / 2;
+  var R = Math.min(W, H) * 0.55;
+  var focal = R * 2.8;
+
+  ctx.clearRect(0, 0, W, H);
+
+  if (!BG.loaded || !BG.nodes.length) return;
+
+  var cy_ = Math.cos(BG.yaw), sy_ = Math.sin(BG.yaw);
+  var ct = Math.cos(BG.tilt), st = Math.sin(BG.tilt);
+
+  var proj = new Array(BG.nodes.length);
+  for (var j = 0; j < BG.nodes.length; j++) {
+    var n = BG.nodes[j];
+    var bx = n.x * cy_ - n.z * sy_;
+    var bz = n.x * sy_ + n.z * cy_;
+    var by = n.y * ct - bz * st;
+    var bz2 = n.y * st + bz * ct;
+
+    var scale = focal / (focal + bz2 * R);
+    var depth = (1 - bz2 * 0.5) * 0.5 + 0.5;
+    var breathe = 0.9 + 0.1 * Math.sin(BG.time * 1.4 + n.phase);
+    proj[j] = {
+      x: cx + bx * R * scale,
+      y: cy + by * R * scale,
+      depth: depth,
+      r: n.r * scale * breathe,
+      gray: n.gray
+    };
+  }
+
+  for (var ei = 0; ei < BG.edges.length; ei++) {
+    var e = BG.edges[ei];
+    var pa = proj[e.a], pb = proj[e.b];
+    if (!pa || !pb) continue;
+    var avgDepth = (pa.depth + pb.depth) * 0.5;
+    var edgeAlpha = 0.015 + avgDepth * avgDepth * 0.22;
+    var g = Math.round((pa.gray + pb.gray) / 2);
+    ctx.strokeStyle = 'rgba(' + g + ',' + g + ',' + g + ',' + edgeAlpha.toFixed(3) + ')';
+    ctx.lineWidth = 0.4 + avgDepth * 0.5;
+    ctx.beginPath();
+    ctx.moveTo(pa.x, pa.y);
+    ctx.lineTo(pb.x, pb.y);
+    ctx.stroke();
+  }
+
+  ctx.globalCompositeOperation = 'lighter';
+  for (var gi = 0; gi < proj.length; gi++) {
+    var g2 = proj[gi];
+    if (g2.depth < 0.65) continue;
+    var inten = (g2.depth - 0.65) / 0.35;
+    var gl = ctx.createRadialGradient(g2.x, g2.y, 0, g2.x, g2.y, g2.r * 5);
+    gl.addColorStop(0, 'rgba(255,255,255,' + (inten * 0.35).toFixed(3) + ')');
+    gl.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = gl;
+    ctx.beginPath();
+    ctx.arc(g2.x, g2.y, g2.r * 5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.globalCompositeOperation = 'source-over';
+
+  for (var ni = 0; ni < proj.length; ni++) {
+    var p = proj[ni];
+    var alpha = 0.12 + p.depth * 0.88;
+    var gv = p.gray;
+    ctx.fillStyle = 'rgba(' + gv + ',' + gv + ',' + gv + ',' + alpha.toFixed(3) + ')';
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, Math.max(0.5, p.r), 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+/* =====================================================================
+   SUGGESTIONS / HEALTH / GRAPH
+   ===================================================================== */
+function checkHealth() { fetch('/health').then(function(r){ return r.json(); }).catch(function(){}); }
+
+function loadSuggestions() {
+  fetch('/suggestions').then(function(r){ return r.json(); }).then(function(data){
+    suggestPool = data || {};
+    renderSuggestions();
+  }).catch(function(){});
+}
+
+function renderSuggestions() {
+  var el = document.getElementById('suggestionsList');
+  if (!el) return;
+  var groups = Object.keys(suggestPool);
+  if (!groups.length) { el.innerHTML = ''; return; }
+  groups = shuffle(groups.slice());
+  var picked = groups.slice(0, Math.min(GROUPS_TO_SHOW, groups.length));
+  el.innerHTML = '';
+  picked.forEach(function(group){
+    var items = suggestPool[group] || [];
+    if (!items.length) return;
+    var shuffled = shuffle(items.slice()).slice(0, Math.min(PER_GROUP, items.length));
+    var g = document.createElement('div');
+    var h = document.createElement('div');
+    h.className = 'sug-group-title';
+    h.textContent = group;
+    g.appendChild(h);
+    shuffled.forEach(function(q){
+      var b = document.createElement('div');
+      b.className = 'sug-prompt-btn';
+      b.textContent = q;
+      b.title = q;
+      b.onclick = function(){
+        var i = document.getElementById('input');
+        if (i) i.value = q;
+        sendMessage();
+      };
+      g.appendChild(b);
+    });
+    el.appendChild(g);
+  });
+}
+
+function shuffleSuggestions() { renderSuggestions(); }
+
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+
+function loadGraph() {
+  fetch('/graph').then(function(r){ return r.json(); }).then(function(d){
+    if (!d || !d.nodes || !d.nodes.length) return;
+    buildBackgroundGraph(d);
+    P.graph = d;
+    buildLoaderGraph(d);
+  }).catch(function(){});
+}
+
+/* =====================================================================
+   LOADER
+   ===================================================================== */
+var P = {
+  canvas: null, ctx: null, W: 0, H: 0, dpr: 1,
+  cx: 0, cy: 0, R: 0, focal: 0,
+  ready: false, graph: null,
+  particles: [], nodeIndex: {}, edges: [], adjacency: {},
+  yaw: 0, tilt: 0, time: 0, lastFrame: 0,
+  phase: 'idle', query: { active: false, intensity: 0 },
+  seeds: [], rays: [], searchWave: null, dimNonRelevant: 0,
+  visible: false
+};
+
+var ALPHA_BUCKETS = 20;
+var buckets = [];
+for (var bi = 0; bi < ALPHA_BUCKETS; bi++) buckets.push([]);
+
+function initParticleLoader() {
+  P.canvas = document.getElementById('particleCanvas');
+  if (!P.canvas) return;
+  P.ctx = P.canvas.getContext('2d');
+  P.dpr = Math.min(window.devicePixelRatio || 1, 2);
+  resizeParticleCanvas();
+  window.addEventListener('resize', resizeParticleCanvas);
+  P.ready = true;
+  P.lastFrame = performance.now();
+  requestAnimationFrame(particleLoop);
+}
+
+function resizeParticleCanvas() {
+  if (!P.canvas) return;
+  var w = window.innerWidth, h = window.innerHeight;
+  P.W = w; P.H = h;
+  P.canvas.width = w * P.dpr;
+  P.canvas.height = h * P.dpr;
+  P.canvas.style.width = w + 'px';
+  P.canvas.style.height = h + 'px';
+  P.ctx.setTransform(P.dpr, 0, 0, P.dpr, 0, 0);
+  P.cx = w / 2;
+  P.cy = h / 2;
+  P.R = Math.min(w, h) * 0.36;
+  P.focal = P.R * 3.0;
+}
+
+function buildLoaderGraph(g) {
+  var nodes = g.nodes;
+  var edges = g.edges || g.links || [];
+  var N = nodes.length;
+
+  P.particles = new Array(N);
+  P.nodeIndex = {};
+  P.adjacency = {};
+  var golden = Math.PI * (3 - Math.sqrt(5));
+
+  for (var k = 0; k < N; k++) {
+    var n = nodes[k];
+    var yy = 1 - (k / Math.max(N - 1, 1)) * 2;
+    var rr = Math.sqrt(Math.max(0, 1 - yy * yy));
+    var theta = golden * k;
+    var rad = 0.85 + Math.random() * 0.3;
+    P.particles[k] = {
+      id: n.id,
+      label: n.label || n.id.split('/').pop(),
+      bx: Math.cos(theta) * rr * rad,
+      by: yy * rad,
+      bz: Math.sin(theta) * rr * rad,
+      px: 0, py: 0, pSize: 1, depth: 0,
+      size: 1.1 + Math.random() * 1.1,
+      brightness: 0.7 + Math.random() * 0.3,
+      phase: Math.random() * Math.PI * 2,
+      push: 0,
+      pushDecay: 0.945 + Math.random() * 0.025,
+      opacity: 0.5,
+      isSeed: false, isNeighbor: false
+    };
+    P.nodeIndex[n.id] = k;
+    P.adjacency[n.id] = [];
+  }
+
+  var limit = Math.min(edges.length, 12000);
+  for (var ei = 0; ei < limit; ei++) {
+    var e = edges[ei];
+    var a = P.nodeIndex[e.source];
+    var b = P.nodeIndex[e.target];
+    if (a === undefined || b === undefined || a === b) continue;
+    P.edges.push({ a: a, b: b });
+    P.adjacency[P.particles[a].id].push(P.particles[b].id);
+    P.adjacency[P.particles[b].id].push(P.particles[a].id);
+  }
+
+  console.log('[Loader] Full graph:', N, 'nodes,', P.edges.length, 'edges');
+}
+
+function particleLoop(now) {
+  requestAnimationFrame(particleLoop);
+  if (!P.ready || !P.ctx || !P.visible) return;
+  var dt = Math.min((now - P.lastFrame) / 1000, 0.05);
+  P.lastFrame = now;
+  P.time += dt;
+  P.yaw += dt * 0.65;
+  P.tilt = Math.sin(P.time * 0.18) * 0.2;
+  if (P.query.active) P.query.intensity += (1 - P.query.intensity) * 0.12;
+  var targetDim = (P.phase === 'retrieve' || P.phase === 'generate') ? 1 : 0;
+  P.dimNonRelevant += (targetDim - P.dimNonRelevant) * 0.08;
+
+  var ctx = P.ctx, W = P.W, H = P.H, cx = P.cx, cy = P.cy, R = P.R, focal = P.focal;
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, W, H);
+  if (!P.graph || !P.particles.length) return;
+
+  var bloom = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 1.4);
+  bloom.addColorStop(0, 'rgba(255,255,255,0.16)');
+  bloom.addColorStop(0.5, 'rgba(255,255,255,0.04)');
+  bloom.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = bloom;
+  ctx.fillRect(0, 0, W, H);
+
+  var vg = ctx.createRadialGradient(cx, cy, R * 0.4, cx, cy, Math.max(W, H) * 0.8);
+  vg.addColorStop(0, 'rgba(0,0,0,0)');
+  vg.addColorStop(1, 'rgba(0,0,0,0.8)');
+  ctx.fillStyle = vg;
+  ctx.fillRect(0, 0, W, H);
+
+  var cy_ = Math.cos(P.yaw), sy_ = Math.sin(P.yaw);
+  var ct = Math.cos(P.tilt), st = Math.sin(P.tilt);
+  for (var b = 0; b < ALPHA_BUCKETS; b++) buckets[b].length = 0;
+
+  var arr = P.particles, M = arr.length;
+  for (var i = 0; i < M; i++) {
+    var p = arr[i];
+    if (p.push > 0) { p.push *= p.pushDecay; if (p.push < 0.002) p.push = 0; }
+    var bx = p.bx * cy_ - p.bz * sy_;
+    var bz = p.bx * sy_ + p.bz * cy_;
+    var by2 = p.by * ct - bz * st;
+    var bz2 = p.by * st + bz * ct;
+    var rMul = 1 + p.push * 2.0;
+    var vx = bx * R * rMul, vy = by2 * R * rMul, vz = bz2 * R * rMul;
+    var scale = focal / (focal + vz);
+    p.px = cx + vx * scale;
+    p.py = cy + vy * scale;
+    p.pSize = p.size * scale * 1.15;
+    p.depth = vz / R;
+
+    var depthOp = 0.28 + 0.72 * (1 - (p.depth + 1) * 0.5);
+    var finalOp = depthOp * p.brightness;
+
+    if (P.dimNonRelevant > 0) {
+      if (p.isSeed) {
+        finalOp = Math.min(1, finalOp + 0.7 * P.dimNonRelevant);
+      } else if (p.isNeighbor) {
+        finalOp = Math.min(1, finalOp + 0.25 * P.dimNonRelevant);
+      } else {
+        finalOp *= (1 - 0.75 * P.dimNonRelevant);
+      }
+    }
+
+    finalOp *= 0.9 + 0.1 * Math.sin(P.time * 1.8 + p.phase);
+    p.opacity = Math.max(0.05, Math.min(1, finalOp));
+    var bucket = Math.min(ALPHA_BUCKETS - 1, Math.floor(p.opacity * ALPHA_BUCKETS));
+    buckets[bucket].push(p);
+  }
+
+  ctx.globalCompositeOperation = 'lighter';
+  for (var gb = 0; gb < ALPHA_BUCKETS; gb++) {
+    var glist = buckets[gb];
+    if (!glist.length) continue;
+    var galpha = ((gb + 0.5) / ALPHA_BUCKETS) * 0.4;
+    ctx.fillStyle = 'rgba(255,255,255,' + galpha.toFixed(3) + ')';
+    ctx.beginPath();
+    for (var gj = 0; gj < glist.length; gj++) {
+      var gpt = glist[gj];
+      if (gpt.pSize < 0.4) continue;
+      var gr = gpt.pSize * 2.4;
+      ctx.moveTo(gpt.px + gr, gpt.py);
+      ctx.arc(gpt.px, gpt.py, gr, 0, Math.PI * 2);
+    }
+    ctx.fill();
+  }
+  for (var bb = 0; bb < ALPHA_BUCKETS; bb++) {
+    var list = buckets[bb];
+    if (!list.length) continue;
+    var alpha = (bb + 0.5) / ALPHA_BUCKETS;
+    ctx.fillStyle = 'rgba(255,255,255,' + alpha.toFixed(3) + ')';
+    ctx.beginPath();
+    for (var j = 0; j < list.length; j++) {
+      var pt = list[j];
+      if (pt.pSize < 0.4) continue;
+      ctx.moveTo(pt.px + pt.pSize, pt.py);
+      ctx.arc(pt.px, pt.py, pt.pSize, 0, Math.PI * 2);
+    }
+    ctx.fill();
+  }
+  ctx.globalCompositeOperation = 'source-over';
+
+  if (P.searchWave) {
+    P.searchWave.r += dt * 1100;
+    P.searchWave.alpha *= 0.93;
+    if (P.searchWave.alpha > 0.02 && P.searchWave.r < Math.max(W, H)) {
+      ctx.strokeStyle = 'rgba(255,255,255,' + P.searchWave.alpha.toFixed(3) + ')';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(cx, cy, P.searchWave.r, 0, Math.PI * 2);
+      ctx.stroke();
+    } else { P.searchWave = null; }
+  }
+
+  if (P.query.active && P.query.intensity > 0.05) {
+    var qi = P.query.intensity;
+    var qpulse = 1 + 0.15 * Math.sin(P.time * 5);
+    var qg = ctx.createRadialGradient(cx, cy, 0, cx, cy, 80);
+    qg.addColorStop(0, 'rgba(255,255,255,' + (0.6 * qi).toFixed(3) + ')');
+    qg.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = qg;
+    ctx.fillRect(cx - 80, cy - 80, 160, 160);
+    ctx.fillStyle = 'rgba(255,255,255,' + qi.toFixed(3) + ')';
+    ctx.beginPath();
+    ctx.arc(cx, cy, 4 * qpulse, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,' + (0.6 * qi).toFixed(3) + ')';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 15, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+
+  for (var ri = 0; ri < P.rays.length; ri++) {
+    var ray = P.rays[ri];
+    ray.progress = Math.min(1, ray.progress + dt * 4.0);
+    var seed = ray.seed;
+    if (!seed) continue;
+    var ex = seed.px, ey = seed.py;
+    var cxp = cx + (ex - cx) * ray.progress;
+    var cyp = cy + (ey - cy) * ray.progress;
+    var lgrad = ctx.createLinearGradient(cx, cy, ex, ey);
+    lgrad.addColorStop(0, 'rgba(255,255,255,' + (0.9 * ray.progress).toFixed(3) + ')');
+    lgrad.addColorStop(1, 'rgba(255,255,255,' + (0.25 * ray.progress).toFixed(3) + ')');
+    ctx.strokeStyle = lgrad;
+    ctx.lineWidth = 1.4;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cxp, cyp);
+    ctx.stroke();
+
+    if (ray.progress > 0.3) {
+      var dotR = 2 + (ray.progress - 0.3) * 4;
+      var dotAlpha = Math.min(1, (ray.progress - 0.3) * 3);
+      ctx.fillStyle = 'rgba(255,255,255,' + dotAlpha.toFixed(3) + ')';
+      ctx.beginPath();
+      ctx.arc(ex, ey, dotR, 0, Math.PI * 2);
+      ctx.fill();
+      var dg = ctx.createRadialGradient(ex, ey, 0, ex, ey, 26);
+      dg.addColorStop(0, 'rgba(255,255,255,' + (0.75 * dotAlpha).toFixed(3) + ')');
+      dg.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = dg;
+      ctx.beginPath();
+      ctx.arc(ex, ey, 26, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  if (P.seeds.length) {
+    ctx.font = 'bold 11px ui-monospace, monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    for (var si = 0; si < P.seeds.length && si < 10; si++) {
+      var s = P.seeds[si];
+      if (!s) continue;
+      var label = s.label.length > 28 ? s.label.slice(0, 26) + '…' : s.label;
+      var labelY = s.py + 14;
+      var tw = ctx.measureText(label).width;
+      ctx.fillStyle = 'rgba(0,0,0,0.9)';
+      ctx.fillRect(s.px - tw/2 - 8, labelY - 2, tw + 16, 17);
+      ctx.strokeStyle = 'rgba(255,255,255,0.75)';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(s.px - tw/2 - 8, labelY - 2, tw + 16, 17);
+      ctx.fillStyle = '#fff';
+      ctx.fillText(label, s.px, labelY);
+    }
+    ctx.textBaseline = 'alphabetic';
+  }
+}
+
+function showLoader() {
+  var el = document.getElementById('graphLoader');
+  if (!el) return;
+  el.classList.remove('fading');
+  el.classList.add('active');
+  P.visible = true;
+  P.lastFrame = performance.now();
+  P.phase = 'classify';
+  P.query.active = false;
+  P.query.intensity = 0;
+  P.seeds = []; P.rays = []; P.searchWave = null; P.dimNonRelevant = 0;
+  resetNodeFlags();
+  setText('loaderStats', 'SEARCHING');
+  setText('hudSeeds', '0');
+  var l = document.getElementById('hudSeedList'); if (l) l.innerHTML = '';
+}
+
+function forceCloseLoader() {
+  var el = document.getElementById('graphLoader');
+  if (el) el.classList.remove('active', 'fading');
+  P.visible = false;
+  P.phase = 'idle';
+  P.query.active = false;
+  P.query.intensity = 0;
+  P.seeds = []; P.rays = []; P.searchWave = null; P.dimNonRelevant = 0;
+  resetNodeFlags();
+  for (var i = 0; i < P.particles.length; i++) P.particles[i].push = 0;
+}
+
+function fadeLoader(fast) {
+  var el = document.getElementById('graphLoader');
+  if (!el) return;
+  var delay = fast ? 50 : 150;
+  el.classList.add('fading');
+  P.visible = false;
+  setTimeout(function(){
+    el.classList.remove('active', 'fading');
+    P.phase = 'idle';
+    P.query.active = false;
+    P.query.intensity = 0;
+    P.seeds = []; P.rays = []; P.searchWave = null; P.dimNonRelevant = 0;
+    resetNodeFlags();
+    for (var i = 0; i < P.particles.length; i++) P.particles[i].push = 0;
+  }, delay);
+}
+
+function resetNodeFlags() {
+  for (var i = 0; i < P.particles.length; i++) {
+    P.particles[i].isSeed = false;
+    P.particles[i].isNeighbor = false;
+  }
+}
+
+function handleClassify(detail) {
+  P.phase = 'classify';
+  P.query.active = true;
+  var col = (detail && detail.collection) || null;
+  setText('loaderStats', col ? 'CLASSIFY · ' + col.toUpperCase() : 'CLASSIFYING');
+  setText('loaderStatus', 'THINKING');
+  setText('loaderDetail', col ? 'routing to ' + col : 'routing...');
+}
+
+function handleRetrieve(detail) {
+  P.phase = 'retrieve';
+  var chunks = (detail && detail.chunks) || 0;
+  setText('loaderStatus', 'RETRIEVE');
+  setText('loaderDetail', chunks + ' chunks');
+
+  if (!detail || !Array.isArray(detail.nodes) || !detail.nodes.length) return;
+
+  var ids = detail.nodes;
+  var realIds = [];
+  for (var i = 0; i < ids.length; i++) {
+    if (P.nodeIndex[ids[i]] !== undefined) realIds.push(ids[i]);
+  }
+  var missing = ids.length - realIds.length;
+  if (missing > 0) console.warn('[Loader] ' + missing + ' IDs not in graph');
+
+  P.seeds = [];
+  for (var j = 0; j < realIds.length; j++) {
+    var idx = P.nodeIndex[realIds[j]];
+    if (idx === undefined) continue;
+    P.particles[idx].isSeed = true;
+    P.seeds.push(P.particles[idx]);
+  }
+
+  var nbrSet = {};
+  for (var k = 0; k < realIds.length; k++) {
+    var adj = P.adjacency[realIds[k]] || [];
+    for (var a = 0; a < adj.length && a < 30; a++) nbrSet[adj[a]] = true;
+  }
+  for (var nid in nbrSet) {
+    var ni = P.nodeIndex[nid];
+    if (ni !== undefined) P.particles[ni].isNeighbor = true;
+  }
+
+  P.rays = [];
+  for (var r = 0; r < P.seeds.length; r++) {
+    P.rays.push({ seed: P.seeds[r], progress: -r * 0.08 });
+  }
+  P.searchWave = { r: 0, alpha: 0.9 };
+  setText('loaderStats', 'RETRIEVED ' + realIds.length);
+
+  setText('hudSeeds', String(ids.length));
+  var listEl = document.getElementById('hudSeedList');
+  if (listEl) {
+    listEl.innerHTML = '';
+    var limit = Math.min(ids.length, 20);
+    for (var s = 0; s < limit; s++) {
+      (function(sIdx){
+        var rawId = ids[sIdx];
+        var parts = rawId.split('/');
+        var label = parts.pop() || rawId;
+        var coll = parts.pop() || '';
+        var d = document.createElement('div');
+        d.className = 'seed-label';
+        d.textContent = (sIdx + 1) + '. ' + (label.length > 38 ? label.slice(0, 36) + '…' : label);
+        if (coll) d.title = rawId + '  [' + coll + ']';
+        d.style.animationDelay = (sIdx * 70) + 'ms';
+        listEl.appendChild(d);
+      })(s);
+    }
+    if (ids.length > 20) {
+      var more = document.createElement('div');
+      more.className = 'seed-label';
+      more.textContent = '+ ' + (ids.length - 20) + ' more';
+      more.style.animationDelay = (limit * 70) + 'ms';
+      listEl.appendChild(more);
+    }
+  }
+}
+
+function handleRerank() {
+  setText('loaderStatus', 'RERANK');
+  setText('loaderDetail', 'ranking top results...');
+}
+
+function handleGenerate() {
+  P.phase = 'generate';
+  setText('loaderStatus', 'GENERATING');
+  setText('loaderDetail', 'synthesizing answer...');
+  for (var i = 0; i < P.particles.length; i++) {
+    var p = P.particles[i];
+    var basePush = 0.45 + Math.random() * 0.75;
+    if (p.isSeed) basePush *= 1.8;
+    else if (p.isNeighbor) basePush *= 1.3;
+    p.push = basePush;
+    p.pushDecay = 0.945 + Math.random() * 0.025;
+  }
+}
+
+function updatePipelineStage(stage, detail) {
+  if (stage === 'classify') { showLoader(); handleClassify(detail); }
+  else if (stage === 'retrieve') { handleRetrieve(detail); }
+  else if (stage === 'rerank') { handleRerank(); }
+  else if (stage === 'generate') { handleGenerate(); }
+}
+
+/* =====================================================================
+   CONVERSATIONS
+   ===================================================================== */
+function renderConvList() {
+  var el = document.getElementById('convList');
+  if (!el) return;
+  var ids = Object.keys(conversations).sort(function(a,b){ return conversations[b].ts - conversations[a].ts; });
+  el.innerHTML = '';
+  if (!ids.length) {
+    el.innerHTML = '<div style="padding:12px;font-size:12px;color:var(--fgf);font-family:var(--mono)">No chats yet</div>';
+    return;
+  }
+  ids.slice(0, 30).forEach(function(id){
+    var c = conversations[id];
+    var wrap = document.createElement('div');
+    wrap.className = 'conv-item' + (id === currentId ? ' active' : '');
+    wrap.title = c.title || 'Untitled';
+    var ttl = document.createElement('span');
+    ttl.className = 'conv-title';
+    ttl.textContent = c.title || 'Untitled';
+    var del = document.createElement('button');
+    del.className = 'conv-delete';
+    del.textContent = '×';
+    del.title = 'Delete chat';
+    del.onclick = function(ev){
+      ev.stopPropagation();
+      if (!confirm('Delete this chat?')) return;
+      delete conversations[id];
+      saveConversations();
+      if (id === currentId) {
+        var remaining = Object.keys(conversations);
+        if (remaining.length) {
+          remaining.sort(function(a,b){ return conversations[b].ts - conversations[a].ts; });
+          loadChat(remaining[0]);
+        } else newChat();
+      } else renderConvList();
+    };
+    wrap.appendChild(ttl);
+    wrap.appendChild(del);
+    wrap.onclick = function(){ loadChat(id); };
+    el.appendChild(wrap);
+  });
+}
+
+function welcomeHtml() {
+  return '<div class="chat-title">' +
+    '<div class="chat-title-icon">' + garudaLogoWhite() + '</div>' +
+    '<div><div class="chat-title-text">GARUDA ASSISTANT</div>' +
+    '<div class="chat-title-sub">Ask about LOTL techniques, LOLBins, GTFOBins, detection rules, and threat campaigns. Every answer is grounded in your local vault with cited sources.</div></div></div>';
+}
+
+function newChat() {
+  currentId = 'c_' + Date.now();
+  conversations[currentId] = { title: 'New Chat', ts: Date.now(), messages: [] };
+  saveConversations();
+  renderConvList();
+  var el = document.getElementById('chatContent');
+  if (el) el.innerHTML = welcomeHtml();
+  forceCloseLoader();
+  renderSuggestions();
+  var i = document.getElementById('input'); if (i) i.focus();
+}
+
+function loadChat(id) {
+  currentId = id;
+  renderConvList();
+  var el = document.getElementById('chatContent');
+  if (!el) return;
+  el.innerHTML = welcomeHtml();
+  (conversations[id].messages || []).forEach(function(m){
+    renderMessage(m.role, m.content, m.sources, m.isRefusal);
+  });
+  renderChatActions();
+  scrollBottom();
+}
+
+function saveConversations() {
+  try { localStorage.setItem('garuda_convs', JSON.stringify(conversations)); } catch(e) {}
+}
+
+function pushMessage(role, content, sources, isRefusal) {
+  var c = conversations[currentId];
+  if (!c) return;
+  var msg = {
+    id: 'm_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7),
+    role: role, content: content, sources: sources, isRefusal: !!isRefusal
+  };
+  c.messages.push(msg);
+  c.ts = Date.now();
+  if (c.messages.length === 1 && role === 'user') {
+    c.title = content.slice(0, 40) + (content.length > 40 ? '…' : '');
+  }
+  saveConversations();
+  renderConvList();
+  return msg;
+}
+
+/* =====================================================================
+   MARKDOWN
+   ===================================================================== */
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function splitReferences(mdText) {
+  if (!mdText) return { body: '', refs: [] };
+  var re = /^(?:#{1,3}\s*)?(?:\*\*)?\s*(references|sources)\s*(?:\*\*)?\s*:?\s*$/im;
+  var m = re.exec(mdText);
+  if (!m) return { body: mdText, refs: [] };
+  var body = mdText.slice(0, m.index).trim();
+  var refBlock = mdText.slice(m.index + m[0].length).trim();
+  var refs = refBlock.split(/\n+/)
+    .map(function(l){ return l.replace(/^\s*[-*•]\s*/, '').replace(/^\s*\d+[.)]\s*/, '').trim(); })
+    .filter(function(l){ return l.length > 0; });
+  return { body: body, refs: refs };
+}
+
+function md(text) {
+  if (!text) return '';
+  var codeFences = [];
+  text = text.replace(/```(\w*)\n([\s\S]*?)```/g, function(_, lang, code){
+    var idx = codeFences.length;
+    codeFences.push('<pre><code>' + esc(code.trim()) + '</code></pre>');
+    return '\u0000CODE' + idx + '\u0000';
+  });
+
+  var h = esc(text);
+
+  h = h.replace(/^#### (.+)$/gm, '<h3>$1</h3>');
+  h = h.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  h = h.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  h = h.replace(/^# (.+)$/gm, '<h2>$1</h2>');
+
+  h = h.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  h = h.replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, '<em>$1</em>');
+  h = h.replace(/`([^`]+)`/g, '<code>$1</code>');
+  h = h.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+  h = h.replace(/^&gt;\s*(.+)$/gm, '<blockquote>$1</blockquote>');
+
+  h = h.replace(/^\s*[-*•]\s+(.+)$/gm, function(_, c){ return '\u0001LI\u0001' + c; });
+  h = h.replace(/^\s*\d+[.)]\s+(.+)$/gm, function(_, c){ return '\u0001LI\u0001' + c; });
+
+  var lines = h.split('\n');
+  var out = [];
+  var listBuf = [];
+  var paraBuf = [];
+
+  function flushList() {
+    if (listBuf.length) {
+      out.push('<ul>' + listBuf.map(function(t){ return '<li>' + t + '</li>'; }).join('') + '</ul>');
+      listBuf = [];
+    }
+  }
+  function flushPara() {
+    if (paraBuf.length) {
+      var ptext = paraBuf.join(' ').trim();
+      if (ptext) out.push('<p>' + ptext + '</p>');
+      paraBuf = [];
+    }
+  }
+
+  for (var i = 0; i < lines.length; i++) {
+    var trimmed = lines[i].trim();
+    if (!trimmed) { flushList(); flushPara(); continue; }
+    if (/^<(h2|h3|ul|ol|pre|blockquote|hr)/.test(trimmed)) {
+      flushList(); flushPara(); out.push(trimmed); continue;
+    }
+    if (trimmed.indexOf('\u0001LI\u0001') === 0) {
+      flushPara(); listBuf.push(trimmed.slice(4)); continue;
+    }
+    if (trimmed.indexOf('\u0001LI\u0001') !== -1) {
+      var idx = trimmed.indexOf('\u0001LI\u0001');
+      flushPara(); listBuf.push(trimmed.slice(idx + 4)); continue;
+    }
+    if (trimmed.indexOf('\u0000CODE') === 0) {
+      flushList(); flushPara(); out.push(trimmed); continue;
+    }
+    flushList();
+    paraBuf.push(trimmed);
+  }
+  flushList();
+  flushPara();
+
+  h = out.join('\n');
+  h = h.replace(/\u0000CODE(\d+)\u0000/g, function(_, idx){ return codeFences[parseInt(idx, 10)]; });
+
+  return h;
+}
+
+function sourcesChipsHtml(sources) {
+  if (!sources || !sources.length) return '';
+  var html = '<div class="sources-block"><div class="sources-label">Sources · ' + sources.length + '</div><div class="sources-list">';
+  sources.forEach(function(s, i){
+    var parts = s.split(/[\\\/]/);
+    var file = parts.pop();
+    var path = parts.join('/');
+    html += '<div class="source-chip" title="' + esc(s) + '" onclick="copySource(' + JSON.stringify(JSON.stringify(s)) + ')">' +
+      '<span class="num">' + (i + 1) + '</span>' +
+      '<span class="name">' + esc(file) + '</span>' +
+      (path ? '<span class="path">' + esc(path) + '</span>' : '') +
+      '</div>';
+  });
+  html += '</div></div>';
+  return html;
+}
+
+/* =====================================================================
+   COPY
+   ===================================================================== */
+function copyText(text) {
+  if (!text) return Promise.resolve(false);
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text)
+      .then(function(){ return true; })
+      .catch(function(){ return fallbackCopy(text); });
+  }
+  return Promise.resolve(fallbackCopy(text));
+}
+function fallbackCopy(text) {
+  try {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.top = '-9999px'; ta.style.left = '-9999px';
+    ta.setAttribute('readonly','');
+    document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0, text.length);
+    var ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  } catch (e) { return false; }
+}
+function flashBtn(btn, label) {
+  if (!btn) return;
+  var orig = btn.innerHTML;
+  btn.innerHTML = '<span class="ico">✓</span>' + label;
+  btn.classList.add('flash');
+  setTimeout(function(){ btn.innerHTML = orig; btn.classList.remove('flash'); }, 1200);
+}
+
+/* =====================================================================
+   MESSAGE RENDERING
+   ===================================================================== */
+function renderMessage(role, content, sources, isRefusal) {
+  var el = document.getElementById('chatContent');
+  if (!el) return;
+  var d = document.createElement('div');
+  d.className = 'msg ' + role;
+  var contentHtml = '';
+  if (role === 'user') {
+    contentHtml = '<div class="msg-content">' + esc(content) + '</div>';
+  } else if (isRefusal) {
+    contentHtml = '<div class="msg-content refusal">' + md(content) + '</div>';
+  } else {
+    var split = splitReferences(content);
+    var refsForChips = (sources && sources.length) ? sources : split.refs;
+    contentHtml = '<div class="msg-content">' + md(split.body) + '</div>' + sourcesChipsHtml(refsForChips);
+  }
+  var avatarHtml = role === 'user'
+    ? '<div class="msg-avatar">YOU</div>'
+    : '<div class="msg-avatar">' + garudaLogoDark() + '</div>';
+  d.innerHTML = avatarHtml + '<div class="msg-body">' + contentHtml + '</div>';
+  el.appendChild(d);
+}
+
+/* =====================================================================
+   CHAT ACTIONS
+   ===================================================================== */
+function renderChatActions() {
+  var el = document.getElementById('chatContent');
+  if (!el) return;
+  var old = document.getElementById('chatActionsBar');
+  if (old) old.remove();
+  var c = conversations[currentId];
+  if (!c || !c.messages.length) return;
+
+  var bar = document.createElement('div');
+  bar.id = 'chatActionsBar';
+  bar.className = 'chat-actions';
+
+  var copyBtn = document.createElement('button');
+  copyBtn.className = 'chat-action-btn';
+  copyBtn.innerHTML = '<span class="ico">⧉</span>Copy';
+  copyBtn.onclick = function(){
+    var text = c.messages.map(function(m){
+      return (m.role === 'user' ? 'You: ' : 'GARUDA: ') + (m.content || '');
+    }).join('\n\n');
+    copyText(text).then(function(ok){ if (ok) flashBtn(copyBtn, 'Copied'); });
+  };
+
+  var retryBtn = document.createElement('button');
+  retryBtn.className = 'chat-action-btn';
+  retryBtn.innerHTML = '<span class="ico">↻</span>Retry';
+  retryBtn.onclick = function(){
+    if (isStreaming) return;
+    var lastUserIdx = -1;
+    for (var i = c.messages.length - 1; i >= 0; i--) {
+      if (c.messages[i].role === 'user') { lastUserIdx = i; break; }
+    }
+    if (lastUserIdx < 0) { flashBtn(retryBtn, 'Nothing'); return; }
+    var lastUser = c.messages[lastUserIdx].content;
+    c.messages = c.messages.slice(0, lastUserIdx);
+    saveConversations();
+    loadChat(currentId);
+    var inp = document.getElementById('input');
+    if (inp) inp.value = lastUser;
+    sendMessage();
+  };
+
+  bar.appendChild(copyBtn);
+  bar.appendChild(retryBtn);
+  el.appendChild(bar);
+}
+
+function scrollBottom() {
+  var s = document.getElementById('chatScroll');
+  if (s) s.scrollTop = s.scrollHeight;
+}
+
+/* =====================================================================
+   SEND
+   ===================================================================== */
+function sendMessage() {
+  if (isStreaming) return;
+  var input = document.getElementById('input');
+  if (!input) return;
+  var q = input.value.trim();
+  if (!q) return;
+  input.value = '';
+  input.style.height = '56px';
+  isStreaming = true;
+  var sb = document.getElementById('sendBtn'); if (sb) sb.disabled = true;
+
+  var old = document.getElementById('chatActionsBar');
+  if (old) old.remove();
+
+  pushMessage('user', q, null);
+  renderMessage('user', q, null, false);
+  scrollBottom();
+
+  var el = document.getElementById('chatContent');
+  var aDiv = document.createElement('div');
+  aDiv.className = 'msg assistant';
+  aDiv.innerHTML = '<div class="msg-avatar">' + garudaLogoDark() + '</div><div class="msg-body"><div class="msg-content"><p style="color:var(--fgf)">Thinking…</p></div></div>';
+  if (el) el.appendChild(aDiv);
+  var textEl = aDiv.querySelector('.msg-content');
+
+  var buffer = '', sources = [], firstToken = false, isRefusal = false;
+  var lastRender = 0;
+  var RENDER_INTERVAL = 90;
+
+  var conv = conversations[currentId].messages;
+  var messages = conv.map(function(m){ return { role: m.role, content: m.content }; });
+
+  function renderStreaming(force) {
+    var now = performance.now();
+    if (!force && now - lastRender < RENDER_INTERVAL) return;
+    lastRender = now;
+    if (!textEl) return;
+    var sp = splitReferences(buffer);
+    textEl.innerHTML = md(sp.body);
+  }
+
+  fetch('/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages: messages })
+  }).then(function(resp){
+    if (!resp.ok) throw new Error('Server ' + resp.status);
+    var reader = resp.body.getReader();
+    var decoder = new TextDecoder();
+    var sseBuf = '';
+    return (function pump(){
+      return reader.read().then(function(result){
+        if (result.done) return;
+        sseBuf += decoder.decode(result.value, { stream: true });
+        var lines = sseBuf.split('\n\n');
+        sseBuf = lines.pop();
+        lines.forEach(function(line){
+          if (!line.startsWith('data: ')) return;
+          try {
+            var evt = JSON.parse(line.slice(6));
+            if (evt.type === 'out_of_scope') {
+              isRefusal = true;
+              buffer = evt.data;
+              if (textEl) {
+                textEl.className = 'msg-content refusal';
+                textEl.innerHTML = md(evt.data);
+              }
+              forceCloseLoader();
+              return;
+            }
+            if (evt.type === 'stage') updatePipelineStage(evt.data.stage, evt.data.detail);
+            else if (evt.type === 'token') {
+              if (!firstToken) { firstToken = true; setTimeout(function(){ fadeLoader(true); }, 10); }
+              buffer += evt.data;
+              renderStreaming(false);
+            }
+            else if (evt.type === 'final') {
+              buffer = evt.data;
+              renderStreaming(true);
+            }
+            else if (evt.type === 'sources') {
+              sources = evt.data || [];
+            }
+            else if (evt.type === 'error') {
+              if (textEl) textEl.innerHTML = '<p style="color:var(--danger)">Error: ' + esc(evt.data) + '</p>';
+            }
+          } catch(e) {}
+        });
+        return pump();
+      });
+    })();
+  }).catch(function(e){
+    if (textEl) textEl.innerHTML = '<p style="color:var(--danger)">Network error: ' + esc(String(e)) + '</p>';
+  }).then(function(){
+    if (aDiv.parentNode) aDiv.parentNode.removeChild(aDiv);
+    pushMessage('assistant', buffer, sources, isRefusal);
+    renderMessage('assistant', buffer, sources, isRefusal);
+    renderChatActions();
+
+    isStreaming = false;
+    if (sb) sb.disabled = false;
+    if (input) input.focus();
+    if (!isRefusal) fadeLoader(); else forceCloseLoader();
+    scrollBottom();
+  });
+}
+
+window.newChat = newChat;
+window.sendMessage = sendMessage;
+window.copySource = function(encoded){
+  try { copyText(JSON.parse(encoded)); } catch(e) {}
+};
+window.toggleSidebar = toggleSidebar;
+window.shuffleSuggestions = shuffleSuggestions;
+
+console.log('[GARUDA] ready');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,7998 @@
+{
+  "bloom": {
+    "strength": 0.42,
+    "radius": 0.35,
+    "threshold": 0.24
+  },
+  "physics": {
+    "repel": 200,
+    "linkDistance": 95,
+    "linkStrength": 0.9,
+    "centerPull": 0.09,
+    "flatten": 0,
+    "coreGravity": 0.2,
+    "spiral": 0
+  },
+  "look": {
+    "nodeSize": 1.15,
+    "linkOpacity": 0.11,
+    "linkCurve": 0.75,
+    "twinkle": 0.4,
+    "sizeBy": "degree"
+  },
+  "space": {
+    "nebula": 0,
+    "fieldStars": 0,
+    "clusterClouds": 0
+  },
+  "cruise": true,
+  "cruiseSpeed": 1,
+  "showUnresolved": true,
+  "showOrphans": false,
+  "showTags": false,
+  "tagLens": null,
+  "colorByTag": false,
+  "showTagHubs": false,
+  "tagHubLimit": 20,
+  "hiddenFolders": [],
+  "filterQuery": "",
+  "showGhostEdges": false,
+  "showStarfield": false,
+  "colorTheme": "sunset",
+  "qualityOverride": "high",
+  "preset": "deep-space",
+  "activePreset": "orbits",
+  "customPresets": [],
+  "language": "auto",
+  "panelSections": {
+    "filter": true,
+    "nav": true,
+    "look": true,
+    "bloom": true,
+    "physics": true,
+    "tags": true,
+    "space": true,
+    "advanced": true
+  },
+  "panelWidth": 300,
+  "hintsSeen": false,
+  "selectionDepth": 1,
+  "tour": {
+    "speed": 1
+  },
+  "colorGroups": [
+    {
+      "query": "path:obsidian_vault/Campaigns",
+      "color": "#f58529"
+    },
+    {
+      "query": "path:obsidian_vault/CIPHER",
+      "color": "#dd2a7b"
+    },
+    {
+      "query": "path:obsidian_vault/Detection_Rules",
+      "color": "#8134af"
+    },
+    {
+      "query": "path:",
+      "color": "#515bd4"
+    }
+  ],
+  "positionCache": {
+    "sigma-rules/CONTRIBUTING.md": [
+      265.4,
+      -173.8,
+      -601.9
+    ],
+    "sigma-rules/rules-emerging-threats/2023/Malware/SNAKE/README.md": [
+      480.3,
+      634.9,
+      18
+    ],
+    "sigma-rules/rules-emerging-threats/2023/TA/Okta-Support-System-Breach/README.md": [
+      686.9,
+      -42.5,
+      413.5
+    ],
+    "sigma-rules/README.md": [
+      232.4,
+      -266.8,
+      -580.8
+    ],
+    "sigma-rules/Releases.md": [
+      -212.4,
+      733.4,
+      -196.1
+    ],
+    "sigma-rules/regression_data/README.md": [
+      303.4,
+      -571.3,
+      -286.9
+    ],
+    "sigma-rules/documentation/logsource-guides/windows/service/security.md": [
+      -165.2,
+      -536.1,
+      -360.4
+    ],
+    "sigma-rules/documentation/logsource-guides/windows/category/ps_script.md": [
+      -156.9,
+      671.5,
+      -327.3
+    ],
+    "sigma-rules/documentation/logsource-guides/windows/category/ps_module.md": [
+      253.9,
+      658.6,
+      -292
+    ],
+    "sigma-rules/documentation/logsource-guides/windows/category/process_creation.md": [
+      412.3,
+      -585.5,
+      -46.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Winexe.md": [
+      308.7,
+      -378.4,
+      226
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Windows Credential Editor.md": [
+      532.3,
+      59,
+      311.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Wevtutil.md": [
+      173.2,
+      -151.1,
+      388.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/xCmd.md": [
+      303.3,
+      -386.1,
+      190
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/UACMe.md": [
+      179.2,
+      -236.2,
+      6.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/TruffleHog.md": [
+      281.6,
+      481.5,
+      109.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Tor.md": [
+      -247.6,
+      -494.9,
+      75.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Tasklist.md": [
+      78.1,
+      -79.2,
+      589.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Systeminfo.md": [
+      -162,
+      -46.8,
+      601.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Sliver.md": [
+      -184.8,
+      -122.4,
+      89.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/SILENTTRINITY.md": [
+      244.2,
+      29.9,
+      262.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/SDelete.md": [
+      -96.4,
+      -417.9,
+      309.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/sqlmap.md": [
+      64.7,
+      -377.8,
+      -314.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/spwebmember.md": [
+      266.2,
+      706.2,
+      90.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/ShimRatReporter.md": [
+      13,
+      206.1,
+      407.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Rubeus.md": [
+      580.5,
+      202.8,
+      242.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Responder.md": [
+      485.7,
+      180.2,
+      306.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/schtasks.md": [
+      -32.9,
+      303.9,
+      90.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/RemoteUtilities.md": [
+      -263.8,
+      296.9,
+      302.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Ruler.md": [
+      437.4,
+      204.4,
+      -284
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Remcos.md": [
+      -188.6,
+      169.8,
+      188.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/route.md": [
+      -8,
+      -58.7,
+      643.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/ROADTools.md": [
+      399,
+      252.3,
+      297.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Reg.md": [
+      92.6,
+      71.4,
+      422.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Rclone.md": [
+      25.7,
+      319.5,
+      565.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/RawDisk.md": [
+      119.9,
+      -640.8,
+      204.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Quick Assist.md": [
+      -207.5,
+      390.5,
+      447.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/QuasarRAT.md": [
+      55.3,
+      143,
+      373.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Pupy.md": [
+      252.6,
+      141.6,
+      324.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/PoshC2.md": [
+      333.7,
+      4.2,
+      354.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Ping.md": [
+      334.4,
+      -201.1,
+      557.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/pwdump.md": [
+      508.4,
+      211.4,
+      424.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/PowerSploit.md": [
+      194.4,
+      260.7,
+      173.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/PsExec.md": [
+      247.2,
+      -454.4,
+      207
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Pacu.md": [
+      439.5,
+      241.8,
+      33
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Pass-The-Hash Toolkit.md": [
+      589.7,
+      -120,
+      306
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/PcShare.md": [
+      -319.7,
+      173.4,
+      216.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Peirates.md": [
+      467.7,
+      279,
+      -65.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Nltest.md": [
+      247.5,
+      -11.7,
+      583.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/ngrok.md": [
+      -369.3,
+      -189.5,
+      -35.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Out1.md": [
+      -398.4,
+      283.2,
+      221
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Net.md": [
+      358.3,
+      -208.4,
+      368.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/NPPSPY.md": [
+      17.5,
+      461.4,
+      123
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/NBTscan.md": [
+      195.5,
+      -3,
+      535
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Mythic.md": [
+      -441.1,
+      -337.6,
+      133.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/netstat.md": [
+      274.5,
+      -179,
+      565
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/netsh.md": [
+      167.8,
+      -327.3,
+      138.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/MimiPenguin.md": [
+      427.2,
+      554,
+      43.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/nbtstat.md": [
+      106.8,
+      -127,
+      619.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Mimikatz.md": [
+      534,
+      195.5,
+      118
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/meek.md": [
+      -346.5,
+      -552.3,
+      -113.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/MCMD.md": [
+      -468.2,
+      210,
+      114.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/MailSniper.md": [
+      316.5,
+      485.2,
+      193.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Lslsass.md": [
+      549.8,
+      70.6,
+      275.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/LaZagne.md": [
+      395,
+      436.3,
+      274.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Koadic.md": [
+      96.9,
+      159.3,
+      350.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/IronNetInjector.md": [
+      -107.1,
+      -136.6,
+      28.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Invoke-PSImage.md": [
+      -361.2,
+      -248.3,
+      -258.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Impacket.md": [
+      485.5,
+      11.2,
+      304.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/ifconfig.md": [
+      -46.3,
+      -66.9,
+      647
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/ipconfig.md": [
+      -33.6,
+      -106.4,
+      636.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Havij.md": [
+      42.1,
+      -396.8,
+      -303.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/gsecdump.md": [
+      554.1,
+      208.2,
+      351.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Imminent Monitor.md": [
+      118.2,
+      115.4,
+      275.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/ftp.md": [
+      172.2,
+      -28.8,
+      313.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/HTRAN.md": [
+      -140.2,
+      -374.2,
+      -155.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Forfiles.md": [
+      -267.2,
+      345.2,
+      259.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Fgdump.md": [
+      521.6,
+      167.9,
+      421.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Expand.md": [
+      -111.4,
+      -291.1,
+      -76.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/FRP.md": [
+      -162.1,
+      -376.1,
+      224.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/esentutl.md": [
+      -29.5,
+      -25.7,
+      -34.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Empire.md": [
+      258.8,
+      159.6,
+      217.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/dsquery.md": [
+      245.9,
+      45.7,
+      561.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/evilginx2.md": [
+      -76.5,
+      225.6,
+      -139.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/cmd.md": [
+      -118.3,
+      -247.9,
+      418.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/DCRAT.md": [
+      -22.2,
+      -113.9,
+      265.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/CrackMapExec.md": [
+      380.1,
+      -3.9,
+      377.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Donut.md": [
+      -163.5,
+      180.5,
+      -20.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Diskpart.md": [
+      -52.3,
+      -333.3,
+      423.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/CSPY Downloader.md": [
+      -325.1,
+      73.6,
+      8.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/ConnectWise.md": [
+      -27.2,
+      457.3,
+      396.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Covenant.md": [
+      -346.7,
+      22.9,
+      110.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/cipher.exe.md": [
+      190.4,
+      -644.5,
+      140.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/certutil.md": [
+      -104.9,
+      237.5,
+      49.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/attrib.md": [
+      -25,
+      478.2,
+      -43.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/at.md": [
+      487.4,
+      198.1,
+      -205.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Cachedump.md": [
+      527.4,
+      386.9,
+      297.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/CARROTBALL.md": [
+      -537,
+      100.2,
+      106.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/BloodHound.md": [
+      187.5,
+      100.9,
+      572
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Brute Ratel C4.md": [
+      55,
+      -51.1,
+      116.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/BITSAdmin.md": [
+      199.2,
+      12.8,
+      179.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/AsyncRAT.md": [
+      -371,
+      213.6,
+      351.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/Arp.md": [
+      145.3,
+      -126.3,
+      619.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/AADInternals.md": [
+      389.5,
+      244.1,
+      -86.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tools/AdFind.md": [
+      303.8,
+      -35.2,
+      576.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/XPC Services (T1559.003).md": [
+      67.3,
+      252.1,
+      -310.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/_etc_passwd and _etc_shadow (T1003.008).md": [
+      502.4,
+      431.8,
+      194.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/XSL Script Processing (T1220).md": [
+      -200.3,
+      335.5,
+      -261.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Written Content (T1683.001).md": [
+      31.7,
+      482.4,
+      -411.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/XDG Autostart Entries (T1547.013).md": [
+      332.3,
+      12.8,
+      -17.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Wordlist Scanning (T1595.003).md": [
+      -282.7,
+      -191.4,
+      -614
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Winlogon Helper DLL (T1547.004).md": [
+      151.2,
+      -112.6,
+      -53.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Windows Service (T1543.003).md": [
+      -175.9,
+      -316.8,
+      249.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Windows Remote Management (T1021.006).md": [
+      399.9,
+      -165,
+      205.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Windows Permissions (T1222.001).md": [
+      303.1,
+      -357.6,
+      265.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Windows Management Instrumentation Event Subscription (T1546.003).md": [
+      182.7,
+      -171.6,
+      -25.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Windows Management Instrumentation (T1047).md": [
+      116.6,
+      4.7,
+      352.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Windows Host Firewall (T1686.003).md": [
+      176.5,
+      -369.7,
+      266.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Windows Credential Manager (T1555.004).md": [
+      308.1,
+      365.9,
+      265.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Wi-Fi Networks (T1669).md": [
+      -132.8,
+      403.1,
+      -380.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Wi-Fi Discovery (T1016.002).md": [
+      64.1,
+      212.6,
+      507
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Windows Command Shell (T1059.003).md": [
+      -253,
+      -64.9,
+      335.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Web Shell (T1505.003).md": [
+      -246.1,
+      -190.9,
+      -237.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Web Session Cookie (T1550.004).md": [
+      628.2,
+      -190.2,
+      171.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Web Services (T1584.006).md": [
+      129.1,
+      314.3,
+      -436.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/WHOIS (T1596.002).md": [
+      -268.2,
+      -188.6,
+      -560.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Web Services (T1583.006).md": [
+      34.2,
+      283,
+      -625.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Web Service (T1102).md": [
+      -392,
+      151.2,
+      -71.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Web Protocols (T1071.001).md": [
+      -305.1,
+      60.8,
+      221.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Web Portal Capture (T1056.003).md": [
+      289.6,
+      518,
+      212.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Web Cookies (T1606.001).md": [
+      593.2,
+      353.8,
+      6.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Weaken Encryption (T1600).md": [
+      650.2,
+      -208.3,
+      -82.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Vulnerability Scanning (T1595.002).md": [
+      -216.9,
+      -147.1,
+      -617.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Vulnerabilities (T1588.006).md": [
+      -11.5,
+      343.4,
+      -603.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Visual Basic (T1059.005).md": [
+      -295.8,
+      398.1,
+      192
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Virtualization_Sandbox Evasion (T1497).md": [
+      -212.1,
+      386.2,
+      -11.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Virtual Private Server (T1584.003).md": [
+      131.5,
+      275.4,
+      -624
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/vSphere Installation Bundles (T1505.006).md": [
+      257.2,
+      -281.6,
+      -332.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/VNC (T1021.005).md": [
+      286.6,
+      -50.7,
+      198.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Virtual Private Server (T1583.003).md": [
+      151.3,
+      334.4,
+      -601.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Virtual Machine Discovery (T1673).md": [
+      267.9,
+      -87.6,
+      260.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Video Capture (T1125).md": [
+      3.3,
+      378.3,
+      438.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Verclsid (T1218.012).md": [
+      -345.7,
+      295.6,
+      -370.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/VBA Stomping (T1564.007).md": [
+      -246.7,
+      144.5,
+      -500.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Valid Accounts (T1078).md": [
+      173.7,
+      113.6,
+      -296.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/User Execution (T1204).md": [
+      -107.4,
+      542.8,
+      -133.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/VDSO Hijacking (T1055.014).md": [
+      54,
+      -34.6,
+      -343.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/User Activity Based Checks (T1497.002).md": [
+      8,
+      281.2,
+      -26.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Use Alternate Authentication Material (T1550).md": [
+      565.4,
+      -66.5,
+      174.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Upload Tool (T1608.002).md": [
+      71.1,
+      504.9,
+      -519
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Upload Malware (T1608.001).md": [
+      132.3,
+      447.2,
+      -376.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Unused_Unsupported Cloud Regions (T1535).md": [
+      -178.3,
+      100.2,
+      -467.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Unsecured Credentials (T1552).md": [
+      311.7,
+      469.3,
+      4.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Unix Shell Configuration Modification (T1546.004).md": [
+      226.7,
+      -138,
+      -263.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Unix Shell (T1059.004).md": [
+      -64.3,
+      -56.5,
+      -155
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Udev Rules (T1546.017).md": [
+      303.2,
+      -217.5,
+      -355.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Trusted Relationship (T1199).md": [
+      -89.5,
+      404.2,
+      -394.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Trusted Developer Utilities Proxy Execution (T1127).md": [
+      14.6,
+      405,
+      -369.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Trust Modification (T1484.002).md": [
+      514.1,
+      -53.9,
+      -162.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Trap (T1546.005).md": [
+      398.5,
+      -167.5,
+      -380.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Transport Agent (T1505.002).md": [
+      146.9,
+      -153.3,
+      -303.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Transmitted Data Manipulation (T1565.002).md": [
+      -62,
+      -271.7,
+      -118
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Transfer Data to Cloud Account (T1537).md": [
+      260.8,
+      344,
+      663.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Traffic Signaling (T1205).md": [
+      -95,
+      -259.7,
+      -246.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Traffic Duplication (T1020.001).md": [
+      114.1,
+      460,
+      583.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Tool (T1588.002).md": [
+      128.6,
+      250.9,
+      -417.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Token Impersonation_Theft (T1134.001).md": [
+      165.9,
+      -51.4,
+      -42.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Timestomp (T1070.006).md": [
+      -219.2,
+      -330,
+      60.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Time Providers (T1547.003).md": [
+      389.3,
+      -208.1,
+      -257.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Time Based Checks (T1497.003).md": [
+      -316,
+      221.9,
+      -6.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Threat Intel Vendors (T1597.001).md": [
+      -29.5,
+      -219.4,
+      -608.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Thread Local Storage (T1055.005).md": [
+      -9,
+      29.1,
+      -302.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Terminal Services DLL (T1505.005).md": [
+      268.1,
+      -208.2,
+      -417.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Temporary Elevated Cloud Access (T1548.005).md": [
+      401.3,
+      -190.5,
+      -323
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Template Injection (T1221).md": [
+      -215.1,
+      293.9,
+      -210.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Thread Execution Hijacking (T1055.003).md": [
+      -7.2,
+      -51.2,
+      -275.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/TFTP Boot (T1542.005).md": [
+      133.9,
+      24,
+      -450.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/TCC Manipulation (T1548.006).md": [
+      370.2,
+      -9.6,
+      -237.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Taint Shared Content (T1080).md": [
+      281.1,
+      -169.3,
+      190.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Systemd Timers (T1053.006).md": [
+      318.1,
+      154.1,
+      -270.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Systemd Service (T1543.002).md": [
+      229.6,
+      -40.2,
+      -68.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Systemctl (T1569.003).md": [
+      292,
+      312.8,
+      -242.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Time Discovery (T1124).md": [
+      -99.7,
+      -30.2,
+      425.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Shutdown_Reboot (T1529).md": [
+      -3.2,
+      -447.4,
+      150.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Services (T1569).md": [
+      306,
+      175.9,
+      -143.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Service Discovery (T1007).md": [
+      36.1,
+      -229.4,
+      518.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Script Proxy Execution (T1216).md": [
+      -262.3,
+      119.8,
+      -559.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Owner_User Discovery (T1033).md": [
+      -203,
+      107.2,
+      478.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Network Connections Discovery (T1049).md": [
+      166,
+      -104.7,
+      458.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Network Configuration Discovery (T1016).md": [
+      -58.7,
+      -14.1,
+      453.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Location Discovery (T1614).md": [
+      -20.5,
+      418.5,
+      203.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Language Discovery (T1614.001).md": [
+      155.1,
+      85,
+      314.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Information Discovery (T1082).md": [
+      -154.5,
+      10.2,
+      383.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Firmware (T1542.001).md": [
+      41.1,
+      -55.6,
+      -462
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Binary Proxy Execution (T1218).md": [
+      -431.8,
+      274.8,
+      -310.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/System Checks (T1497.001).md": [
+      -243.1,
+      369.3,
+      168.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Symmetric Cryptography (T1573.001).md": [
+      -372.5,
+      -142.1,
+      244.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Supply Chain Compromise (T1195).md": [
+      -164.2,
+      478.9,
+      -195.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SyncAppvPublishingServer (T1216.002).md": [
+      -165.5,
+      126.5,
+      -536.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Sudo and Sudo Caching (T1548.003).md": [
+      359.9,
+      61.2,
+      -123.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Subvert Trust Controls (T1553).md": [
+      343.2,
+      -242.3,
+      -92.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SVG Smuggling (T1027.017).md": [
+      -314.8,
+      151.9,
+      -277
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Stripped Payloads (T1027.008).md": [
+      -168.1,
+      208,
+      -209.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Steganography (T1027.003).md": [
+      -386.3,
+      -97.2,
+      -102
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Stored Data Manipulation (T1565.001).md": [
+      -52.4,
+      -572.1,
+      -76.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Steal Web Session Cookie (T1539).md": [
+      58,
+      440.2,
+      95.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Steal or Forge Kerberos Tickets (T1558).md": [
+      633.7,
+      211.5,
+      82.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Steganography (T1001.002).md": [
+      -497.4,
+      -240.9,
+      45.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Steal or Forge Authentication Certificates (T1649).md": [
+      504.6,
+      266.3,
+      -27.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Steal Application Access Token (T1528).md": [
+      338.7,
+      398.5,
+      -44.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Startup Items (T1037.005).md": [
+      405.3,
+      -159.5,
+      -166.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Standard Encoding (T1132.001).md": [
+      -468.2,
+      124.3,
+      260.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Stage Capabilities (T1608).md": [
+      73.4,
+      569.4,
+      -442.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Spearphishing Voice (T1598.004).md": [
+      -32.6,
+      -263.7,
+      -590.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Spearphishing Voice (T1566.004).md": [
+      -192,
+      452.5,
+      -300.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SSH Hijacking (T1563.001).md": [
+      448.2,
+      -345.7,
+      28.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SSH Authorized Keys (T1098.004).md": [
+      334.7,
+      50.5,
+      -252.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Spearphishing via Service (T1566.003).md": [
+      -292.2,
+      291.5,
+      -254
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SSH (T1021.004).md": [
+      412,
+      -132.2,
+      217.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SQL Stored Procedures (T1505.001).md": [
+      242.5,
+      -293.8,
+      -247.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Spearphishing Service (T1598.001).md": [
+      4.9,
+      -254.5,
+      -599.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Spearphishing Link (T1598.003).md": [
+      40.5,
+      67.8,
+      -427.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Spearphishing Link (T1566.002).md": [
+      -182.6,
+      483.2,
+      -32.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Spearphishing Attachment (T1598.002).md": [
+      -39.7,
+      -254.3,
+      -644.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Spearphishing Attachment (T1566.001).md": [
+      -356.8,
+      448.5,
+      153.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Space after Filename (T1036.006).md": [
+      -281.1,
+      241.9,
+      -354.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Source (T1153).md": [
+      205.6,
+      441.8,
+      -292
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Software Packing (T1027.002).md": [
+      -351.8,
+      158.9,
+      72.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Software Extensions (T1176).md": [
+      297.7,
+      99,
+      -405.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Software Discovery (T1518).md": [
+      -64.1,
+      416.1,
+      325.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Software Deployment Tools (T1072).md": [
+      428.3,
+      129.9,
+      -73
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Software (T1592.002).md": [
+      -162.3,
+      -307,
+      -544.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Socket Filters (T1205.002).md": [
+      -134.8,
+      -190.3,
+      -331.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Social Media Accounts (T1586.001).md": [
+      178.8,
+      500,
+      -508.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Social Media Accounts (T1585.001).md": [
+      200.3,
+      475.4,
+      -482.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Social Media (T1593.001).md": [
+      -86.9,
+      -323.1,
+      -617.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Social Engineering (T1684).md": [
+      -230.3,
+      328.9,
+      -445.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SNMP (MIB Dump) (T1602.001).md": [
+      72.7,
+      723.9,
+      234.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SMB_Windows Admin Shares (T1021.002).md": [
+      236.6,
+      -388.8,
+      283.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SIP and Trust Provider Hijacking (T1553.003).md": [
+      460.7,
+      -316.7,
+      -84.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SID-History Injection (T1134.005).md": [
+      302.7,
+      99,
+      -112.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SMS Pumping (T1496.003).md": [
+      113,
+      -682.2,
+      -130.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Shortcut Modification (T1547.009).md": [
+      198.8,
+      11.5,
+      229.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Shell History (T1552.003).md": [
+      376.2,
+      343.6,
+      9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Silver Ticket (T1558.002).md": [
+      545.1,
+      257.1,
+      87.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Sharepoint (T1213.002).md": [
+      233.9,
+      646.1,
+      178.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Shared Webroot (T1051).md": [
+      588.6,
+      -295,
+      173.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Shared Modules (T1129).md": [
+      -65.2,
+      250,
+      -27.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Setuid and Setgid (T1548.001).md": [
+      204.9,
+      -132.5,
+      -372.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Services Registry Permissions Weakness (T1574.011).md": [
+      -12.8,
+      355.5,
+      -344.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Services File Permissions Weakness (T1574.010).md": [
+      33.4,
+      279,
+      -269.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Service Stop (T1489).md": [
+      96.4,
+      -464,
+      291.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Service Exhaustion Flood (T1499.002).md": [
+      160,
+      -630.9,
+      -108.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Service Execution (T1569.002).md": [
+      205,
+      -247.2,
+      199.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Serverless Execution (T1648).md": [
+      346.2,
+      374.2,
+      -153.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Serverless (T1584.007).md": [
+      225.6,
+      284.4,
+      -604.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Serverless (T1583.007).md": [
+      79.1,
+      362,
+      -629.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Server Software Component (T1505).md": [
+      144.1,
+      -277.1,
+      -380.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Server (T1584.004).md": [
+      166,
+      276.9,
+      -618.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Server (T1583.004).md": [
+      80.3,
+      280.3,
+      -625.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Selective Exclusion (T1679).md": [
+      11.9,
+      -192.3,
+      -110.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Securityd Memory (T1555.002).md": [
+      336.9,
+      434.9,
+      83
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Security Support Provider (T1547.005).md": [
+      417.6,
+      53.5,
+      -41.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SEO Poisoning (T1608.006).md": [
+      35,
+      495.8,
+      -525.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Security Software Discovery (T1518.001).md": [
+      13.4,
+      78.1,
+      371.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Security Account Manager (T1003.002).md": [
+      405.7,
+      161.1,
+      351.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Search Victim-Owned Websites (T1594).md": [
+      -103.5,
+      -290.3,
+      -640.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Search Threat Vendor Data (T1681).md": [
+      -223.3,
+      -248.4,
+      -584.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Search Open Websites_Domains (T1593).md": [
+      -2,
+      -305.5,
+      -573.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Search Open Technical Databases (T1596).md": [
+      -346.8,
+      -212.7,
+      -598.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Search Engines (T1593.002).md": [
+      -100.6,
+      -345.3,
+      -539
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Search Closed Sources (T1597).md": [
+      -54.7,
+      -126,
+      -633.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Scripting (T1064).md": [
+      4.3,
+      262.7,
+      -365.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Screensaver (T1546.002).md": [
+      242.5,
+      -194,
+      -331
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Screen Capture (T1113).md": [
+      -97.9,
+      285.7,
+      429.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Scheduled Transfer (T1029).md": [
+      -259,
+      -8.3,
+      609.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Scheduled Task_Job (T1053).md": [
+      267.2,
+      180.7,
+      -271.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Scheduled Task (T1053.005).md": [
+      -95.9,
+      124.8,
+      158.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Scanning IP Blocks (T1595.001).md": [
+      -243.2,
+      -179.5,
+      -613.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Scan Databases (T1596.005).md": [
+      -264.9,
+      -253.8,
+      -588
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/SAML Tokens (T1606.002).md": [
+      515.8,
+      329.3,
+      -81.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Safe Mode Boot (T1688).md": [
+      236,
+      -389.4,
+      123.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Runtime Data Manipulation (T1565.003).md": [
+      50.4,
+      -631.5,
+      -165.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Rundll32 (T1218.011).md": [
+      -332.4,
+      4,
+      215.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Run Virtual Instance (T1564.006).md": [
+      -161.3,
+      -50.8,
+      -315.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Rootkit (T1014).md": [
+      -147.7,
+      -272.3,
+      -238
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Rogue Domain Controller (T1207).md": [
+      604.7,
+      -11.2,
+      56.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Right-to-Left Override (T1036.002).md": [
+      -352.6,
+      216.8,
+      -353.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Revert Cloud Instance (T1578.004).md": [
+      633.9,
+      -245.3,
+      59.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/ROMMONkit (T1542.004).md": [
+      138,
+      55.2,
+      -454.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Reversible Encryption (T1556.005).md": [
+      530.9,
+      35.2,
+      -128.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Resource Hijacking (T1496).md": [
+      115.7,
+      -581.4,
+      -166.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Resource Forking (T1564.009).md": [
+      -123.2,
+      168.9,
+      -422.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Replication Through Removable Media (T1091).md": [
+      189.7,
+      117.5,
+      270.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Rename Legitimate Utilities (T1036.003).md": [
+      -307.4,
+      228.6,
+      -208.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Remote System Discovery (T1018).md": [
+      229.6,
+      -130.8,
+      485.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Remote Services (T1021).md": [
+      427.5,
+      -245.6,
+      277.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Remote Service Session Hijacking (T1563).md": [
+      533.6,
+      -377,
+      121.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Remote Email Collection (T1114.002).md": [
+      8.2,
+      581.9,
+      203.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Remote Desktop Software (T1219.002).md": [
+      -281.4,
+      -433.6,
+      -109.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Remote Desktop Protocol (T1021.001).md": [
+      295.5,
+      -78.1,
+      382.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Remote Data Staging (T1074.002).md": [
+      -49.6,
+      627.6,
+      303.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Remote Access Tools (T1219).md": [
+      -300.2,
+      -288.3,
+      -157.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Remote Access Hardware (T1219.003).md": [
+      -432.2,
+      -402.8,
+      -194.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Relocate Malware (T1070.010).md": [
+      -263.5,
+      -69.8,
+      -324.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Regsvr32 (T1218.010).md": [
+      -380.3,
+      259.3,
+      -26.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Regsvcs_Regasm (T1218.009).md": [
+      -262,
+      361.1,
+      -260.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Registry Run Keys _ Startup Folder (T1547.001).md": [
+      -225.3,
+      74.1,
+      323.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Reflective Code Loading (T1620).md": [
+      20.9,
+      115,
+      -81.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Reflection Amplification (T1498.002).md": [
+      -8.5,
+      -661.2,
+      -59.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Redundant Access (T1108).md": [
+      108.4,
+      39.7,
+      -419.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Reduce Key Space (T1600.001).md": [
+      634.8,
+      -163.6,
+      12.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Re-opened Applications (T1547.007).md": [
+      429.1,
+      -159.7,
+      -236.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/RDP Hijacking (T1563.002).md": [
+      465,
+      -359.7,
+      236
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/RC Scripts (T1037.004).md": [
+      201.6,
+      -237.5,
+      -229
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Query Registry (T1012).md": [
+      -206.2,
+      -87.8,
+      458.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Query Public AI Services (T1682).md": [
+      -163.1,
+      -293.2,
+      -626.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Python Startup Hooks (T1546.018).md": [
+      374.5,
+      52.5,
+      -222.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Python (T1059.006).md": [
+      79.2,
+      76.3,
+      10.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Purchase Technical Data (T1597.002).md": [
+      -10.2,
+      -210.1,
+      -639
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/PubPrn (T1216.001).md": [
+      -188.2,
+      160.2,
+      -535.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Publish_Subscribe Protocols (T1071.005).md": [
+      -643.6,
+      -256.7,
+      -71.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Ptrace System Calls (T1055.008).md": [
+      84.3,
+      51.6,
+      -302.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Proxy (T1090).md": [
+      -219.4,
+      -371.9,
+      113.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Protocol Tunneling (T1572).md": [
+      -261.7,
+      -419.5,
+      45.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Protocol or Service Impersonation (T1001.003).md": [
+      -354.8,
+      -395,
+      104.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Process Injection (T1055).md": [
+      -42.2,
+      -41.6,
+      -85.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Process Hollowing (T1055.012).md": [
+      -159.2,
+      345.3,
+      -59.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Process Doppelgänging (T1055.013).md": [
+      54.3,
+      -33.5,
+      -250.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Process Discovery (T1057).md": [
+      -66.7,
+      -17.1,
+      394.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Process Argument Spoofing (T1564.010).md": [
+      -195.5,
+      -0.4,
+      -268.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Proc Memory (T1055.009).md": [
+      69.9,
+      -8.2,
+      -340
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Proc Filesystem (T1003.007).md": [
+      397.2,
+      449.2,
+      121.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Private Keys (T1552.004).md": [
+      341.6,
+      283.5,
+      76.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Print Processors (T1547.012).md": [
+      215.2,
+      -267.3,
+      -212.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Prevent Command History Logging (T1690).md": [
+      255.5,
+      -241.6,
+      -3.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Pre-OS Boot (T1542).md": [
+      84.4,
+      -2.2,
+      -520.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/PowerShell Profile (T1546.013).md": [
+      446.4,
+      -125,
+      -364.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/PowerShell (T1059.001).md": [
+      -40.5,
+      196.3,
+      250.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Power Settings (T1653).md": [
+      179.5,
+      14.4,
+      -289.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Portable Executable Injection (T1055.002).md": [
+      5.3,
+      -1.2,
+      -187.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Port Monitors (T1547.010).md": [
+      421.1,
+      -194.8,
+      -249.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Port Knocking (T1205.001).md": [
+      -65.9,
+      -179.6,
+      -272.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Polymorphic Code (T1027.014).md": [
+      -377.6,
+      88.6,
+      -240.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Poisoned Pipeline Execution (T1677).md": [
+      251.3,
+      356,
+      -157.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Pluggable Authentication Modules (T1556.003).md": [
+      436.4,
+      -3,
+      -87.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Phishing for Information (T1598).md": [
+      16.3,
+      -157.4,
+      -627.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Plist File Modification (T1647).md": [
+      405.9,
+      9.5,
+      30.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Phishing (T1566).md": [
+      -257.1,
+      427.8,
+      -150.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Permission Groups Discovery (T1069).md": [
+      346.2,
+      99.9,
+      448.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Peripheral Device Discovery (T1120).md": [
+      -76.4,
+      22.4,
+      619.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Path Interception by Unquoted Path (T1574.009).md": [
+      110.1,
+      376.5,
+      -123
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Path Interception by Search Order Hijacking (T1574.008).md": [
+      134.6,
+      354.4,
+      -122.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Path Interception (T1034).md": [
+      424.4,
+      -81,
+      -353.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Path Interception by PATH Environment Variable (T1574.007).md": [
+      83.1,
+      308.7,
+      -135.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Patch System Image (T1601.001).md": [
+      517.3,
+      -294.8,
+      -132.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Password Spraying (T1110.003).md": [
+      451,
+      209.7,
+      196.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Password Policy Discovery (T1201).md": [
+      388.8,
+      -61.5,
+      479.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Password Managers (T1555.005).md": [
+      297.5,
+      384.7,
+      175.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Password Guessing (T1110.001).md": [
+      332.1,
+      146.9,
+      192.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Password Cracking (T1110.002).md": [
+      579.9,
+      149.6,
+      146.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Pass the Ticket (T1550.003).md": [
+      477.8,
+      27.9,
+      218.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Password Filter DLL (T1556.002).md": [
+      475.5,
+      12,
+      -9.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Pass the Hash (T1550.002).md": [
+      489,
+      -48.2,
+      289.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Parent PID Spoofing (T1134.004).md": [
+      102.9,
+      -50,
+      -173.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Overwrite Process Arguments (T1036.011).md": [
+      -334.2,
+      102.9,
+      -371.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Outlook Home Page (T1137.004).md": [
+      421.1,
+      34.5,
+      -436.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Outlook Rules (T1137.005).md": [
+      441.8,
+      46.1,
+      -413.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/One-Way Communication (T1102.003).md": [
+      -471,
+      -79.4,
+      -136.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Office Test (T1137.002).md": [
+      395.6,
+      -73.6,
+      -468.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Outlook Forms (T1137.003).md": [
+      406.9,
+      68.5,
+      -421.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/OS Credential Dumping (T1003).md": [
+      391,
+      336.4,
+      268.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/OS Exhaustion Flood (T1499.001).md": [
+      156.4,
+      -660.9,
+      -53.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Office Template Macros (T1137.001).md": [
+      205.2,
+      54.2,
+      -285.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Obtain Capabilities (T1588).md": [
+      30.6,
+      212.1,
+      -601
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Office Application Startup (T1137).md": [
+      306.5,
+      0.5,
+      -476
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Odbcconf (T1218.008).md": [
+      -348.3,
+      333.2,
+      -277.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Obfuscated Files or Information (T1027).md": [
+      -284.1,
+      102,
+      2.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Non-Standard Port (T1571).md": [
+      -239.9,
+      -337.6,
+      227.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Non-Standard Encoding (T1132.002).md": [
+      -501.7,
+      -273,
+      49
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Non-Application Layer Protocol (T1095).md": [
+      -288.5,
+      -349.9,
+      193.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/NTFS File Attributes (T1564.004).md": [
+      -287.2,
+      -123.9,
+      -239.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/NTDS (T1003.003).md": [
+      424.5,
+      156.2,
+      255.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Trust Dependencies (T1590.003).md": [
+      -164,
+      -79.9,
+      -621.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Topology (T1590.004).md": [
+      -181.8,
+      -58.4,
+      -628.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Sniffing (T1040).md": [
+      339.2,
+      38,
+      232.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Devices (T1584.008).md": [
+      114.6,
+      253.5,
+      -630.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Service Discovery (T1046).md": [
+      303.8,
+      -64,
+      336.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Security Appliances (T1590.006).md": [
+      -202.6,
+      -86.9,
+      -629.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Share Discovery (T1135).md": [
+      206.8,
+      -203.9,
+      404.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Share Connection Removal (T1070.005).md": [
+      89.8,
+      -170.2,
+      -47
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Logon Script (T1037.003).md": [
+      376.6,
+      -229.5,
+      -347.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Provider DLL (T1556.008).md": [
+      543.2,
+      47.3,
+      -97.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Device Firewall (T1686.002).md": [
+      306.8,
+      -245.6,
+      66
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Device CLI (T1059.008).md": [
+      195.3,
+      253.9,
+      -146.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Boundary Bridging (T1599).md": [
+      562.1,
+      -342,
+      -63.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Denial of Service (T1498).md": [
+      0.9,
+      -598.9,
+      57.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Device Configuration Dump (T1602.002).md": [
+      26.5,
+      664.2,
+      103.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Device Authentication (T1556.004).md": [
+      485.6,
+      -6.7,
+      -109.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Native API (T1106).md": [
+      -198.7,
+      -49.9,
+      202
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Network Address Translation Traversal (T1599.001).md": [
+      578.6,
+      -333.1,
+      30.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Netsh Helper DLL (T1546.007).md": [
+      383,
+      -253.4,
+      -205.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Multiband Communication (T1026).md": [
+      -520.1,
+      -406.2,
+      -156.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Name Resolution Poisoning and SMB Relay (T1557.001).md": [
+      401.8,
+      324,
+      303.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Mutual Exclusion (T1480.002).md": [
+      -269.9,
+      -155.4,
+      -199.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Multi-Stage Channels (T1104).md": [
+      -325.6,
+      -196.7,
+      0.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Multi-hop Proxy (T1090.003).md": [
+      -184.6,
+      -353.6,
+      2.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Multi-Factor Authentication Request Generation (T1621).md": [
+      546.1,
+      392.1,
+      22.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Multi-Factor Authentication Interception (T1111).md": [
+      270.2,
+      311.6,
+      -11.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Multi-Factor Authentication (T1556.006).md": [
+      501,
+      112.2,
+      -122.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Msiexec (T1218.007).md": [
+      -293.4,
+      317.5,
+      -75.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Mshta (T1218.005).md": [
+      -299.2,
+      369.9,
+      -52.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Modify System Image (T1601).md": [
+      558.3,
+      -172.2,
+      -68.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Modify Registry (T1112).md": [
+      -91.3,
+      -110,
+      265.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Modify or Spoof Tool UI (T1685.003).md": [
+      337.6,
+      -278.5,
+      -1.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/MSBuild (T1127.001).md": [
+      26.7,
+      299.1,
+      -197.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Modify Cloud Resource Hierarchy (T1666).md": [
+      580.1,
+      -281.2,
+      14.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Modify Cloud Compute Infrastructure (T1578).md": [
+      690.8,
+      -132.3,
+      64.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Modify Cloud Compute Configurations (T1578.005).md": [
+      640.8,
+      -214.7,
+      64.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Modify Authentication Process (T1556).md": [
+      538.9,
+      43.5,
+      -14.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Messaging Applications (T1213.005).md": [
+      203.1,
+      632.8,
+      174.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Mavinject (T1218.013).md": [
+      -351.2,
+      142.9,
+      -362.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Match Legitimate Resource Name or Location (T1036.005).md": [
+      -295.7,
+      73.4,
+      63.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/MMC (T1218.014).md": [
+      -335.5,
+      226.7,
+      -431.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Masquerading (T1036).md": [
+      -395.3,
+      224.7,
+      -155.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Masquerade Task or Service (T1036.004).md": [
+      -296.1,
+      -228.2,
+      149.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Masquerade File Type (T1036.008).md": [
+      -303.5,
+      178.8,
+      -179.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Masquerade Account Name (T1036.010).md": [
+      -175.1,
+      263.9,
+      -223.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Malware (T1588.001).md": [
+      45.5,
+      318.4,
+      -614.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Mark-of-the-Web Bypass (T1553.005).md": [
+      345,
+      -118.8,
+      53.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Malware (T1587.001).md": [
+      219.4,
+      397.1,
+      -583.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Malvertising (T1583.008).md": [
+      -31.6,
+      352.9,
+      -466.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Malicious Link (T1204.001).md": [
+      -242.1,
+      478.5,
+      -7.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Malicious Library (T1204.005).md": [
+      36.4,
+      538.8,
+      -243.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Malicious Image (T1204.003).md": [
+      62,
+      552.1,
+      -223.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Malicious File (T1204.002).md": [
+      -385.5,
+      362.3,
+      145.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Malicious Copy and Paste (T1204.004).md": [
+      35.1,
+      517.8,
+      -157.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Make and Impersonate Token (T1134.003).md": [
+      211.7,
+      -24.5,
+      -113.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Mail Protocols (T1071.003).md": [
+      -565,
+      28.4,
+      178.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Lua (T1059.011).md": [
+      63,
+      433.8,
+      26.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Logon Script (Windows) (T1037.001).md": [
+      277.8,
+      -103.6,
+      -39.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Login Items (T1547.015).md": [
+      269.4,
+      -4.6,
+      -231.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Login Hook (T1037.002).md": [
+      409.7,
+      -232.5,
+      -319.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/LSASS Memory (T1003.001).md": [
+      402.8,
+      69.4,
+      258.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/LSASS Driver (T1547.008).md": [
+      304.8,
+      -253.9,
+      -173
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/LSA Secrets (T1003.004).md": [
+      509,
+      265,
+      261.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Log Enumeration (T1654).md": [
+      354.8,
+      95.6,
+      292.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Local Storage Discovery (T1680).md": [
+      -125.8,
+      -235,
+      513.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Local Groups (T1069.001).md": [
+      218.2,
+      -65.8,
+      565.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Local Email Collection (T1114.001).md": [
+      60.2,
+      452.5,
+      255.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Local Data Staging (T1074.001).md": [
+      -183.8,
+      364.2,
+      402.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Local Account (T1087.001).md": [
+      192.2,
+      51.5,
+      419.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/LNK Icon Smuggling (T1027.012).md": [
+      -308.8,
+      97.5,
+      -260.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Local Accounts (T1078.003).md": [
+      123.7,
+      -29.4,
+      -294.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/ListPlanting (T1055.015).md": [
+      53.3,
+      1.4,
+      -284.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Local Account (T1136.001).md": [
+      309,
+      -42.5,
+      118.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Linux and Mac Permissions (T1222.002).md": [
+      289.7,
+      -155,
+      -39.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Link Target (T1608.005).md": [
+      123.4,
+      511.4,
+      -509.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Lifecycle-Triggered Deletion (T1485.001).md": [
+      79.4,
+      -618.9,
+      114
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Launchd (T1053.004).md": [
+      296.9,
+      137.8,
+      -358.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Launchctl (T1569.001).md": [
+      173.8,
+      328.9,
+      -124.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Launch Daemon (T1543.004).md": [
+      107.3,
+      -115.4,
+      -282.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/LC_MAIN Hijacking (T1149).md": [
+      -176,
+      156.7,
+      -472.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/LC_LOAD_DYLIB Addition (T1546.006).md": [
+      469.6,
+      -127.7,
+      -319.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Launch Agent (T1543.001).md": [
+      200.4,
+      141.4,
+      -88.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Lateral Tool Transfer (T1570).md": [
+      229.8,
+      -309.6,
+      189.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Keylogging (T1056.001).md": [
+      -2,
+      264.1,
+      392.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Keychain (T1555.001).md": [
+      281.1,
+      387.4,
+      207.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/KernelCallbackTable (T1574.013).md": [
+      -12.2,
+      297.2,
+      -295.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Kernel Modules and Extensions (T1547.006).md": [
+      230.7,
+      -254.3,
+      -276.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Kerberoasting (T1558.003).md": [
+      447.2,
+      137.5,
+      175.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Junk Data (T1001.001).md": [
+      -599.5,
+      -88.2,
+      4.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Junk Code Insertion (T1027.016).md": [
+      -453.3,
+      -8.6,
+      -129.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/JavaScript (T1059.007).md": [
+      -72.1,
+      437.4,
+      87.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/JamPlus (T1127.003).md": [
+      -10.2,
+      302.7,
+      -397.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Invisible Unicode (T1027.018).md": [
+      -255.4,
+      250,
+      -225.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Invalid Code Signature (T1036.001).md": [
+      -339.5,
+      259,
+      -130.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Internet Connection Discovery (T1016.001).md": [
+      -18.2,
+      79.8,
+      594.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/IP Addresses (T1590.005).md": [
+      -170.6,
+      -111.5,
+      -616.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Internal Spearphishing (T1534).md": [
+      444.4,
+      -326.5,
+      153.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Internal Proxy (T1090.001).md": [
+      -296,
+      -403.1,
+      88.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Inter-Process Communication (T1559).md": [
+      -75.3,
+      79.4,
+      -193
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/InstallUtil (T1218.004).md": [
+      -386.6,
+      215.6,
+      -194.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Installer Packages (T1546.016).md": [
+      296.8,
+      65.4,
+      -263.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Internal Defacement (T1491.001).md": [
+      14.2,
+      -492.3,
+      190.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Install Root Certificate (T1553.004).md": [
+      209.1,
+      29.6,
+      -133.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Install Digital Certificate (T1608.003).md": [
+      137.1,
+      503,
+      -472.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Input Injection (T1674).md": [
+      204.9,
+      470,
+      -250.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Input Capture (T1056).md": [
+      158.9,
+      462.5,
+      227.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Ingress Tool Transfer (T1105).md": [
+      -260.3,
+      30.5,
+      246.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Indirect Command Execution (T1202).md": [
+      -208.2,
+      394.4,
+      -120.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Indicator Removal from Tools (T1027.005).md": [
+      -36.8,
+      158.6,
+      -77.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Inhibit System Recovery (T1490).md": [
+      147.3,
+      -445.4,
+      296
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Implant Internal Image (T1525).md": [
+      387.7,
+      -43.6,
+      -405.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Indicator Removal (T1070).md": [
+      -264.6,
+      -115.1,
+      -105.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Impersonation (T1684.001).md": [
+      -165.5,
+      404.2,
+      -238.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Image File Execution Options Injection (T1546.012).md": [
+      202.1,
+      -196.5,
+      -244.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Ignore Process Interrupts (T1564.011).md": [
+      -100.1,
+      66.1,
+      -312.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Identify Roles (T1591.004).md": [
+      -210.3,
+      -290.4,
+      -561.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Identify Business Tempo (T1591.003).md": [
+      -247.9,
+      -288.7,
+      -569.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/IIS Components (T1505.004).md": [
+      118.2,
+      -160.2,
+      -214.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/IDE Tunneling (T1219.001).md": [
+      -446,
+      -375.1,
+      -217.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/IDE Extensions (T1176.002).md": [
+      369.9,
+      0.9,
+      -450.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hypervisor CLI (T1059.012).md": [
+      246.9,
+      149.1,
+      -29.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hypervisor (T1062).md": [
+      355.4,
+      -123.4,
+      -418
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hybrid Identity (T1556.007).md": [
+      543.3,
+      101.7,
+      -112.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hijack Execution Flow (T1574).md": [
+      -73.9,
+      370.8,
+      -232.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hide Infrastructure (T1665).md": [
+      -248.6,
+      -292.8,
+      -165
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hidden Window (T1564.003).md": [
+      -274,
+      277.5,
+      73.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/HTML Smuggling (T1027.006).md": [
+      -271.7,
+      277.8,
+      -194.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hidden Users (T1564.002).md": [
+      -207,
+      227,
+      -373.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hide Artifacts (T1564).md": [
+      -258.5,
+      118.6,
+      -381.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hidden File System (T1564.005).md": [
+      -286.2,
+      -39.5,
+      -348.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hidden Files and Directories (T1564.001).md": [
+      -32.7,
+      304.3,
+      23.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hardware Additions (T1200).md": [
+      -120,
+      367,
+      -412
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Hardware (T1592.001).md": [
+      -212.8,
+      -323.5,
+      -545.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Group Policy Preferences (T1552.006).md": [
+      376.8,
+      364.8,
+      178.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Group Policy Discovery (T1615).md": [
+      282.7,
+      64.7,
+      486.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Group Policy Modification (T1484.001).md": [
+      354.6,
+      -229.6,
+      53.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/GUI Input Capture (T1056.002).md": [
+      203.2,
+      408.8,
+      81.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Graphical User Interface (T1061).md": [
+      171,
+      486.6,
+      -274.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Generate Content (T1683).md": [
+      -22.5,
+      486.9,
+      -528.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Gather Victim Org Information (T1591).md": [
+      -240.8,
+      -375.2,
+      -519.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Gather Victim Identity Information (T1589).md": [
+      14.4,
+      -115.9,
+      -616
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Golden Ticket (T1558.001).md": [
+      435.3,
+      128.6,
+      116.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Gather Victim Network Information (T1590).md": [
+      -87.1,
+      -37.9,
+      -635.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Gather Victim Host Information (T1592).md": [
+      -165.3,
+      -390.2,
+      -493.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Gatekeeper Bypass (T1553.001).md": [
+      289.3,
+      -57.2,
+      -42.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Forge Web Credentials (T1606).md": [
+      537.6,
+      421.5,
+      -38.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Forced Authentication (T1187).md": [
+      247.7,
+      399.3,
+      13.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Firmware Corruption (T1495).md": [
+      166.6,
+      -369.5,
+      7.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Firmware (T1592.003).md": [
+      -118.6,
+      -318.7,
+      -550.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/File_Path Exclusions (T1564.012).md": [
+      -265.1,
+      188,
+      -484.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Fileless Storage (T1027.011).md": [
+      -519.1,
+      34.1,
+      -10.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/File Deletion (T1070.004).md": [
+      -207.2,
+      -62.6,
+      307.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Financial Theft (T1657).md": [
+      149.8,
+      -77.6,
+      38.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/File and Directory Permissions Modification (T1222).md": [
+      397.9,
+      -342.5,
+      74.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/File and Directory Discovery (T1083).md": [
+      -82.9,
+      -61.8,
+      395.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/File Transfer Protocols (T1071.002).md": [
+      -417.4,
+      -261.7,
+      237.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Fast Flux DNS (T1568.001).md": [
+      -522,
+      -287.5,
+      124.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Fallback Channels (T1008).md": [
+      -420.7,
+      -229.5,
+      264.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Extra Window Memory Injection (T1055.011).md": [
+      61.8,
+      -77.8,
+      -271.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/External Remote Services (T1133).md": [
+      178.2,
+      110.8,
+      -238.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/External Proxy (T1090.002).md": [
+      -298.2,
+      -259.8,
+      -93.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/External Defacement (T1491.002).md": [
+      30.8,
+      -702.8,
+      -39
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Extended Attributes (T1564.014).md": [
+      -244.3,
+      90.7,
+      -485.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exploits (T1588.005).md": [
+      -15.4,
+      308.3,
+      -615.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exploits (T1587.004).md": [
+      248.1,
+      433,
+      -532.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exploitation of Remote Services (T1210).md": [
+      362.6,
+      -40.3,
+      247.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exploitation for Stealth (T1211).md": [
+      -123,
+      174.8,
+      -474.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exploitation for Defense Impairment (T1687).md": [
+      551.8,
+      -301.9,
+      -37.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exploitation for Privilege Escalation (T1068).md": [
+      283.4,
+      -156.1,
+      126.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exploitation for Client Execution (T1203).md": [
+      -3,
+      387.3,
+      57.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exploit Public-Facing Application (T1190).md": [
+      36.1,
+      -264.2,
+      -199
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exploitation for Credential Access (T1212).md": [
+      563.6,
+      390.4,
+      68.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration to Text Storage Sites (T1567.003).md": [
+      172.5,
+      476.9,
+      565.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration to Code Repository (T1567.001).md": [
+      276.9,
+      370.2,
+      336.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration to Cloud Storage (T1567.002).md": [
+      -149.2,
+      447.4,
+      415
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration Over Webhook (T1567.004).md": [
+      230.9,
+      435.3,
+      409.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration over USB (T1052.001).md": [
+      100.3,
+      218.8,
+      686.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration Over Unencrypted Non-C2 Protocol (T1048.003).md": [
+      199.4,
+      271.9,
+      388.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration Over Symmetric Encrypted Non-C2 Protocol (T1048.001).md": [
+      263.5,
+      437.3,
+      497.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration Over Web Service (T1567).md": [
+      47.1,
+      405.6,
+      445.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration Over Physical Medium (T1052).md": [
+      196.6,
+      284,
+      704.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration Over Other Network Medium (T1011).md": [
+      301.4,
+      305.8,
+      639.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration Over C2 Channel (T1041).md": [
+      -240.7,
+      163.1,
+      346.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration Over Bluetooth (T1011.001).md": [
+      315.9,
+      337.3,
+      549.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration Over Asymmetric Encrypted Non-C2 Protocol (T1048.002).md": [
+      179.8,
+      396.6,
+      441.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exfiltration Over Alternative Protocol (T1048).md": [
+      219.9,
+      406.7,
+      334.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Execution Guardrails (T1480).md": [
+      -153.6,
+      -79.8,
+      -115.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Executable Installer File Permissions Weakness (T1574.005).md": [
+      -40.1,
+      338.8,
+      -363
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Exclusive Control (T1668).md": [
+      336.8,
+      -78.7,
+      -428.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Evil Twin (T1557.004).md": [
+      326.9,
+      547.3,
+      152
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Event Triggered Execution (T1546).md": [
+      369.5,
+      -136.6,
+      -264.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Establish Accounts (T1585).md": [
+      284.1,
+      469.7,
+      -497.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Escape to Host (T1611).md": [
+      337.1,
+      94.1,
+      -198.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Environmental Keying (T1480.001).md": [
+      -281.8,
+      25.4,
+      -167.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/ESXi Administration Command (T1675).md": [
+      175.7,
+      179.1,
+      -275.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Endpoint Denial of Service (T1499).md": [
+      150,
+      -540.8,
+      -24.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Encrypted_Encoded File (T1027.013).md": [
+      -283.5,
+      -15.9,
+      143.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Encrypted Channel (T1573).md": [
+      -475.1,
+      -145.3,
+      85.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Employee Names (T1589.003).md": [
+      -92.6,
+      -111.1,
+      -631.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Emond (T1546.014).md": [
+      439.5,
+      -169.1,
+      -355.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Embedded Payloads (T1027.009).md": [
+      -176.3,
+      -203.5,
+      -171.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Email Spoofing (T1684.002).md": [
+      -211.7,
+      237.3,
+      -506.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Email Hiding Rules (T1564.008).md": [
+      -187.9,
+      280.8,
+      -393.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Email Forwarding Rule (T1114.003).md": [
+      58.4,
+      734.8,
+      204.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Email Collection (T1114).md": [
+      -8.9,
+      650.6,
+      155.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Email Bombing (T1667).md": [
+      84.3,
+      -678.1,
+      -85.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Email Accounts (T1586.002).md": [
+      190.1,
+      463.7,
+      -529.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Email Accounts (T1585.002).md": [
+      253.4,
+      389.9,
+      -505.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Email Account (T1087.003).md": [
+      270.7,
+      347.8,
+      124.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Email Addresses (T1589.002).md": [
+      143.1,
+      -28.2,
+      -473.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Elevated Execution with Prompt (T1548.004).md": [
+      224.4,
+      -69.9,
+      -388.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Electron Applications (T1218.015).md": [
+      -278,
+      346.8,
+      -334
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Dynamic-link Library Injection (T1055.001).md": [
+      63.4,
+      -84.1,
+      176.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Dynamic Resolution (T1568).md": [
+      -583.1,
+      -130.1,
+      21.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Dynamic Linker Hijacking (T1574.006).md": [
+      -16.4,
+      136.1,
+      -303.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Dynamic Data Exchange (T1559.002).md": [
+      -60.2,
+      419.1,
+      19.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Dynamic API Resolution (T1027.007).md": [
+      -343.4,
+      54.8,
+      -161.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Dylib Hijacking (T1574.004).md": [
+      73.5,
+      328,
+      -197.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Drive-by Target (T1608.004).md": [
+      37.3,
+      486.8,
+      -492.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Drive-by Compromise (T1189).md": [
+      -114.3,
+      396.5,
+      -12.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Downgrade System Image (T1601.002).md": [
+      590.8,
+      -271.4,
+      -94.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Downgrade Attack (T1689).md": [
+      437.9,
+      -127.9,
+      174
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Double File Extension (T1036.007).md": [
+      -254,
+      194.1,
+      -219.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domains (T1584.001).md": [
+      102,
+      294.1,
+      -466.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domains (T1583.001).md": [
+      23.4,
+      392.6,
+      -314.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domain Trust Discovery (T1482).md": [
+      320.1,
+      142.4,
+      396.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domain Properties (T1590.001).md": [
+      107.2,
+      12,
+      -504.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domain or Tenant Policy Modification (T1484).md": [
+      475.3,
+      -202.4,
+      -141.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domain Groups (T1069.002).md": [
+      291.1,
+      -59.6,
+      470.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domain Generation Algorithms (T1568.002).md": [
+      -493.8,
+      -83.9,
+      -39.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domain Fronting (T1090.004).md": [
+      -317.2,
+      -435.1,
+      -32
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domain Controller Authentication (T1556.001).md": [
+      570.6,
+      26.9,
+      -96.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domain Accounts (T1078.002).md": [
+      121.7,
+      2.1,
+      -241.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/DNS_Passive DNS (T1596.001).md": [
+      -266.9,
+      -147.5,
+      -625.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/DNS Server (T1584.002).md": [
+      241.2,
+      307.1,
+      -591.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/DNS Server (T1583.002).md": [
+      117.5,
+      317.5,
+      -615.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domain Account (T1136.002).md": [
+      425.2,
+      -84.8,
+      109.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Domain Account (T1087.002).md": [
+      301.4,
+      41.1,
+      439.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/DNS Calculation (T1568.003).md": [
+      -617.6,
+      -274.3,
+      -127.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Distributed Component Object Model (T1021.003).md": [
+      435.1,
+      -66.3,
+      264.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Disk Wipe (T1561).md": [
+      119.9,
+      -652,
+      85.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Disk Structure Wipe (T1561.002).md": [
+      28.1,
+      -573,
+      199.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/DNS (T1590.002).md": [
+      -135.3,
+      -112.9,
+      -622.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/DNS (T1071.004).md": [
+      -500.2,
+      -170.4,
+      176.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/DLL (T1574.001).md": [
+      -355.9,
+      200.7,
+      1.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Disk Content Wipe (T1561.001).md": [
+      129.3,
+      -542.8,
+      140.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Disable or Modify Windows Event Log (T1685.001).md": [
+      392.2,
+      -255,
+      166.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Disable or Modify Tools (T1685).md": [
+      170.9,
+      -144.5,
+      150.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Disable or Modify System Firewall (T1686).md": [
+      257.9,
+      -256,
+      199.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Disable or Modify Linux Audit System Log (T1685.004).md": [
+      349.2,
+      -226.2,
+      6.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Disable or Modify Cloud Log (T1685.002).md": [
+      436.9,
+      -39.2,
+      63.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Disable Crypto Hardware (T1600.002).md": [
+      616.1,
+      -285.2,
+      -30.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Direct Volume Access (T1006).md": [
+      -100.2,
+      2.1,
+      -340.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Direct Network Flood (T1498.001).md": [
+      -39.5,
+      -650.4,
+      -45.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Direct Cloud VM Connections (T1021.008).md": [
+      537.4,
+      -314.2,
+      248.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Digital Certificates (T1596.003).md": [
+      -281.2,
+      -272.9,
+      -580.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Digital Certificates (T1587.003).md": [
+      211.7,
+      354.4,
+      -603.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/DHCP Spoofing (T1557.003).md": [
+      295.8,
+      556.6,
+      141.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Device Registration (T1098.005).md": [
+      429.1,
+      83.5,
+      -293.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Digital Certificates (T1588.004).md": [
+      15.9,
+      331.8,
+      -609.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Device Driver Discovery (T1652).md": [
+      278.8,
+      -50.3,
+      516.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Develop Capabilities (T1587).md": [
+      300.4,
+      344.2,
+      -559.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Determine Physical Locations (T1591.001).md": [
+      -206.3,
+      -310.8,
+      -600.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Deploy Container (T1610).md": [
+      317.7,
+      311.4,
+      -181.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Deobfuscate_Decode Files or Information (T1140).md": [
+      -282.7,
+      4.7,
+      87.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Delete Cloud Instance (T1578.003).md": [
+      642.8,
+      -194.9,
+      -12.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Delay Execution (T1678).md": [
+      -145.4,
+      57.1,
+      -188.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Default Accounts (T1078.001).md": [
+      147.4,
+      27.4,
+      -356.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Defacement (T1491).md": [
+      -2.3,
+      -652.6,
+      65.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Debugger Evasion (T1622).md": [
+      -252.3,
+      344.5,
+      -24.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Dead Drop Resolver (T1102.001).md": [
+      -497.7,
+      183,
+      -35.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Databases (T1213.006).md": [
+      145.6,
+      539.3,
+      190.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data from Removable Media (T1025).md": [
+      -100.7,
+      433.1,
+      498.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data from Network Shared Drive (T1039).md": [
+      -28.8,
+      504.5,
+      265
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/DCSync (T1003.006).md": [
+      549.8,
+      336.6,
+      172.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data from Local System (T1005).md": [
+      -273.6,
+      183,
+      328.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data Transfer Size Limits (T1030).md": [
+      -222.5,
+      83.6,
+      598.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data Staged (T1074).md": [
+      -212.6,
+      521.7,
+      280
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data Obfuscation (T1001).md": [
+      -496.7,
+      -180.5,
+      -54.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data Manipulation (T1565).md": [
+      23.2,
+      -542.5,
+      -195
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data from Information Repositories (T1213).md": [
+      115,
+      684,
+      184.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data from Configuration Repository (T1602).md": [
+      85.8,
+      721.4,
+      119.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data from Cloud Storage (T1530).md": [
+      382.9,
+      464.9,
+      21.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data Encrypted for Impact (T1486).md": [
+      107.9,
+      -419.9,
+      264.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data Encoding (T1132).md": [
+      -481.3,
+      -48.2,
+      -63.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Data Destruction (T1485).md": [
+      76.5,
+      -479,
+      225.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Customer Relationship Management Software (T1213.004).md": [
+      62,
+      736.8,
+      165.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cron (T1053.003).md": [
+      174,
+      32.4,
+      -173
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Credentials in Registry (T1552.002).md": [
+      195.7,
+      413.8,
+      162.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Credentials In Files (T1552.001).md": [
+      294.5,
+      279,
+      160.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Credentials from Web Browsers (T1555.003).md": [
+      91.7,
+      360.8,
+      309.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Credentials from Password Stores (T1555).md": [
+      206.6,
+      453.3,
+      275.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Credentials (T1589.001).md": [
+      -53.5,
+      -170.7,
+      -624.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Credential Stuffing (T1110.004).md": [
+      428.8,
+      197.8,
+      108.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Credential API Hooking (T1056.004).md": [
+      204,
+      353.5,
+      280.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Create Snapshot (T1578.001).md": [
+      609.7,
+      -0.9,
+      8.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Create or Modify System Process (T1543).md": [
+      131.6,
+      -269,
+      -176.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Create Cloud Instance (T1578.002).md": [
+      639.3,
+      -227.3,
+      23.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Create Account (T1136).md": [
+      441.4,
+      -129,
+      -60.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Create Process with Token (T1134.002).md": [
+      195.2,
+      -57.1,
+      50.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Control Panel (T1218.002).md": [
+      -295.6,
+      126.2,
+      -225.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Container Service (T1543.005).md": [
+      302.1,
+      -238.4,
+      -308
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Container Orchestration Job (T1053.007).md": [
+      328.3,
+      147.5,
+      -343.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/COR_PROFILER (T1574.012).md": [
+      -82.1,
+      367,
+      -297.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Container API (T1552.007).md": [
+      411.8,
+      396.1,
+      -40.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Content Injection (T1659).md": [
+      -381.5,
+      -21.7,
+      -278.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Container and Resource Discovery (T1613).md": [
+      371.2,
+      216.3,
+      105.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Container Administration Command (T1609).md": [
+      303.9,
+      263.2,
+      -130.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Container CLI_API (T1059.013).md": [
+      195.9,
+      444.8,
+      -114.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Confluence (T1213.001).md": [
+      189.5,
+      643.1,
+      131.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Conditional Access Policies (T1556.009).md": [
+      550,
+      -1.1,
+      -110
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Compute Hijacking (T1496.001).md": [
+      162.3,
+      -319,
+      -15
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Compromise Software Supply Chain (T1195.002).md": [
+      -288.7,
+      223.5,
+      -288.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Compromise Software Dependencies and Development Tools (T1195.001).md": [
+      10.8,
+      416.6,
+      -142.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Compromise Infrastructure (T1584).md": [
+      194.6,
+      203,
+      -608.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Compromise Host Software Binary (T1554).md": [
+      18.4,
+      -168.4,
+      -183.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Compromise Hardware Supply Chain (T1195.003).md": [
+      -115.7,
+      482.2,
+      -326.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Compromise Accounts (T1586).md": [
+      91.5,
+      471,
+      -541
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Compression (T1027.015).md": [
+      -462,
+      170.4,
+      -93.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Component Object Model Hijacking (T1546.015).md": [
+      176.7,
+      11.6,
+      7.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Component Object Model and Distributed COM (T1175).md": [
+      414.6,
+      114.9,
+      -45.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Component Object Model (T1559.001).md": [
+      -39.9,
+      341.8,
+      -24.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Compiled HTML File (T1218.001).md": [
+      -301.7,
+      347.4,
+      -294.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Compile After Delivery (T1027.004).md": [
+      -366.8,
+      89.6,
+      -97.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Communication Through Removable Media (T1092).md": [
+      -486.5,
+      -263.1,
+      114.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Component Firmware (T1542.002).md": [
+      47.2,
+      -76.2,
+      -405.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Commonly Used Port (T1043).md": [
+      -549.1,
+      -375.8,
+      -174.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Command Obfuscation (T1027.010).md": [
+      -133.7,
+      394.6,
+      73.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Command and Scripting Interpreter (T1059).md": [
+      90.1,
+      318.3,
+      38.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Code Signing Policy Modification (T1553.006).md": [
+      293.3,
+      -334.8,
+      -3.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Code Signing Certificates (T1588.003).md": [
+      82.2,
+      147.2,
+      -486.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Code Signing Certificates (T1587.002).md": [
+      218.2,
+      415.7,
+      -552.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Code Signing (T1553.002).md": [
+      -127.2,
+      -56.3,
+      -12.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Code Repositories (T1593.003).md": [
+      12.5,
+      -117.6,
+      -518
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Code Repositories (T1213.003).md": [
+      175.9,
+      570.3,
+      73.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Storage Object Discovery (T1619).md": [
+      436.2,
+      340.1,
+      165.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Services (T1021.007).md": [
+      489.2,
+      -91.9,
+      187.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Service Hijacking (T1496.004).md": [
+      54.7,
+      -671.1,
+      -137.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/CMSTP (T1218.003).md": [
+      -295.1,
+      69.8,
+      -302.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Service Discovery (T1526).md": [
+      401.8,
+      342.4,
+      146.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Service Dashboard (T1538).md": [
+      368.3,
+      241.7,
+      484
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Secrets Management Stores (T1555.006).md": [
+      363.7,
+      388.9,
+      69.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Instance Metadata API (T1552.005).md": [
+      372.8,
+      371.7,
+      -52.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Infrastructure Discovery (T1580).md": [
+      377.5,
+      356.4,
+      222
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Groups (T1069.003).md": [
+      479.3,
+      237.4,
+      230.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Firewall (T1686.001).md": [
+      492,
+      -64.6,
+      83.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Application Integration (T1671).md": [
+      399.2,
+      -91.3,
+      -406.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Accounts (T1586.003).md": [
+      3.6,
+      437.3,
+      -560.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Accounts (T1585.003).md": [
+      257.8,
+      390.1,
+      -553.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud API (T1059.009).md": [
+      297.5,
+      454.8,
+      -79.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Administration Command (T1651).md": [
+      388.5,
+      358.4,
+      -161.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Accounts (T1078.004).md": [
+      318.5,
+      241.4,
+      -228.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Account (T1136.003).md": [
+      463.2,
+      55.3,
+      -211.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cloud Account (T1087.004).md": [
+      432.4,
+      290.1,
+      184.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Clipboard Data (T1115).md": [
+      39.3,
+      392.8,
+      365.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Client Configurations (T1592.004).md": [
+      -75,
+      -336.6,
+      -548.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/ClickOnce (T1127.002).md": [
+      27.5,
+      298.3,
+      -389.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Clear Windows Event Logs (T1685.005).md": [
+      263,
+      -316.2,
+      316.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Clear Persistence (T1070.009).md": [
+      -455.8,
+      55.8,
+      -137.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Clear Network Connection History and Configurations (T1070.007).md": [
+      -306.9,
+      -37.1,
+      -299.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Clear Mailbox Data (T1070.008).md": [
+      -361.3,
+      30.9,
+      -260
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Clear Linux or Mac System Logs (T1685.006).md": [
+      353.1,
+      -195,
+      93.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Clear Command History (T1070.003).md": [
+      -174.9,
+      -100.5,
+      -314
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Change Default File Association (T1546.001).md": [
+      411.8,
+      -94.3,
+      -116
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/CDNs (T1596.004).md": [
+      -248.2,
+      -224.8,
+      -597.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Ccache Files (T1558.005).md": [
+      601.6,
+      197.2,
+      186.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Chat Messages (T1552.008).md": [
+      465.1,
+      466.5,
+      9.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Cached Domain Credentials (T1003.005).md": [
+      451.4,
+      298.8,
+      294.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Bypass User Account Control (T1548.002).md": [
+      68,
+      -81.8,
+      71.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Business Relationships (T1591.002).md": [
+      -166.6,
+      -334.2,
+      -528.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Build Image on Host (T1612).md": [
+      -119.5,
+      121.9,
+      -474.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Brute Force (T1110).md": [
+      453.2,
+      69.1,
+      194.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Browser Session Hijacking (T1185).md": [
+      -39.3,
+      503.1,
+      55.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Browser Fingerprint (T1036.012).md": [
+      -408.6,
+      138.7,
+      -271.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Browser Extensions (T1176.001).md": [
+      136.6,
+      249,
+      -216.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Break Process Trees (T1036.009).md": [
+      -225.3,
+      202.2,
+      -324.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Browser Information Discovery (T1217).md": [
+      55.4,
+      429.5,
+      309.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Botnet (T1584.005).md": [
+      194,
+      292.8,
+      -608.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Botnet (T1583.005).md": [
+      178,
+      307.9,
+      -555.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Bootkit (T1542.003).md": [
+      75.7,
+      90,
+      -324.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Boot or Logon Initialization Scripts (T1037).md": [
+      332.1,
+      -294.5,
+      -238.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Boot or Logon Autostart Execution (T1547).md": [
+      306.8,
+      -179.4,
+      -113.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Bind Mounts (T1564.013).md": [
+      -280.3,
+      128.9,
+      -482.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Binary Padding (T1027.001).md": [
+      -427.7,
+      236.7,
+      -42.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Bidirectional Communication (T1102.002).md": [
+      -458,
+      280.1,
+      294.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/BITS Jobs (T1197).md": [
+      127.5,
+      104.7,
+      -144.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Bandwidth Hijacking (T1496.002).md": [
+      20.2,
+      -642.5,
+      -147
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Backup Software Discovery (T1518.002).md": [
+      163.5,
+      406,
+      404.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Automated Exfiltration (T1020).md": [
+      21.6,
+      350.8,
+      459.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Automated Collection (T1119).md": [
+      32.3,
+      386.1,
+      320.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/AutoHotKey & AutoIT (T1059.010).md": [
+      3.5,
+      500.4,
+      -67.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Authentication Package (T1547.002).md": [
+      435.1,
+      -102.3,
+      -182
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Audio-Visual Content (T1683.002).md": [
+      -26.9,
+      409.5,
+      -572.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Audio Capture (T1123).md": [
+      75.1,
+      379.6,
+      405.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/At (T1053.002).md": [
+      390,
+      118.4,
+      -151.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Asynchronous Procedure Call (T1055.004).md": [
+      -40.2,
+      162.5,
+      -132.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Asymmetric Cryptography (T1573.002).md": [
+      -235,
+      -266,
+      181.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Archive via Utility (T1560.001).md": [
+      -11.3,
+      423,
+      334
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Archive via Library (T1560.002).md": [
+      -105.7,
+      395.3,
+      396.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/AS-REP Roasting (T1558.004).md": [
+      634.6,
+      300.8,
+      139.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Archive via Custom Method (T1560.003).md": [
+      -171.7,
+      263.1,
+      571
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Artificial Intelligence (T1588.007).md": [
+      109.6,
+      184.9,
+      -492.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/ARP Cache Poisoning (T1557.002).md": [
+      314.3,
+      553.9,
+      114.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Archive Collected Data (T1560).md": [
+      -34,
+      330.9,
+      501.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Application Window Discovery (T1010).md": [
+      36.6,
+      156.4,
+      542.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Application Shimming (T1546.011).md": [
+      175.5,
+      -199.3,
+      -218.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Application or System Exploitation (T1499.004).md": [
+      68.2,
+      -611,
+      55.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Application Layer Protocol (T1071).md": [
+      -532,
+      -219.8,
+      42.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Application Exhaustion Flood (T1499.003).md": [
+      188.3,
+      -656.6,
+      -52.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Application Access Token (T1550.001).md": [
+      430.5,
+      133.1,
+      55.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/AppleScript (T1059.002).md": [
+      108.7,
+      426.3,
+      -96.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/AppInit DLLs (T1546.010).md": [
+      373.2,
+      6.5,
+      -111.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/AppDomainManager (T1574.014).md": [
+      -51.8,
+      299.9,
+      -332.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/AppCert DLLs (T1546.009).md": [
+      270.5,
+      -25,
+      -342.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Adversary-in-the-Middle (T1557).md": [
+      239.4,
+      549.7,
+      21.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Additional Local or Domain Groups (T1098.007).md": [
+      391.9,
+      -67.5,
+      -72.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Additional Email Delegate Permissions (T1098.002).md": [
+      479.4,
+      -55.9,
+      -319.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Additional Container Cluster Roles (T1098.006).md": [
+      474.2,
+      -33,
+      -343.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Additional Cloud Roles (T1098.003).md": [
+      448.9,
+      -8.2,
+      -353.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Additional Cloud Credentials (T1098.001).md": [
+      484.8,
+      23.7,
+      -217.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Add-ins (T1137.006).md": [
+      35.2,
+      -76.4,
+      -312.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Active Setup (T1547.014).md": [
+      294.4,
+      -208.7,
+      -231.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Active Scanning (T1595).md": [
+      -277.5,
+      -92.1,
+      -638.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Acquire Infrastructure (T1583).md": [
+      50.3,
+      318.7,
+      -536.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Acquire Access (T1650).md": [
+      32.1,
+      415,
+      -591.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Account Manipulation (T1098).md": [
+      496.1,
+      84.6,
+      -250.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Account Discovery (T1087).md": [
+      292.9,
+      248.8,
+      365
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Account Access Removal (T1531).md": [
+      60.2,
+      -572,
+      103.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Accessibility Features (T1546.008).md": [
+      401.9,
+      -22.3,
+      -140.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Access Token Manipulation (T1134).md": [
+      214.5,
+      -151.5,
+      16.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Techniques/Abuse Elevation Control Mechanism (T1548).md": [
+      281.6,
+      -116.4,
+      -301.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/8. Defense Impairment.md": [
+      494.1,
+      -201.3,
+      -9.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/7. Stealth.md": [
+      -150.2,
+      142,
+      -330.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/6. Privilege Escalation.md": [
+      320.2,
+      -83.7,
+      -252.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/9. Credential Access.md": [
+      461.6,
+      313.6,
+      75.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/5. Persistence.md": [
+      318.2,
+      -69.2,
+      -290.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/4. Execution.md": [
+      140.5,
+      366.6,
+      -225.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/3. Initial Access.md": [
+      -75.8,
+      288.4,
+      -292.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/2. Resource Development.md": [
+      118,
+      386.3,
+      -540.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/15. Impact.md": [
+      75.3,
+      -592.5,
+      -19.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/14. Exfiltration.md": [
+      168.2,
+      364,
+      597.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/13. Command and Control.md": [
+      -477.7,
+      -304.4,
+      -81.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/12. Collection.md": [
+      110.6,
+      603.7,
+      264.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/11. Lateral Movement.md": [
+      515.1,
+      -197.4,
+      187.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/10. Discovery.md": [
+      252.5,
+      188.7,
+      406.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Tactics/1. Reconnaissance.md": [
+      -135.6,
+      -200.7,
+      -597.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Zeus Panda.md": [
+      -63.3,
+      153.4,
+      404.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ZeroT.md": [
+      -427.1,
+      -111.8,
+      121.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ZeroCleare.md": [
+      58.6,
+      -166.7,
+      216.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ZxxZ.md": [
+      -358.6,
+      139.6,
+      330.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ZxShell.md": [
+      75.2,
+      -185.8,
+      382.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/zwShell.md": [
+      -41.8,
+      -219.1,
+      474
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Zox.md": [
+      -119,
+      -261.4,
+      346.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ZLib.md": [
+      -249.7,
+      -15,
+      469.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ZIPLINE.md": [
+      -137.1,
+      -312.9,
+      102.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Zeroaccess.md": [
+      -267.4,
+      -280.6,
+      -332
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Zebrocy.md": [
+      -87.6,
+      64.4,
+      500.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/YAHOYAH.md": [
+      -340.1,
+      -57.8,
+      316.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/XTunnel.md": [
+      -147,
+      -191.9,
+      67.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/XORIndex Loader.md": [
+      -316.4,
+      290.6,
+      265.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/yty.md": [
+      -215.2,
+      156.6,
+      480.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/XLoader.md": [
+      -115.8,
+      407.7,
+      135.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Xbash.md": [
+      -20.8,
+      153.1,
+      105.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/XAgentOSX.md": [
+      -103.3,
+      71.9,
+      551.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Woody RAT.md": [
+      -204.7,
+      126.2,
+      388.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/XCSSET.md": [
+      144,
+      140.1,
+      28.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/xCaon.md": [
+      -255.2,
+      -106.6,
+      285.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Wiper.md": [
+      539.5,
+      189.8,
+      -140.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Winnti for Windows.md": [
+      -337.2,
+      -256.7,
+      163.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Winnti for Linux.md": [
+      -379.5,
+      -241.4,
+      -8.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WIREFIRE.md": [
+      -431.2,
+      -116.7,
+      -6.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Wingbird.md": [
+      21.8,
+      -188.3,
+      114.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WindTail.md": [
+      -222.5,
+      232.7,
+      77.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Wiarp.md": [
+      -244.1,
+      -248.2,
+      115.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WinMM.md": [
+      -287.7,
+      -118,
+      522.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WhisperGate.md": [
+      -76.8,
+      -90.8,
+      69.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WINERACK.md": [
+      52.3,
+      36.8,
+      534.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WellMess.md": [
+      -398.5,
+      -97.1,
+      394.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WINDSHIELD.md": [
+      -286.9,
+      -216.7,
+      499.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WellMail.md": [
+      -318,
+      -125.2,
+      416.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Waterbear.md": [
+      -45.7,
+      -91.3,
+      136.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WastedLocker.md": [
+      -86.9,
+      -246,
+      217.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WarzoneRAT.md": [
+      -100,
+      81.4,
+      98
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WEBC2.md": [
+      -505.2,
+      68.8,
+      162.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WannaCry.md": [
+      165.3,
+      -310.3,
+      362.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Volgmer.md": [
+      -233.9,
+      -270,
+      386.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/VIRTUALPIE.md": [
+      45.5,
+      -311.5,
+      -4.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/WARPWIRE.md": [
+      23.7,
+      358.3,
+      106.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/VersaMem.md": [
+      40.4,
+      351.4,
+      202.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/VPNFilter.md": [
+      210.3,
+      -621.9,
+      103.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/VERMIN.md": [
+      -189.7,
+      246.3,
+      452
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/VIRTUALPITA.md": [
+      62.8,
+      -277.5,
+      -28.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/VBShower.md": [
+      -442.2,
+      187.3,
+      316.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Vasport.md": [
+      -395,
+      -172.7,
+      218.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/VaporRage.md": [
+      -411.1,
+      -41.5,
+      8.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Valak.md": [
+      -188.6,
+      355.4,
+      234.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/USBStealer.md": [
+      -150,
+      96.2,
+      461.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/USBferry.md": [
+      15.4,
+      -34.9,
+      565.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/UPSTYLE.md": [
+      -174.4,
+      -202.4,
+      -86
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/UPPERCUT.md": [
+      -314.5,
+      48.3,
+      389.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Unknown Logger.md": [
+      97.2,
+      122.3,
+      463.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Ursnif.md": [
+      -158.3,
+      154.7,
+      126.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Uroburos.md": [
+      -387.1,
+      -287.1,
+      82.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Umbreon.md": [
+      -163.7,
+      -352.1,
+      -104.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/UBoatRAT.md": [
+      -411.9,
+      147.5,
+      213.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Turian.md": [
+      -273.7,
+      88.3,
+      339.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Tsundere Botnet.md": [
+      -293,
+      345.6,
+      66.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Truvasys.md": [
+      -420.6,
+      -169.5,
+      306
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TYPEFRAME.md": [
+      -350.6,
+      -199.1,
+      238.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TURNEDUP.md": [
+      -270.1,
+      209.3,
+      328.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Trojan.Mebromi.md": [
+      66.3,
+      -51.8,
+      -585.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Trojan.Karagany.md": [
+      -82.5,
+      174.9,
+      371.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TSCookie.md": [
+      -228.4,
+      -92.2,
+      207.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Troll Stealer.md": [
+      -241.4,
+      288.3,
+      319.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TrickBot.md": [
+      59.4,
+      141.3,
+      126.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TRANSLATEXT.md": [
+      -182.4,
+      391.1,
+      134.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TrailBlazer.md": [
+      -411.8,
+      -71.4,
+      -156
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Torisma.md": [
+      -291.1,
+      -117.2,
+      314.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Tomiris.md": [
+      -498.7,
+      210.3,
+      149.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TinyZBot.md": [
+      56.9,
+      31.6,
+      422.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TRAILBLAZE.md": [
+      -174,
+      125.5,
+      172.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TINYTYPHON.md": [
+      -148.2,
+      129,
+      480.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TONESHELL.md": [
+      -243.6,
+      -7.6,
+      -12.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/THINCRUST.md": [
+      -106.5,
+      -156.4,
+      93.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ThiefQuest.md": [
+      -1.2,
+      116.4,
+      38.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TDTESS.md": [
+      -322.5,
+      -330.6,
+      279.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TinyTurla.md": [
+      -364.4,
+      -228.3,
+      280
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ThreatNeedle.md": [
+      -475.6,
+      107.2,
+      191.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TeamPCP Cloud Stealer.md": [
+      171,
+      259.1,
+      125.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Tarrask.md": [
+      -215.3,
+      -58.9,
+      -54.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TEXTMATE.md": [
+      -500.4,
+      -232.4,
+      317.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TEARDROP.md": [
+      -352,
+      -191.1,
+      159.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TAMECAT.md": [
+      -302.9,
+      151.4,
+      387.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Taidoor.md": [
+      -355,
+      -67.8,
+      386.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TajMahal.md": [
+      -5,
+      276.6,
+      509
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/T9000.md": [
+      15.5,
+      230.4,
+      524.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SysUpdate.md": [
+      -242.6,
+      -126.3,
+      341.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/TAINTEDSCRIBE.md": [
+      -273,
+      -223.2,
+      424.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SystemBC.md": [
+      -278.5,
+      -115.9,
+      106.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SYNful Knock.md": [
+      291.7,
+      -290.7,
+      -202.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SVCReady.md": [
+      -316.7,
+      258.9,
+      373.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SUPERNOVA.md": [
+      -291.4,
+      87,
+      -94.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SYSCON.md": [
+      -431.1,
+      4.2,
+      415.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Sys10.md": [
+      -180.1,
+      -91.2,
+      576.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SUNSPOT.md": [
+      -224.8,
+      -197.7,
+      -17
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SynAck.md": [
+      40.6,
+      -127.1,
+      391.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Sykipot.md": [
+      154.7,
+      -27.5,
+      430.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Stuxnet.md": [
+      84.6,
+      -227.9,
+      173.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/StrongPity.md": [
+      -154.2,
+      -105.9,
+      356.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SUNBURST.md": [
+      -318.7,
+      -74.2,
+      81.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SUGARUSH.md": [
+      -208.2,
+      -359.6,
+      443.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/StrifeWater.md": [
+      -353.8,
+      89.6,
+      421.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SUGARDUMP.md": [
+      -293.3,
+      364.3,
+      300.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/StreamEx.md": [
+      -205.8,
+      -198.5,
+      382.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/StrelaStealer.md": [
+      -344.2,
+      308.9,
+      -4.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/StealBit.md": [
+      -213.3,
+      -135.8,
+      175.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/STEADYPULSE.md": [
+      -506.4,
+      -2.9,
+      29.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/StoneDrill.md": [
+      -39.4,
+      -137.3,
+      319.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/StarProxy.md": [
+      -316.6,
+      -207.9,
+      69.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Starloader.md": [
+      -488.3,
+      30.4,
+      -49.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SslMM.md": [
+      -10.6,
+      -41.6,
+      331
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/STATICPLUGIN.md": [
+      -336.5,
+      290.1,
+      -100
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/STARWHALE.md": [
+      -410.1,
+      182,
+      420.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Squirrelwaffle.md": [
+      -426.4,
+      309.6,
+      226.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SplatDropper.md": [
+      -411,
+      -113.2,
+      -71.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SplatCloak.md": [
+      8.8,
+      -26.2,
+      239.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Spica.md": [
+      -171.2,
+      45.9,
+      264
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SQLRat.md": [
+      -324.1,
+      239.9,
+      190.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SpeakUp.md": [
+      44,
+      75,
+      269.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SPAWNCHIMERA.md": [
+      -26.8,
+      -197.9,
+      -37.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SpicyOmelette.md": [
+      -37.1,
+      301.5,
+      282.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Spark.md": [
+      -357.2,
+      205.3,
+      311.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SombRAT.md": [
+      -363.8,
+      -100.7,
+      264
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SoreFang.md": [
+      15.7,
+      -74.9,
+      377.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Solar.md": [
+      -368.4,
+      135.9,
+      441.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SPACESHIP.md": [
+      -20.3,
+      190.3,
+      580.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SOUNDBITE.md": [
+      -210.7,
+      -159.1,
+      505.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SodaMaster.md": [
+      -373.6,
+      22.9,
+      276.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SocGholish.md": [
+      -151.5,
+      396.6,
+      257.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SNUGRIDE.md": [
+      -476.5,
+      -56.2,
+      370.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Snip3.md": [
+      -351.7,
+      379,
+      37.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Socksbot.md": [
+      44.9,
+      -54.7,
+      367.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SnappyTCP.md": [
+      -288.2,
+      -310.4,
+      -52.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SMOKEDHAM.md": [
+      -131.4,
+      146.6,
+      57.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SLOWPULSE.md": [
+      159.7,
+      185.9,
+      -48.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SLOWDRIFT.md": [
+      -439.7,
+      149.2,
+      428.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Smoke Loader.md": [
+      -134,
+      312.9,
+      115.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Small Sieve.md": [
+      -405.3,
+      -57,
+      192.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SLOTHFULMEDIA.md": [
+      -95.9,
+      -165,
+      391.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SLIGHTPULSE.md": [
+      -402,
+      183.8,
+      100.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Skidmap.md": [
+      35.2,
+      -149.7,
+      17.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Skeleton Key.md": [
+      690.9,
+      24.3,
+      -117.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Siloscape.md": [
+      33.2,
+      -69.2,
+      15.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SideTwist.md": [
+      -446.7,
+      -62.7,
+      394.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ShrinkLocker.md": [
+      -8.4,
+      -246.9,
+      326.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Sibot.md": [
+      -310.7,
+      113.9,
+      152.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SHOTPUT.md": [
+      94.4,
+      -92.8,
+      447.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SHIPSHAPE.md": [
+      163.6,
+      110.1,
+      405.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SHUTTERSPEED.md": [
+      -249.7,
+      170.8,
+      529.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SHARPSTATS.md": [
+      -122.7,
+      207,
+      482.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Shark.md": [
+      -501.3,
+      48.3,
+      314.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SharpDisco.md": [
+      -312.6,
+      -28.9,
+      450.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ShimRat.md": [
+      -273.9,
+      -178.9,
+      127.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SharpStage.md": [
+      -126.1,
+      154.9,
+      315.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Shamoon.md": [
+      -17.9,
+      -341.7,
+      217.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Shai-Hulud.md": [
+      153,
+      252,
+      -55.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Seth-Locker.md": [
+      -161.7,
+      -315.4,
+      340.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ShadowPad.md": [
+      -319.4,
+      -226.1,
+      247.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Seasalt.md": [
+      -329,
+      -201.9,
+      393
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SeaDuke.md": [
+      -80.7,
+      174,
+      139.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ServHelper.md": [
+      -44,
+      -14.1,
+      217.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Sardonic.md": [
+      -135.2,
+      -198.3,
+      271.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SEASHARPEE.md": [
+      -352.4,
+      -271.2,
+      46
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Samurai.md": [
+      -466.7,
+      -92.6,
+      175.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SamSam.md": [
+      -283.6,
+      -303.1,
+      169.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SDBbot.md": [
+      -142.9,
+      -134.5,
+      229.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SampleCheck5000.md": [
+      -319.4,
+      198.7,
+      465.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/SameCoin.md": [
+      131.8,
+      -224.6,
+      119.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Sakula.md": [
+      -423.4,
+      -144.2,
+      202.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Saint Bot.md": [
+      -391.2,
+      293.3,
+      143.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Sagerunex.md": [
+      -264.7,
+      -34.3,
+      187.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/S-Type.md": [
+      -202.9,
+      -47,
+      417.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Ryuk.md": [
+      28.4,
+      -258.6,
+      171.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RustyWater.md": [
+      -323.5,
+      233.6,
+      80.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RunningRAT.md": [
+      47.5,
+      1.8,
+      493
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Royal.md": [
+      103.4,
+      -273.2,
+      356.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Rover.md": [
+      -99.4,
+      295.2,
+      552.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RobbinHood.md": [
+      145.6,
+      -409.5,
+      196.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RTM.md": [
+      -304.7,
+      184.6,
+      142.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ROAMINGHOUSE.md": [
+      -175.2,
+      274.7,
+      -26.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ROADSWEEP.md": [
+      -135.4,
+      -331.3,
+      278.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RotaJakiro.md": [
+      -111.8,
+      -81.3,
+      38
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ROKRAT.md": [
+      -215,
+      361,
+      309.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RogueRobin.md": [
+      -232.2,
+      247.4,
+      401.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ROCKBOOT.md": [
+      141,
+      111.9,
+      -477.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Rising Sun.md": [
+      -299.1,
+      -81.2,
+      444.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RIPTIDE.md": [
+      -538.5,
+      -86.7,
+      253.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RGDoor.md": [
+      -412.8,
+      39.1,
+      358.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/REvil.md": [
+      -56.7,
+      -169.1,
+      216.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Revenge RAT.md": [
+      -92.6,
+      363.6,
+      345.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RIFLESPINE.md": [
+      -337.5,
+      184.5,
+      146.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Rifdoor.md": [
+      -443.1,
+      218,
+      304.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/REPTILE.md": [
+      -78.6,
+      -302.5,
+      -197.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Remsec.md": [
+      115.1,
+      -2.4,
+      419.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RemoteCMD.md": [
+      23.4,
+      -90.9,
+      183
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Regin.md": [
+      -113.6,
+      -236.7,
+      22.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Remexi.md": [
+      -115.7,
+      255.1,
+      374
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RegDuke.md": [
+      -338.5,
+      28.8,
+      -0.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RedLine Stealer.md": [
+      -160.9,
+      380,
+      187
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/reGeorg.md": [
+      -34,
+      -344.1,
+      79.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RDAT.md": [
+      -527.8,
+      -123.8,
+      225.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RCSession.md": [
+      -388.6,
+      132.7,
+      179.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RawPOS.md": [
+      -304.1,
+      23.7,
+      459.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RedLeaves.md": [
+      -210.1,
+      -16.7,
+      461.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Reaver.md": [
+      -273.4,
+      -172.7,
+      431.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RDFSNIFFER.md": [
+      28.3,
+      105.5,
+      320.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RATANKBA.md": [
+      17.4,
+      -79.1,
+      537
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Raspberry Robin.md": [
+      -223.9,
+      197.4,
+      -72.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RansomHub.md": [
+      -20,
+      -327.1,
+      309.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Ramsay.md": [
+      -29.3,
+      271.9,
+      216.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RainyDay.md": [
+      -286.6,
+      -42.8,
+      330
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RARSTONE.md": [
+      -161.5,
+      -275.4,
+      302.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/RAPIDPULSE.md": [
+      -438.7,
+      -23.5,
+      -29.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Raindrop.md": [
+      -506,
+      114.2,
+      -90.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Ragnar Locker.md": [
+      -24.1,
+      -219.7,
+      148.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Raccoon Stealer.md": [
+      -149.1,
+      376.5,
+      330.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/QuietSieve.md": [
+      -156.2,
+      108.6,
+      539.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/QUIETCANARY.md": [
+      -458.6,
+      106.3,
+      344.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/QUADAGENT.md": [
+      -416.8,
+      88.1,
+      278.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Qilin.md": [
+      114.1,
+      -260.9,
+      203.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/QUIETEXIT.md": [
+      -469.3,
+      -329.8,
+      36.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/QakBot.md": [
+      -49.9,
+      257.8,
+      133.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PUNCHTRACK.md": [
+      -348.5,
+      378,
+      219.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PUNCHBUGGY.md": [
+      -104.2,
+      209.3,
+      160.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PULSECHECK.md": [
+      -391.2,
+      -44.1,
+      -92.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Pysa.md": [
+      220.1,
+      -171.9,
+      302.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PyDCrypt.md": [
+      -31.7,
+      -59.3,
+      308.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PureCrypter.md": [
+      -198.7,
+      7,
+      15.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PUBLOAD.md": [
+      -197.8,
+      -25.5,
+      363.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Pteranodon.md": [
+      -408.9,
+      244.2,
+      228.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Psylo.md": [
+      -322.9,
+      -145.3,
+      286.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Proxysvc.md": [
+      -96.4,
+      -144.5,
+      538.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Proton.md": [
+      204.6,
+      187.1,
+      175.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ProLock.md": [
+      88,
+      -298.4,
+      120.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PS1.md": [
+      -130.9,
+      5.4,
+      128.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/POWRUNER.md": [
+      -63.9,
+      -4.1,
+      558.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/POWERTON.md": [
+      49.3,
+      6.3,
+      246.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/POWERSTATS.md": [
+      -167.6,
+      212.4,
+      248.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Prikormka.md": [
+      -226.1,
+      232.6,
+      522.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Prestige.md": [
+      116.8,
+      -263.1,
+      294.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PowerStallion.md": [
+      -307,
+      18.1,
+      192.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PowGoop.md": [
+      -514,
+      85.2,
+      -16.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PowerShower.md": [
+      -288,
+      222.5,
+      441.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PowerPunch.md": [
+      -235.8,
+      279.7,
+      10.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PowerLess.md": [
+      -222.9,
+      388.9,
+      289.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/POWERSOURCE.md": [
+      -376.2,
+      -64.7,
+      175.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PowerExchange.md": [
+      -437,
+      208.2,
+      212.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PowerDuke.md": [
+      -219.8,
+      -200.5,
+      445.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Power Loader.md": [
+      104.1,
+      -153.4,
+      -412.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Pony.md": [
+      -356.7,
+      282.5,
+      93.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PolyglotDuke.md": [
+      -517.5,
+      -6.1,
+      73.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/pngdowner.md": [
+      7.7,
+      151.6,
+      246.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/POSHSPY.md": [
+      -243.8,
+      -161.3,
+      63.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/POORAIM.md": [
+      -232.9,
+      243.2,
+      453.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PlugX.md": [
+      -295.1,
+      58.7,
+      160.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PLEAD.md": [
+      -278.7,
+      129,
+      322.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PoisonIvy.md": [
+      -141.8,
+      -54.2,
+      139.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PoetRAT.md": [
+      -80.1,
+      323.5,
+      313.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Playcrypt.md": [
+      80.3,
+      -412.4,
+      426.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Pisloader.md": [
+      -412.8,
+      -58.6,
+      415.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PipeMon.md": [
+      -150.6,
+      -253.5,
+      122.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PingPull.md": [
+      -386.6,
+      -221.3,
+      364.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PLAINTEE.md": [
+      -194.3,
+      -171.6,
+      437.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PITSTOP.md": [
+      -223,
+      -190.9,
+      -200.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PinchDuke.md": [
+      42.8,
+      291,
+      388.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PHPsert.md": [
+      -508.8,
+      -38.8,
+      53.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PHOREAL.md": [
+      -255.8,
+      -347.4,
+      332.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Peppy.md": [
+      -162.3,
+      183.3,
+      544
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Pillowmint.md": [
+      -257,
+      82.6,
+      78.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Pikabot.md": [
+      -251.6,
+      21,
+      35.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Penquin.md": [
+      -73.7,
+      -210.6,
+      90.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Pcexter.md": [
+      -328.1,
+      342.1,
+      316.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PHASEJAM.md": [
+      -40.7,
+      -143.2,
+      -110.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Pay2Key.md": [
+      -132.2,
+      -407.4,
+      343
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Pasam.md": [
+      -139.3,
+      -180,
+      474.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Pandora.md": [
+      -134.8,
+      -251.8,
+      38.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PAKLOG.md": [
+      -123.6,
+      215.5,
+      337.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/PACEMAKER.md": [
+      98.4,
+      293.8,
+      117.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/P8RAT.md": [
+      -464.4,
+      208.5,
+      146.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/P2P ZeuS.md": [
+      -684.3,
+      -130.4,
+      -109.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/P.A.S. Webshell.md": [
+      23.6,
+      149.4,
+      175.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/OwaAuth.md": [
+      -179.5,
+      -45.7,
+      112.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/OutSteel.md": [
+      -240,
+      359,
+      236.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Orz.md": [
+      -300.3,
+      117.3,
+      229.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/OopsIE.md": [
+      -369.1,
+      258.8,
+      375
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/OnionDuke.md": [
+      -39.3,
+      -85.5,
+      -18.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/OSX_Shlayer.md": [
+      -105.3,
+      96.3,
+      -154.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/OSX_OCEANLOTUS.D.md": [
+      -239.3,
+      66.5,
+      2.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/OSInfo.md": [
+      189.5,
+      -131.9,
+      598.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Olympic Destroyer.md": [
+      283.6,
+      -296.7,
+      393.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Okrum.md": [
+      -108,
+      -7.9,
+      231.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/OilCheck.md": [
+      -283.5,
+      378.1,
+      405
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/OilBooster.md": [
+      -452.9,
+      143.5,
+      294.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/OLDBAIT.md": [
+      -242,
+      361.1,
+      123.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Octopus.md": [
+      -327.6,
+      253.6,
+      462.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/OceanSalt.md": [
+      -351,
+      -48.7,
+      450.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ObliqueRAT.md": [
+      -213.1,
+      303.1,
+      498.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ODAgent.md": [
+      -407.4,
+      93.5,
+      422.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NotPetya.md": [
+      176.8,
+      -176.1,
+      214.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Nightdoor.md": [
+      -290.3,
+      57.2,
+      293.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NightClub.md": [
+      -282.2,
+      7.2,
+      397.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NOOPLDR.md": [
+      -287,
+      -0.8,
+      -92.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NOKKI.md": [
+      -347.9,
+      5.9,
+      421.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/njRAT.md": [
+      -134.7,
+      -4.6,
+      465.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NKAbuse.md": [
+      55.6,
+      -128.5,
+      198.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Ninja.md": [
+      -411.6,
+      -184.8,
+      79.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Nidiran.md": [
+      -354.6,
+      -343.7,
+      216.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NICECURL.md": [
+      -227,
+      -17,
+      82.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Netwalker.md": [
+      39.5,
+      -231,
+      279.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NetTraveler.md": [
+      104.4,
+      289.8,
+      583.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NGLite.md": [
+      -292.5,
+      -215.7,
+      381.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Net Crawler.md": [
+      452.8,
+      -190.3,
+      274.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NETWIRE.md": [
+      -119.1,
+      258.7,
+      103.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Nerex.md": [
+      -219.8,
+      -289.5,
+      123.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Neo-reGeorg.md": [
+      -330.7,
+      -314.3,
+      -6.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NETEAGLE.md": [
+      -446.6,
+      -187.4,
+      351.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Nebulae.md": [
+      -356.4,
+      -187.9,
+      336.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NDiskMonitor.md": [
+      -330.7,
+      -79.4,
+      519.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Neoichor.md": [
+      -145.7,
+      93.7,
+      374
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NavRAT.md": [
+      -271.6,
+      126.7,
+      402.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NativeZone.md": [
+      -458.6,
+      220.3,
+      -33.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NanoCore.md": [
+      -47.1,
+      107.4,
+      338.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/NanHaiShu.md": [
+      -288,
+      155.7,
+      285.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Naid.md": [
+      -112.9,
+      -269.3,
+      469.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MultiLayer Wiper.md": [
+      -67.7,
+      -427.7,
+      175.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MuddyViper.md": [
+      -109.7,
+      190.1,
+      211.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Mosquito.md": [
+      -230.2,
+      -88.2,
+      413
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MURKYTOP.md": [
+      205.1,
+      -88.1,
+      399.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Mori.md": [
+      -520.9,
+      -41.7,
+      185.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/More_eggs.md": [
+      -408.9,
+      -22.2,
+      367.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MoonWind.md": [
+      -182.4,
+      -163.7,
+      541.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Mongall.md": [
+      -454.4,
+      49.4,
+      393.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Moneybird.md": [
+      -25.7,
+      -447.9,
+      -10.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MOPSLED.md": [
+      -509.6,
+      -54.1,
+      9.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MoleNet.md": [
+      -78.8,
+      19.6,
+      499.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MobileOrder.md": [
+      -177.7,
+      160.4,
+      532.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Mivast.md": [
+      -4,
+      42.2,
+      417.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Mispadu.md": [
+      -73.4,
+      364.8,
+      216.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Misdat.md": [
+      -312.3,
+      -124.5,
+      190.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Mis-Type.md": [
+      -162.4,
+      -42.9,
+      304.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MirrorStealer.md": [
+      139.3,
+      516.9,
+      346.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MirageFox.md": [
+      -444.8,
+      77.3,
+      297.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Mini Shai-Hulud.md": [
+      165.9,
+      242.4,
+      32.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Miner-C.md": [
+      388.2,
+      -294.1,
+      210.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Milan.md": [
+      -372.9,
+      81.4,
+      228.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MiniDuke.md": [
+      -476.7,
+      -134,
+      155.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Micropsia.md": [
+      -24.6,
+      220.6,
+      449.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MgBot.md": [
+      203.6,
+      292.5,
+      454
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Meteor.md": [
+      34.5,
+      -280.5,
+      321.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Metamorfo.md": [
+      -287.4,
+      186.8,
+      93
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Megazord.md": [
+      78,
+      -284,
+      448.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MegaCortex.md": [
+      14.2,
+      -311.5,
+      88.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/metaMain.md": [
+      -220.6,
+      24,
+      174.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MESSAGETAP.md": [
+      40,
+      151.7,
+      465
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Medusa Ransomware.md": [
+      -49,
+      -280.1,
+      329.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Melcoz.md": [
+      -208.4,
+      470.4,
+      62.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MechaFlounder.md": [
+      -392.8,
+      188.3,
+      253.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Maze.md": [
+      -84.9,
+      -252.2,
+      130.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MEDUSA.md": [
+      -19.9,
+      -206.6,
+      -228.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Matryoshka.md": [
+      -111.9,
+      278.8,
+      198.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MarkiRAT.md": [
+      -55.5,
+      270.3,
+      383.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Manjusaka.md": [
+      -163,
+      247.4,
+      479.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Mango.md": [
+      -322.6,
+      -7,
+      306.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MagicRAT.md": [
+      -413.5,
+      28.1,
+      246.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Mafalda.md": [
+      46.9,
+      -9.5,
+      286.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MacSpy.md": [
+      29.5,
+      275.5,
+      228.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/MacMa.md": [
+      42.8,
+      -47.5,
+      320
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Machete.md": [
+      -164.1,
+      282.5,
+      485.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Lurid.md": [
+      -275.7,
+      119.1,
+      522.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/macOS.OSAMiner.md": [
+      34.8,
+      81.1,
+      74
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LunarWeb.md": [
+      -127.1,
+      -104.8,
+      415.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LunarMail.md": [
+      -316.5,
+      132,
+      61.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LunarLoader.md": [
+      -56.2,
+      -85.6,
+      -72
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Lumma Stealer.md": [
+      -172.9,
+      404.6,
+      37
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Lucifer.md": [
+      6.1,
+      -197.1,
+      344.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LoudMiner.md": [
+      -57.6,
+      5.9,
+      17.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LookBack.md": [
+      -256.5,
+      -181.8,
+      301.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Lokibot.md": [
+      -179.1,
+      296.1,
+      177.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LP-Notes.md": [
+      -54.4,
+      219.2,
+      80.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LOWBALL.md": [
+      -533.1,
+      153.3,
+      289.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LockerGoga.md": [
+      85.9,
+      -403,
+      123.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LockBit 3.0.md": [
+      -14,
+      -306.3,
+      136.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LoFiSe.md": [
+      -185.9,
+      421,
+      354.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LoJax.md": [
+      -158.6,
+      -156.2,
+      -160.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LODEINFO.md": [
+      -236,
+      107.9,
+      243.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LockBit 2.0.md": [
+      122,
+      -213.5,
+      349
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Lizar.md": [
+      74.9,
+      97.5,
+      190
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LITTLELAMB.WOOLTEA.md": [
+      -100.6,
+      -388.2,
+      92.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LiteDuke.md": [
+      -377.9,
+      43.4,
+      332
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LitePower.md": [
+      -191.1,
+      61.5,
+      524.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Linfo.md": [
+      -325.1,
+      -123,
+      512
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Line Runner.md": [
+      -147.5,
+      209,
+      -60.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Linux Rabbit.md": [
+      101.3,
+      96.3,
+      -74.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Line Dancer.md": [
+      21.1,
+      2.7,
+      -3.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LightSpy.md": [
+      -29.6,
+      257.1,
+      308.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LightNeuron.md": [
+      -249.5,
+      115,
+      205.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LazyWiper.md": [
+      71.1,
+      -190.5,
+      46.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LIGHTWIRE.md": [
+      -351,
+      -165.6,
+      -88.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Latrodectus.md": [
+      -216.6,
+      191.4,
+      135.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/LAMEHUG.md": [
+      -110.2,
+      177.4,
+      420.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Kwampirs.md": [
+      -25.2,
+      -221.3,
+      505.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Komplex.md": [
+      -131.6,
+      94.6,
+      212.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Kobalos.md": [
+      -183.3,
+      -88.2,
+      -16
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Kivars.md": [
+      26.1,
+      78.3,
+      419.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/KOPILUWAK.md": [
+      -113.7,
+      224.8,
+      464.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/KONNI.md": [
+      -98.1,
+      115.6,
+      337
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/KOMPROGO.md": [
+      -57.5,
+      -99.4,
+      529.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Kinsing.md": [
+      249.3,
+      60.3,
+      62.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/KOCTOPUS.md": [
+      -280.4,
+      214.5,
+      48.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/KillDisk.md": [
+      -38.2,
+      -388.2,
+      268.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/KGH_SPY.md": [
+      -117.2,
+      323.4,
+      283.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/KEYPLUG.md": [
+      -434.8,
+      -232.8,
+      150.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/KEYMARBLE.md": [
+      -226.3,
+      -125.2,
+      545.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Keydnap.md": [
+      35.8,
+      165.1,
+      -216.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/KeyBoy.md": [
+      -85.7,
+      114.3,
+      257.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Kevin.md": [
+      -502.2,
+      66.9,
+      205.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Kessel.md": [
+      -38.7,
+      57.4,
+      240.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Kerrdown.md": [
+      -446.3,
+      338.2,
+      59.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Kazuar.md": [
+      -154.5,
+      -105.2,
+      513.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Kasidet.md": [
+      -22.5,
+      22.5,
+      527.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Kapeka.md": [
+      -445.8,
+      -120.2,
+      187.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Kali365.md": [
+      -27.1,
+      442.8,
+      -98.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/KARAE.md": [
+      -356.9,
+      316.5,
+      237.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/jRAT.md": [
+      123.4,
+      147,
+      417.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/JPIN.md": [
+      -7.3,
+      -110.8,
+      404.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/JumbledPath.md": [
+      194.7,
+      -86.5,
+      193
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/JSS Loader.md": [
+      -234.9,
+      465.7,
+      176.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/JHUHUGIT.md": [
+      -106.1,
+      -92.8,
+      325.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/JCry.md": [
+      -102.5,
+      -27.6,
+      309.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Javali.md": [
+      -353.6,
+      449.9,
+      68.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Janicab.md": [
+      109,
+      251.6,
+      148.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/J-magic.md": [
+      -85.8,
+      -290.2,
+      -11
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Ixeshe.md": [
+      -323.3,
+      24.5,
+      474.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/IronWind.md": [
+      -377.2,
+      219.6,
+      186
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/InvisibleFerret.md": [
+      89.3,
+      180,
+      298
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/InnaputRAT.md": [
+      -299,
+      -224.4,
+      302.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ISMInjector.md": [
+      -291.3,
+      241.3,
+      -70.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Industroyer2.md": [
+      -20.1,
+      -133.4,
+      567.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/IPsec Helper.md": [
+      -206.2,
+      -8.3,
+      121.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/InvisiMole.md": [
+      -3.7,
+      16.9,
+      161.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Industroyer.md": [
+      -74.4,
+      -313.4,
+      234.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/IcedID.md": [
+      -62.9,
+      273.3,
+      179.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/IceApple.md": [
+      53.5,
+      204.2,
+      248.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HyperStack.md": [
+      -6,
+      -104.4,
+      47.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/INC Ransomware.md": [
+      91.3,
+      -280.4,
+      411.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/IMAPLoader.md": [
+      -178.5,
+      65.6,
+      19.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/iKitten.md": [
+      172.4,
+      255.1,
+      231.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HyperBro.md": [
+      -207,
+      -84.3,
+      139.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HotCroissant.md": [
+      -196.3,
+      9.3,
+      484.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HIUPAN.md": [
+      -125.2,
+      236.8,
+      216.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Hydraq.md": [
+      -10.3,
+      -141.9,
+      394.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HUI Loader.md": [
+      -142.8,
+      4.3,
+      -54
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Hildegard.md": [
+      75.3,
+      -31.8,
+      -87.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HTTPTroy.md": [
+      -432.5,
+      -23,
+      146.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/httpclient.md": [
+      -494.8,
+      -118.8,
+      333.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HTTPBrowser.md": [
+      -437.6,
+      77,
+      227.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Hikit.md": [
+      -299.9,
+      -90.2,
+      -30.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HOPLIGHT.md": [
+      -2.1,
+      -231.7,
+      410
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HOMEFRY.md": [
+      48.6,
+      130.2,
+      260.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HIDEDRV.md": [
+      19.4,
+      -299.2,
+      -102.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HiddenFace.md": [
+      -309.1,
+      -266,
+      106.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Hi-Zor.md": [
+      -487.1,
+      -75,
+      226.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Heyoka Backdoor.md": [
+      -265.9,
+      -231.9,
+      341.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HiddenWasp.md": [
+      -218.3,
+      -255.3,
+      -14
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HexEval Loader.md": [
+      -289.1,
+      266.8,
+      301.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HermeticWizard.md": [
+      112.2,
+      -121,
+      180.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HermeticWiper.md": [
+      -48.8,
+      -362.3,
+      155.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Helminth.md": [
+      -197.3,
+      168.1,
+      428.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HAWKBALL.md": [
+      -349.5,
+      191.5,
+      400.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Havoc.md": [
+      -59.4,
+      143.1,
+      193.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HELLOKITTY.md": [
+      129.9,
+      -327,
+      470.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HeartCrypt.md": [
+      -432.8,
+      217.9,
+      22.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HDoor.md": [
+      380.2,
+      -200.8,
+      293.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HARDRAIN.md": [
+      -199.4,
+      -477.2,
+      226.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/hcdLoader.md": [
+      -300.2,
+      -351.2,
+      356.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Hannotog.md": [
+      -70.1,
+      -292.6,
+      400
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Hancitor.md": [
+      -397.2,
+      313.8,
+      10.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HALFBAKED.md": [
+      2.6,
+      90.6,
+      530.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HAPPYWORK.md": [
+      -345.4,
+      37.7,
+      536.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Hacking Team UEFI Rootkit.md": [
+      -47.8,
+      -238.7,
+      -417.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/H1N1.md": [
+      -45.3,
+      -141.7,
+      135.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/HAMMERTOSS.md": [
+      -500.8,
+      167.6,
+      118.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GuLoader.md": [
+      -411.6,
+      272.8,
+      54.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GrimAgent.md": [
+      -455.8,
+      41.4,
+      210.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GreyEnergy.md": [
+      -225.8,
+      -246.1,
+      246.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Green Lambert.md": [
+      -61.4,
+      -145.9,
+      -10.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GravityRAT.md": [
+      -68.6,
+      88.5,
+      450.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GRIFFON.md": [
+      54.4,
+      221.2,
+      407
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Grandoreiro.md": [
+      -50.9,
+      223,
+      148.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Gootloader.md": [
+      -111.5,
+      297.7,
+      11.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Goopy.md": [
+      -473.6,
+      121.1,
+      128.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GoldMax.md": [
+      -421.2,
+      31.6,
+      75.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GoldFinder.md": [
+      -118.3,
+      313.5,
+      484.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GoldenSpy.md": [
+      -323.8,
+      -118.8,
+      154.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Gomir.md": [
+      -91.1,
+      -244.5,
+      290.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GoBear.md": [
+      -279.6,
+      -236.5,
+      -65.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GlassWorm.md": [
+      -88.6,
+      349,
+      27.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/gh0st RAT.md": [
+      -241.4,
+      -180.5,
+      233.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Gold Dragon.md": [
+      -143.3,
+      24.2,
+      555.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Get2.md": [
+      -6.2,
+      138.3,
+      334
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GLOOXMAIL.md": [
+      -658.5,
+      56.5,
+      95.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GeminiDuke.md": [
+      -14.8,
+      -95.9,
+      571.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/GLASSTOKEN.md": [
+      -376.3,
+      81.4,
+      -19.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Gelsemium.md": [
+      -284,
+      -129.4,
+      62
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Gazer.md": [
+      -183.9,
+      -203.6,
+      -5.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Fysbis.md": [
+      -79.4,
+      -52.2,
+      166.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FunnyDream.md": [
+      -167.7,
+      -50.5,
+      523.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FrameworkPOS.md": [
+      -71,
+      343.3,
+      526.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Fooder.md": [
+      -201.8,
+      11.6,
+      -158.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FYAnti.md": [
+      -438.2,
+      -4.7,
+      203.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FruitFly.md": [
+      28.5,
+      244.2,
+      262.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FoggyWeb.md": [
+      -166.8,
+      170.4,
+      89.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FlawedGrace.md": [
+      -483.3,
+      -80.8,
+      66.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FRAMESTING.md": [
+      -299.1,
+      -208.2,
+      -136.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FlawedAmmyy.md": [
+      -195.1,
+      184,
+      503.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Flame.md": [
+      221.8,
+      221.7,
+      273.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FLIPSIDE.md": [
+      -273,
+      -558.9,
+      -21
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Flagpro.md": [
+      -220.2,
+      106.7,
+      444
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FIVEHANDS.md": [
+      107.5,
+      -193.2,
+      267.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FLASHFLOOD.md": [
+      -244.3,
+      299.8,
+      549.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Final1stspy.md": [
+      -375.3,
+      -14.9,
+      271
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Ferocious.md": [
+      -47.1,
+      214.2,
+      396.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FELIXROOT.md": [
+      -130.7,
+      -58.9,
+      560.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FinFisher.md": [
+      -58,
+      79.9,
+      88.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Felismus.md": [
+      -389.1,
+      9.8,
+      451.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FatDuke.md": [
+      -442.5,
+      -44.8,
+      213.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FakeM.md": [
+      -315.1,
+      -292,
+      325.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Explosive.md": [
+      -171.8,
+      198.5,
+      415.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Exbyte.md": [
+      -44.2,
+      52.2,
+      304
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/FALLCHILL.md": [
+      -232.5,
+      -336.8,
+      389
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Exaramel for Windows.md": [
+      -332.4,
+      84,
+      304.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Exaramel for Linux.md": [
+      -143.1,
+      -156.5,
+      -22.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/EvilGrab.md": [
+      -86.9,
+      399.1,
+      510.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/EvilBunny.md": [
+      -105,
+      210.9,
+      293.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Epic.md": [
+      4.4,
+      -94.3,
+      497.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/EVILNUM.md": [
+      -222.2,
+      4.7,
+      202.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/EnvyScout.md": [
+      -289.3,
+      311.4,
+      16
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Emotet.md": [
+      -4,
+      191.5,
+      95.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Emissary.md": [
+      -183,
+      -205.3,
+      426.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Embargo.md": [
+      -1.3,
+      -341.7,
+      265.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Egregor.md": [
+      -55.6,
+      -8.1,
+      117.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Ecipekac.md": [
+      -436,
+      62.9,
+      -63.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ELMER.md": [
+      -225.7,
+      -92.5,
+      502.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Elise.md": [
+      -266.6,
+      -133.5,
+      412.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ECCENTRICBANDWAGON.md": [
+      -263.7,
+      260.9,
+      393
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/EKANS.md": [
+      51.3,
+      -280,
+      281.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Ebury.md": [
+      -65.6,
+      -18.4,
+      -105.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Dyre.md": [
+      -165.4,
+      109.5,
+      287.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DynoWiper.md": [
+      -142.4,
+      -298.6,
+      187.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DustySky.md": [
+      -73.1,
+      140.4,
+      518.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Duqu.md": [
+      22.5,
+      -94.6,
+      255.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Dtrack.md": [
+      -27,
+      116.6,
+      257.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Drovorub.md": [
+      -311.8,
+      -145.9,
+      1.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DUSTTRAP.md": [
+      93.2,
+      -32.5,
+      398
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DUSTPAN.md": [
+      -288.6,
+      -190.6,
+      -85.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DropBook.md": [
+      -93.7,
+      88.5,
+      235.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Dridex.md": [
+      -402.8,
+      21.1,
+      33.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DRYHOOK.md": [
+      278.6,
+      13.1,
+      127.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DownPaper.md": [
+      -298.8,
+      62.8,
+      543.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Downdelph.md": [
+      -408.4,
+      -71.5,
+      -11.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Doki.md": [
+      -84.8,
+      88.3,
+      -1.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DRATzarus.md": [
+      -296,
+      156.4,
+      234.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/down_new.md": [
+      -254.9,
+      13.8,
+      515.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Dok.md": [
+      232,
+      226.2,
+      -62.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DOWNIISSA.md": [
+      -323.1,
+      -7.7,
+      -31.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DOGCALL.md": [
+      -232.4,
+      363.1,
+      384.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DnsSystem.md": [
+      -491.5,
+      154.3,
+      375.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Disco.md": [
+      -493.9,
+      90.3,
+      53.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Dipsind.md": [
+      -448,
+      -101.4,
+      330.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Diavol.md": [
+      -9.4,
+      -306,
+      363.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DEADWOOD.md": [
+      -110.2,
+      -451.4,
+      137.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DEADEYE.md": [
+      -365.7,
+      -141.4,
+      25.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Derusbi.md": [
+      -180.6,
+      -108.9,
+      412.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DealersChoice.md": [
+      -247.7,
+      263.3,
+      193.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Denis.md": [
+      -361,
+      217.2,
+      252.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DEATHRANSOM.md": [
+      43.6,
+      -252.6,
+      443.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DDKONG.md": [
+      -422.7,
+      -111.3,
+      269.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Daserf.md": [
+      -281.5,
+      272.8,
+      199.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DarkWatchman.md": [
+      -274.3,
+      238.6,
+      274.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DarkTortilla.md": [
+      -179.3,
+      246.9,
+      92.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DCSrv.md": [
+      -145.8,
+      -397.4,
+      247.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DarkGate.md": [
+      -5.4,
+      158.2,
+      6.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DarkComet.md": [
+      6.4,
+      137.4,
+      396.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/DanBot.md": [
+      -466.6,
+      188.4,
+      187.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Dacls.md": [
+      -143.8,
+      97.6,
+      -11.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Cyclops Blink.md": [
+      -178.3,
+      -250.5,
+      76.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Cuckoo Stealer.md": [
+      27.5,
+      261.2,
+      135
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Cuba.md": [
+      -18.3,
+      -164.9,
+      364.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Cryptoistic.md": [
+      -390.9,
+      -141.5,
+      416.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Crutch.md": [
+      -316.3,
+      352.6,
+      389.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CrossRAT.md": [
+      148.5,
+      147.6,
+      251.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Crocodilus.md": [
+      255.3,
+      -229.6,
+      -47.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Crimson.md": [
+      -121.6,
+      157.1,
+      564.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CreepySnail.md": [
+      -208.8,
+      230.4,
+      282
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CreepyDrive.md": [
+      -176.6,
+      317.5,
+      341.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CozyCar.md": [
+      -122.7,
+      146.4,
+      222.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CostaBricks.md": [
+      -377.6,
+      32.2,
+      -64.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CosmicDuke.md": [
+      100.8,
+      286.7,
+      391.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CorKLOG.md": [
+      -261,
+      137.3,
+      141.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CookieMiner.md": [
+      117.7,
+      162.7,
+      145.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Conti.md": [
+      64.2,
+      -291.5,
+      364.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Conficker.md": [
+      68,
+      -242.8,
+      257.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CORESHELL.md": [
+      -511.8,
+      -33.7,
+      270.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CORALDECK.md": [
+      102.6,
+      267.1,
+      484.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ComRAT.md": [
+      -309.9,
+      -3.4,
+      51.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Comnie.md": [
+      -112.4,
+      71.6,
+      436.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CoinTicker.md": [
+      -84.5,
+      91.7,
+      -76
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Cobian RAT.md": [
+      -291.6,
+      283.8,
+      443.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Cobalt Strike.md": [
+      144,
+      -80.1,
+      140.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CloudDuke.md": [
+      -530,
+      167.5,
+      248.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Clambling.md": [
+      -197.8,
+      156.5,
+      292.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CLAIMLOADER.md": [
+      -352.2,
+      221.1,
+      -67.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/COATHANGER.md": [
+      -192.8,
+      -66.7,
+      -116
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Chinoxy.md": [
+      -501.6,
+      131,
+      59.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Clop.md": [
+      -10.9,
+      -208.7,
+      247.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Chrommme.md": [
+      -313.7,
+      124.5,
+      527.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/China Chopper.md": [
+      -131.1,
+      -92.2,
+      160.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CHOPSTICK.md": [
+      -336.4,
+      -73.2,
+      256.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CharmPower.md": [
+      -285.1,
+      97.6,
+      461.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Cherry Picker.md": [
+      224.1,
+      77.4,
+      222.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Cheerscrypt.md": [
+      225.3,
+      -301,
+      318.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CHIMNEYSWEEP.md": [
+      -229.3,
+      123.7,
+      95.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Chaes.md": [
+      -288.9,
+      354.6,
+      123
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CCBkdr.md": [
+      -496.3,
+      56.8,
+      -261.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ChChes.md": [
+      -196.2,
+      -9.9,
+      265.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Chaos.md": [
+      -29,
+      -276.9,
+      -68.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Caterpillar WebShell.md": [
+      24.6,
+      -110.2,
+      464.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CASTLETAP.md": [
+      -223.1,
+      -143.6,
+      17
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/cd00r.md": [
+      56.2,
+      -262.9,
+      115
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ccf32.md": [
+      -60.5,
+      335.1,
+      383.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Cardinal RAT.md": [
+      -340.7,
+      -11.7,
+      356.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Carberp.md": [
+      38.6,
+      195.3,
+      173.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Catchamas.md": [
+      -42.9,
+      94.1,
+      522.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Carbon.md": [
+      -57.7,
+      -127.8,
+      382.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CARROTBAT.md": [
+      -362.6,
+      130.6,
+      280.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Cannon.md": [
+      -207.4,
+      -22.1,
+      555
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CanisterWorm.md": [
+      156.4,
+      101.5,
+      20.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Carbanak.md": [
+      -60.8,
+      73.5,
+      304.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CANONSTAGER.md": [
+      -406.8,
+      164,
+      -144.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Caminho.md": [
+      -419.5,
+      143.2,
+      -1.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Calisto.md": [
+      82.4,
+      355.1,
+      166.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CALENDAR.md": [
+      -518.3,
+      112.5,
+      410
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Cadelspy.md": [
+      -5.3,
+      276.1,
+      611.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CallMe.md": [
+      -351.8,
+      -30.7,
+      79.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/CaddyWiper.md": [
+      0.6,
+      -354.7,
+      370.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Bundlore.md": [
+      -9.2,
+      224.3,
+      -48.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/build_downer.md": [
+      -255.6,
+      -198.8,
+      346.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BUSHWALK.md": [
+      -308.4,
+      -119.1,
+      -183.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Briba.md": [
+      -416.7,
+      -172.5,
+      275.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Brave Prince.md": [
+      90.1,
+      -61.9,
+      504.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Bumblebee.md": [
+      -322.5,
+      313,
+      134.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BUBBLEWRAP.md": [
+      -359.3,
+      -237.5,
+      340.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BS2005.md": [
+      -639.7,
+      164.1,
+      241.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BRUSHFIRE.md": [
+      -18,
+      34.6,
+      -74.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BPFDoor.md": [
+      -159.2,
+      -182.4,
+      -245.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BRICKSTORM.md": [
+      -282.9,
+      -155.7,
+      -15.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BoxCaon.md": [
+      -185.6,
+      178.5,
+      351.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BOOTRASH.md": [
+      -100.5,
+      8.3,
+      -458.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BOOKWORM.md": [
+      -371,
+      -54.7,
+      126.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BONDUPDATER.md": [
+      -428.9,
+      91.7,
+      114.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Bonadan.md": [
+      -43.6,
+      -102.2,
+      233.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BOOSTWRITE.md": [
+      -297,
+      117.3,
+      -117.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BoomBox.md": [
+      -288.8,
+      247.8,
+      153.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BOLDMOVE.md": [
+      -61.6,
+      -275.4,
+      42.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BlackMould.md": [
+      -349.9,
+      -92.7,
+      483.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BlackEnergy.md": [
+      152.7,
+      -84.6,
+      336.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BlackCat.md": [
+      170,
+      -302.8,
+      419.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BLUELIGHT.md": [
+      -181.3,
+      222.4,
+      526
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BLINDINGCAN.md": [
+      -475.7,
+      8.9,
+      274.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BlackByte Ransomware.md": [
+      155,
+      -140.3,
+      274.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BlackByte 2.0 Ransomware.md": [
+      104.2,
+      -397.3,
+      185.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BLACKCOFFEE.md": [
+      -456.8,
+      -40.3,
+      308
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Black Basta.md": [
+      -33.3,
+      -243,
+      200.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BISCUIT.md": [
+      -254,
+      -46.7,
+      534.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BendyBear.md": [
+      -492.4,
+      -112.5,
+      134.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BitPaymer.md": [
+      37.7,
+      -332.4,
+      253.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BeaverTail.md": [
+      -102,
+      328.3,
+      218.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Bisonal.md": [
+      -491.4,
+      7,
+      172.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Bazar.md": [
+      -86.8,
+      24.7,
+      73
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BFG Agonizer.md": [
+      109.9,
+      -509.7,
+      49.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Bankshot.md": [
+      -182.3,
+      -230.5,
+      328
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Bandook.md": [
+      -250,
+      231.1,
+      329.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BBSRAT.md": [
+      -133.3,
+      -85.6,
+      228.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BBK.md": [
+      -391.5,
+      -113.6,
+      55.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BadPatch.md": [
+      -293.5,
+      258,
+      474.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BADNEWS.md": [
+      -356.7,
+      335.9,
+      255.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BADHATCH.md": [
+      102.8,
+      -65.7,
+      243.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BADFLICK.md": [
+      -377.2,
+      279.1,
+      305.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BADCALL.md": [
+      -197.5,
+      -387,
+      323.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BACKSPACE.md": [
+      -185.6,
+      -264.4,
+      375.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Backdoor.Oldrea.md": [
+      9.5,
+      75.3,
+      473.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BackConfig.md": [
+      -231.4,
+      183.4,
+      41.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Bad Rabbit.md": [
+      154.7,
+      -42.3,
+      187.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/BabyShark.md": [
+      -320,
+      135.9,
+      454.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Babuk.md": [
+      -4.1,
+      -300,
+      402.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Azorult.md": [
+      -42.5,
+      109.7,
+      413.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/AvosLocker.md": [
+      -107.1,
+      -256.4,
+      179.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Avenger.md": [
+      -220.5,
+      -166.3,
+      298.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Avaddon.md": [
+      92.6,
+      -163.7,
+      312.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/AutoIt backdoor.md": [
+      -139.6,
+      34.6,
+      245.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/AuTo Stealer.md": [
+      -352.3,
+      78.6,
+      497.5
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/AuditCred.md": [
+      -287.5,
+      -261.8,
+      193.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Attor.md": [
+      -30.4,
+      1.9,
+      346.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Astaroth.md": [
+      -226.7,
+      387.9,
+      97.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/AshTag.md": [
+      -277.6,
+      233,
+      225.6
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Aria-body.md": [
+      -116.4,
+      -126,
+      451.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/AppleSeed.md": [
+      -250.7,
+      343.3,
+      329.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ASPXSpy.md": [
+      -310.4,
+      -289.3,
+      -342.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/AppleJeus.md": [
+      -172.4,
+      163.1,
+      -85.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Apostle.md": [
+      -24.3,
+      -372,
+      186.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Anchor.md": [
+      -234.1,
+      -257,
+      71.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Amadey.md": [
+      -239.2,
+      -2.9,
+      350.3
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ANDROMEDA.md": [
+      -210.5,
+      130.1,
+      -8.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ANELLDR.md": [
+      -459.3,
+      101.3,
+      3.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Akira.md": [
+      45.9,
+      -203.9,
+      446.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Akira _v2.md": [
+      145.9,
+      -330.6,
+      105.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Agent.btz.md": [
+      -60.5,
+      151.4,
+      619.1
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Agent Tesla.md": [
+      -75,
+      407.4,
+      251.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/adbupd.md": [
+      -82.9,
+      -348.9,
+      122
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/AcidPour.md": [
+      -47.9,
+      -365.6,
+      415.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/AcidRain.md": [
+      34,
+      -490.5,
+      319.8
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ADVSTORESHELL.md": [
+      -314.9,
+      13.3,
+      518.9
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/Action RAT.md": [
+      -237,
+      31.1,
+      428.4
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/ABK.md": [
+      -286.9,
+      -85.9,
+      58.2
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/4H RAT.md": [
+      -314.8,
+      -153.1,
+      471.7
+    ],
+    "obsidian_vault/MITRE_ATTACK/Malwares/3PARA RAT.md": [
+      -339.8,
+      -290.9,
+      277.6
+    ],
+    "obsidian_vault/LOLBins/OtherMSBinaries/msxsl.exe.md": [
+      -355.7,
+      122.5,
+      -492.9
+    ],
+    "obsidian_vault/LOLBins/OSBinaries/Wscript.exe.md": [
+      -382.3,
+      -169.4,
+      -371.3
+    ],
+    "obsidian_vault/LOLBins/OSBinaries/wbemtest.exe.md": [
+      271.2,
+      -3.9,
+      462.3
+    ],
+    "obsidian_vault/LOLBins/OSBinaries/PrintBrm.exe.md": [
+      -376.5,
+      -204.9,
+      -359.1
+    ],
+    "obsidian_vault/LOLBins/OSBinaries/Odbcconf.exe.md": [
+      -439.1,
+      398.2,
+      -352.2
+    ],
+    "obsidian_vault/LOLBins/OSBinaries/Cipher.exe.md": [
+      94.7,
+      -611.1,
+      246.6
+    ],
+    "obsidian_vault/CIPHER/_Templates/Threat_Actor_Template.md": [
+      661.1,
+      -15.4,
+      -361.8
+    ],
+    "obsidian_vault/CIPHER/97_LLM_Prompts/Master Prompt - 06 - Vulnerabilities & CVEs.md": [
+      241.7,
+      -529.2,
+      -370.2
+    ],
+    "obsidian_vault/CIPHER/97_LLM_Prompts/Master Prompt - 05 - Malware Research.md": [
+      50.5,
+      -529.7,
+      -407.7
+    ],
+    "obsidian_vault/CIPHER/97_LLM_Prompts/Master Prompt - 04 - Campaign Research.md": [
+      235,
+      -491.5,
+      -413.3
+    ],
+    "obsidian_vault/CIPHER/08_Indicators & Observables/IPs.md": [
+      626.5,
+      84.5,
+      -406.3
+    ],
+    "obsidian_vault/CIPHER/08_Indicators & Observables/Hashes.md": [
+      663.7,
+      82.8,
+      -359.6
+    ],
+    "obsidian_vault/CIPHER/08_Indicators & Observables/Domains.md": [
+      684.8,
+      84.1,
+      -306.8
+    ],
+    "obsidian_vault/CIPHER/03_Threat_Actors/Untitled.md": [
+      646.9,
+      181.5,
+      -358.4
+    ],
+    "obsidian_vault/07_TTP_Library (MITRE ATT&CK)/Txxxx.md": [
+      148.4,
+      -532.4,
+      -394.6
+    ],
+    "unresolved:./rules/windows/process_creation": [
+      329.6,
+      -97.2,
+      -597.8
+    ],
+    "unresolved:./rules/": [
+      191.8,
+      -348.1,
+      -535.7
+    ],
+    "unresolved:./rules-threat-hunting/": [
+      240.7,
+      -353.3,
+      -530.8
+    ],
+    "unresolved:./rules-emerging-threats/": [
+      312.9,
+      -318.1,
+      -563.9
+    ],
+    "unresolved:./rules-compliance/": [
+      185.1,
+      -189.3,
+      -620.3
+    ],
+    "unresolved:./rules-placeholder/": [
+      151.9,
+      -327.4,
+      -572.7
+    ],
+    "unresolved:../.github/workflows/regression-tests.yml": [
+      339.9,
+      -604.1,
+      -204.9
+    ],
+    "unresolved:./registry_set_malware_snake_covert_store_key.yml": [
+      415.1,
+      687.8,
+      -33.4
+    ],
+    "unresolved:./okta_apt_suspicious_user_creation.yml.yml": [
+      658.6,
+      35.7,
+      455.8
+    ]
+  }
+}

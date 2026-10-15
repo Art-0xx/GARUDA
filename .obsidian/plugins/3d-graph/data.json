@@ -1,0 +1,24 @@
+{
+  "filters": {
+    "doShowOrphans": true,
+    "doShowAttachments": true
+  },
+  "groups": {
+    "groups": [
+      {
+        "query": "path:CIPHER",
+        "color": "#a61111"
+      },
+      {
+        "query": "",
+        "color": "#b3b3b3"
+      }
+    ]
+  },
+  "display": {
+    "nodeSize": 8,
+    "linkThickness": 5,
+    "particleSize": 8,
+    "particleCount": 9
+  }
+}
