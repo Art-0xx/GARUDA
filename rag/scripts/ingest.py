@@ -15,7 +15,7 @@ from chromadb.utils import embedding_functions
 VAULT_PATH      = Path(r"D:\GARUDA\obsidian_vault")
 CHROMA_HOST     = "localhost"
 CHROMA_PORT     = 8000
-EMBED_MODEL     = "BAAI/bge-small-en-v1.5"
+EMBED_MODEL     = "BAAI/bge-large-en-v1.5"
 MIN_CHUNK       = 60
 MAX_CHUNK       = 1200
 # ================================
@@ -27,7 +27,7 @@ COLLECTION_ROUTES = [
     ("gtfobins",   ["GTFOBins"]),     
     ("detection_rules", ["Detection_Rules"]),   
     ("campaigns",       ["Campaigns"]),           
-    ("techniques", ["MITRE_ATTACK/Techniques"]),
+    ("techniques", ["MITRE_ATTACK/Techniques", "CIPHER"]),
     ("malware",    ["MITRE_ATTACK/Malwares"]),
     ("tools",      ["MITRE_ATTACK/Tools"]),
     ("tactics",    ["MITRE_ATTACK/Tactics"]),
@@ -74,7 +74,8 @@ def main():
 
     print(f"Loading embedding model: {EMBED_MODEL}")
     embed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-        model_name=EMBED_MODEL
+        model_name=EMBED_MODEL,
+        device="cuda"
     )
 
     client = chromadb.HttpClient(host=CHROMA_HOST, port=CHROMA_PORT)

@@ -4,7 +4,7 @@ No RAG, no format scoring — just raw model behavior over a conversation.
 """
 import ollama
 
-MODEL = "deepseek-r1:14b"
+MODEL = "qwen3:14b"
 
 conversation = [
     "How do attackers use certutil?",

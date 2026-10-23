@@ -18,11 +18,11 @@ from sentence_transformers import CrossEncoder
 CHROMA_HOST     = os.getenv("CHROMA_HOST", "localhost")
 CHROMA_PORT     = int(os.getenv("CHROMA_PORT", "8000"))
 OLLAMA_HOST     = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-EMBED_MODEL     = "BAAI/bge-small-en-v1.5"
+EMBED_MODEL     = "BAAI/bge-large-en-v1.5"
 RERANK_MODEL    = "cross-encoder/ms-marco-MiniLM-L-6-v2"
-LLM_MODEL       = os.getenv("GARUDA_MODEL", "deepseek-r1:14b")
+LLM_MODEL       = os.getenv("GARUDA_MODEL", "qwen3:14b")
 REWRITER_MODEL  = os.getenv("GARUDA_REWRITER", "llama3.1:8b")
-TOP_K           = 5
+TOP_K           = 10
 CANDIDATES      = 25
 VAULT_BASE      = os.getenv("VAULT_BASE", r"D:\GARUDA\obsidian_vault\MITRE_ATTACK")
 # ================================
@@ -52,6 +52,7 @@ Hard rules:
 6. Do not echo the user's question back.
 7. If the retrieved context contains chunks from DIFFERENT scenarios or campaigns, DO NOT combine them into a single invented attack chain. Instead, present each scenario separately with its own heading. If the user asked for "an attack chain" and multiple unrelated scenarios were retrieved, say: "The vault returned multiple scenarios. Here is the most relevant one:" and pick the single highest-scoring scenario.
 8. NEVER invent causality between separate commands. If chunk A shows 'net localgroup' being used for persistence and chunk B shows 'verclsid' being used for COM execution, do NOT write "Step 1: reconnaissance via verclsid. Step 2: persistence via net localgroup." These are from different scenarios. Do not stitch them.
+9. When asked for a Sigma rule name, ALWAYS extract the exact `proc_creation_...` string from the context.
 
 Example:
 
@@ -185,24 +186,26 @@ COMMON_TYPOS = {
 
 IN_SCOPE_WHITELIST = re.compile(
     r"\b("
+    r"curl|wget|bash|zsh|python3?|perl|ruby|node|php|netcat|socat|"
     r"certutil|mshta|rundll32|regsvr32|wmic|bitsadmin|msbuild|installutil|"
     r"schtasks|vssadmin|wbadmin|nslookup|netsh|cmstp|cscript|wscript|"
     r"xcopy|cmdkey|esentutl|expand|extrac32|findstr|forfiles|fsutil|"
     r"gpscript|certoc|certreq|pcalua|pcwrun|presentationhost|rpcping|"
     r"sc\.exe|tttracer|verclsid|wsl|wsreset|msiexec|odbcconf|regasm|"
     r"regsvcs|mavinject|xwizard|msxsl|addinutil|csc\.exe|dfshim|"
-    r"curl|wget|bash|zsh|python|perl|ruby|node|php|netcat|socat|"
     r"nmap|ssh|rsync|systemctl|crontab|docker|kubectl|"
+    r"living off the land|living of the lands|lotl"
     r"lolbin|lolbins|gtfobin|gtfobins|lotl|"
     r"sigma|sysmon|mitre|att&ck|technique|tactic|ttp|"
-    r"detection rule|event id|log source|"
+    r"detection rule|sigma rule|rule name|rule|detection|detect|event id|log source|"
     r"privilege escalation|persistence|lateral movement|"
     r"exfiltration|credential dump|process injection|"
-    r"reverse shell|bind shell|payload|beacon|c2|"
+    r"reverse shell|reverse shells|bind shell|bind shells|payload|beacon|c2|"
     r"malware|ransomware|trojan|backdoor|rootkit|"
     r"certificate|kerberos|lsass|sam database|golden ticket|"
     r"registry run key|startup folder|scheduled task|"
     r"bloodhound|mimikatz|cobalt strike|empire|metasploit|"
+    r"cipher|framework|"
     r"adversary|threat actor|apt|attack chain|kill chain|"
     r"T\d{4}(\.\d{3})?"
     r")\b",
@@ -246,7 +249,7 @@ OFF_TOPIC_KEYWORDS = [
     "how to code in", "python tutorial",
     "my computer", "my pc", "my laptop", "why is my",
     "computer is slow", "won't boot", "will not boot",
-    "wifi not working", "windows update stuck", "blue screen", "bsod",
+    "wifi not working", "windows updastrte stuck", "blue screen", "bsod",
     "printer not working", "email not sending", "my phone",
     "my iphone", "my android", "my router",
     "weather in", "what time is it", "who is the president",
@@ -320,6 +323,30 @@ def is_out_of_scope(query: str):
     return True, "no_security_signal"
 
 
+def is_out_of_scope_llm(query: str):
+    """Uses a fast LLM check to catch mixed-intent or off-topic queries."""
+    prompt = f"""You are a strict cybersecurity gatekeeper.
+Determine if the user's query is purely related to cybersecurity (LOTL, LOLBins, MITRE ATT&CK, threat intelligence, detection).
+If the query contains ANY non-cybersecurity intent (like relationships, cooking, weather, or general chat), you MUST answer "NO".
+If the query is purely a cybersecurity question, answer "YES".
+
+Query: "{query}"
+
+Answer ONLY "YES" or "NO"."""
+
+    try:
+        resp = get_ollama().chat(
+            model=REWRITER_MODEL,  # llama3.1:8b is very fast at this
+            messages=[{"role": "user", "content": prompt}],
+            options={"num_predict": 3, "temperature": 0.0}
+        )
+        msg = getattr(resp, "message", None) or resp["message"]
+        ans = (getattr(msg, "content", "") or "").strip().upper()
+        return "NO" in ans
+    except Exception:
+        return False
+
+
 # =====================================================================
 # CLASSIFIER
 # =====================================================================
@@ -331,7 +358,20 @@ def classify_query(q: str):
         return "OUT_OF_SCOPE", None
 
     ql = q.lower()
-
+    
+    # --- HARD OVERRIDES FOR UNIX BINARIES (MUST BE AT THE TOP) ---
+    if "curl" in ql:
+        return "gtfobins", "curl"
+    if "wget" in ql:
+        return "gtfobins", "wget"
+    if "python3" in ql or "python" in ql:
+        return "gtfobins", "python3"
+    if "tar" in ql:
+        return "gtfobins", "tar"
+    if "cipher" in ql:
+        return "techniques", "CIPHER"
+    # ------------------------------------------------------------
+    
     m = TECHNIQUE_PATTERN.search(q)
     if m:
         return "techniques", m.group(0).upper()
@@ -469,7 +509,13 @@ def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDAT
 
     # Semantic search + rerank
     n_fetch = max(candidates, 50) if collection_name == "campaigns" else candidates
-    results = coll.query(query_texts=[question], n_results=n_fetch)
+    
+    # FORCE THE ENTITY: If we know the exact entity, add it to the query to boost its score
+    semantic_query = question
+    if entity and collection_name in ("gtfobins", "lolbins", "malware", "tools", "techniques"):
+        semantic_query = f"{entity} {question}"
+
+    results = coll.query(query_texts=[semantic_query], n_results=n_fetch)
     docs = results["documents"][0]
     metas = results["metadatas"][0]
 
@@ -477,7 +523,7 @@ def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDAT
         return [], []
 
     reranker = get_reranker()
-    pairs = [(question, d) for d in docs]
+    pairs = [(semantic_query, d) for d in docs]
     scores = reranker.predict(pairs)
 
     scored = []
@@ -494,7 +540,10 @@ def retrieve(question, collection_name, entity, top_k=TOP_K, candidates=CANDIDAT
     scored.sort(key=lambda x: -x[0])
 
     # Reject low-confidence retrievals
-    MIN_SCORE = -4.0
+    MIN_SCORE = -15.0
+    if collection_name == "campaigns":
+        MIN_SCORE = -15.0  # Campaigns are long, cross-encoder scores can be lower
+
     if scored and scored[0][0] < MIN_SCORE:
         print(f"   [retrieval rejected: top score {scored[0][0]:.2f} < {MIN_SCORE}]")
         return [], []
@@ -650,9 +699,20 @@ def rewrite_query(question, history):
     if re.search(r"\bT\d{4}(\.\d{3})?\b", question):
         return question
 
+    # --- VAGUE GATE: Skip rewriter if the question is already specific ---
+    VAGUE = re.compile(
+        r"\b(that|it|this|those|these|them|back to|earlier|the first|"
+        r"show me|what about|how about|and the|detection for)\b",
+        re.I,
+    )
+    if not VAGUE.search(question):
+        print(f"   [rewrite] skipped (self-contained)")
+        return question
+
+    # --- TIGHTER WINDOW: Only look at the last 2 messages (immediate context) ---
     convo = "\n".join(
         f"{m['role'].capitalize()}: {m['content'][:150]}"
-        for m in history[-4:]
+        for m in history[-2:] 
     )
 
     prompt = f"""You are a query rewriter. Rewrite the user's latest message into
@@ -660,8 +720,10 @@ a short standalone search query for a cybersecurity knowledge base.
 
 Rules:
 - Output ONLY the rewritten query — no prefix, no quotes, no explanation.
-- Keep it under 20 words.
-- Include the tool/technique name from context if the message uses "that", "it", or "this".
+- Keep it under 10 words.
+- Look at the IMMEDIATE previous topic in the conversation.
+- If the user says "Switch to X" or mentions a new tool, the new tool is the focus.
+- If the user says "that" or "it", replace it with the most recently mentioned tool.
 
 Conversation:
 {convo}
@@ -693,7 +755,7 @@ Rewritten query:"""
 
         print(f"   [rewrite] '{question}' -> '{rewritten}'")
 
-        if 3 < len(rewritten) < 200:
+        if 2 < len(rewritten) < 200:
             return rewritten
         else:
             print(f"   [rewrite REJECTED] len={len(rewritten)}")
@@ -709,13 +771,40 @@ Rewritten query:"""
 def answer_stream(question, history=None):
     """
     Streaming version with stage events for UI visualization.
-    Out-of-scope is checked FIRST — emits ("out_of_scope", msg) with no stage events.
+    Order: rewrite (with refusal-free history) -> out-of-scope check ->
+           classify -> retrieve -> generate.
     """
     history = history or []
 
     try:
-        # ===== OUT-OF-SCOPE FIRST =====
-        is_off, reason = is_out_of_scope(question)
+        # ===== SMART LLM GUARDRAIL =====
+        # Only trigger this if the query is longer than 2 words (to save time on simple questions)
+        if len(question.split()) > 2:
+            if is_out_of_scope_llm(question):
+                print(f"   [refused: LLM intent check failed]")
+                yield ("out_of_scope", REFUSAL_MESSAGE)
+                yield ("done", None)
+                return
+        # =================================
+
+        # ===== REWRITE FIRST (strip prior refusals from history) =====
+        history_for_rewrite = [
+            m for m in history
+            if not (
+                m.get("role") == "assistant"
+                and m.get("content", "").startswith("I'm GARUDA")
+            )
+        ]
+
+        search_q = rewrite_query(question, history_for_rewrite)
+
+        if search_q != question:
+            yield ("stage", {"stage": "rewrite", "status": "done", "detail": search_q})
+        else:
+            yield ("stage", {"stage": "rewrite", "status": "skipped"})
+
+        # ===== OUT-OF-SCOPE on the REWRITTEN query =====
+        is_off, reason = is_out_of_scope(search_q)
         if is_off:
             print(f"   [refused: {reason}]")
             yield ("out_of_scope", REFUSAL_MESSAGE)
@@ -724,14 +813,6 @@ def answer_stream(question, history=None):
 
         # ===== CLASSIFY =====
         yield ("stage", {"stage": "classify", "status": "running"})
-
-        search_q = rewrite_query(question, history)
-
-        if search_q != question:
-            yield ("stage", {"stage": "rewrite", "status": "running"})
-            yield ("stage", {"stage": "rewrite", "status": "done", "detail": search_q})
-        else:
-            yield ("stage", {"stage": "rewrite", "status": "skipped"})
 
         collection, entity = classify_query(search_q)
         yield ("stage", {"stage": "classify", "status": "done",
@@ -794,14 +875,16 @@ Question: {question}
 
 Answer using only the context above."""
 
+        # DO NOT extend history here. The rewriter already handled it.
         messages = [{"role": "system", "content": SYSTEM_PROMPT}]
-        messages.extend(history)
         messages.append({"role": "user", "content": user_prompt})
 
         stream = get_ollama().chat(
             model=LLM_MODEL,
             messages=messages,
-            options={"num_predict": 4096},
+            think=False,  # IMPORTANT: Disables Qwen3 thinking tags!
+            keep_alive="30m",
+            options={"num_predict": 4096, "num_ctx": 8192},
             stream=True,
         )
 
@@ -835,8 +918,7 @@ Answer using only the context above."""
 
     except Exception as e:
         yield ("error", str(e))
-        yield ("done", None)
-
+        yield ("done", None) 
 
 # =====================================================================
 # ANSWER — CLI
